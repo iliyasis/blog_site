@@ -1,423 +1,332 @@
-<!-- Offcanvas START -->
+{% load static %}
+
+<!-- منوی کشویی شروع -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu">
 	<div class="offcanvas-header justify-content-end">
 		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 	</div>
 	<div class="offcanvas-body d-flex flex-column pt-0">
 		<div>
-			<img class="light-mode-item my-3" src="https://blogzine.webestica.com/rtl/assets/images/logo.svg" alt="logo">
-			<img class="dark-mode-item my-3" src="https://blogzine.webestica.com/rtl/assets/images/logo-light.svg" alt="logo">
-			<p>The next-generation blog, news, and magazine theme for you to start sharing your stories today! </p>
-			<!-- Nav START -->
+			<img class="light-mode-item my-3" src="https://blogzine.webestica.com/rtl/assets/images/logo.svg" alt="لوگو">
+			<img class="dark-mode-item my-3" src="https://blogzine.webestica.com/rtl/assets/images/logo-light.svg" alt="لوگو">
+			<p>قالب بلاگ، خبر و مجله نسل بعدی برای شروع به اشتراک‌گذاری داستان‌های شما امروز!</p>
+			<!-- منو شروع -->
 			<ul class="nav d-block flex-column my-4">
 				<li class="nav-item h5">
-					<a class="nav-link" href="index.html">Home</a>
+					<a class="nav-link" href="index.html">خانه</a>
 				<li class="nav-item h5">
-					<a class="nav-link" href="about-us.html">About</a>
+					<a class="nav-link" href="about-us.html">درباره ما</a>
 				</li>
 				<li class="nav-item h5">
-					<a class="nav-link" href="post-grid.html">Our Journal</a>
+					<a class="nav-link" href="post-grid.html">مجله ما</a>
 				</li>
 				<li class="nav-item h5">
-					<a class="nav-link" href="contact-us.html">Contact Us</a>
+					<a class="nav-link" href="contact-us.html">تماس با ما</a>
 				</li>
 			</ul>
-			<!-- Nav END -->
+			<!-- منو پایان -->
 			<div class="bg-primary bg-opacity-10 p-4 mb-4 text-center w-100 rounded">
-				<span>The Blogzine</span>
-				<h3>Save on Premium Membership</h3>
-				<p>Get the insights report trusted by experts around the globe. Become a Member Today!</p>
-				<a href="index.html#" class="btn btn-warning">View pricing plans</a>
+				<span>بلاگزین</span>
+				<h3>صرفه‌جویی در عضویت ویژه</h3>
+				<p>گزارش بینش مورد اعتماد متخصصان در سراسر جهان را دریافت کنید. همین امروز عضو شوید!</p>
+				<a href="index.html#" class="btn btn-warning">مشاهده طرح‌های قیمت‌گذاری</a>
 			</div>
 		</div>
 		<div class="mt-auto pb-3">
-			<!-- Address -->
-			<p class="text-body mb-2 fw-bold">New York, USA (HQ)</p>
-			<address class="mb-0">750 Sing Sing Rd, Horseheads, NY, 14845</address>
-			<p class="mb-2">Call: <a href="index.html#" class="text-body"><u>469-537-2410</u> (Toll-free)</a> </p>
+			<!-- آدرس -->
+			<p class="text-body mb-2 fw-bold">نیویورک، آمریکا (دفتر مرکزی)</p>
+			<address class="mb-0">خیابان سینگ سینگ ۷۵۰، هورسهدز، نیویورک، ۱۴۸۴۵</address>
+			<p class="mb-2">تماس: <a href="index.html#" class="text-body"><u>۴۶۹-۵۳۷-۲۴۱۰</u> (رایگان)</a> </p>
 			<a href="index.html#" class="text-body d-block">hello@blogzine.com</a>
 		</div>
 	</div>
 </div>
-<!-- Offcanvas END -->
+<!-- منوی کشویی پایان -->
 
 <!-- =======================
-Header START -->
+هدر شروع -->
 <header class="navbar-light navbar-sticky header-static">
-	<div class="navbar-top d-none d-lg-block small">
-		<div class="container">
-			<div class="d-md-flex justify-content-between align-items-center my-2">
-				<!-- Top bar left -->
-				<ul class="nav">
-					<li class="nav-item">
-						<a class="nav-link ps-0" href="about-us.html">About</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="index.html#">Forum</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="https://themes.getbootstrap.com/store/webestica/">Buy now!</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="signin.html">Login / Join</a>
-					</li>
-				</ul>
-				<!-- Top bar right -->
-				<div class="d-flex align-items-center">
-					<!-- Font size accessibility START -->
-					<div class="btn-group me-3" role="group" aria-label="font size changer">
-						<input type="radio" class="btn-check" name="fntradio" id="font-sm">
-						<label class="btn btn-xs btn-outline-primary mb-0" for="font-sm">A-</label>
-
-						<input type="radio" class="btn-check" name="fntradio" id="font-default" checked>
-						<label class="btn btn-xs btn-outline-primary mb-0" for="font-default">A</label>
-
-						<input type="radio" class="btn-check" name="fntradio" id="font-lg">
-						<label class="btn btn-xs btn-outline-primary mb-0" for="font-lg">A+</label>
-					</div>
-
-					<!-- Dark mode options START -->
-					<div class="nav-item dropdown mx-2">
-						<!-- Switch button -->
-						<button class="modeswitch" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static">
-							<svg class="theme-icon-active"><use href="#"></use></svg>
-						</button>
-						<!-- Dropdown items -->
-						<ul class="dropdown-menu min-w-auto dropdown-menu-end" aria-labelledby="bd-theme">
-							<li class="mb-1">
-								<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light">
-									<svg width="16" height="16" fill="currentColor" class="bi bi-brightness-high-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
-										<path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
-										<use href="#"></use>
-									</svg>Light
-								</button>
-							</li>
-							<li class="mb-1">
-								<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
-										<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
-										<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
-										<use href="#"></use>
-									</svg>Dark
-								</button>
-							</li>
-							<li>
-								<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half fa-fw mode-switch me-1" viewBox="0 0 16 16">
-										<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
-										<use href="#"></use>
-									</svg>Auto
-								</button>
-							</li>
-						</ul>
-					</div>
-					<!-- Dark mode options END -->
-
-					<ul class="nav">
-						<li class="nav-item">
-							<a class="nav-link px-2 fs-5" href="index.html#"><i class="fab fa-facebook-square"></i></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link px-2 fs-5" href="index.html#"><i class="fab fa-twitter-square"></i></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link px-2 fs-5" href="index.html#"><i class="fab fa-linkedin"></i></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link px-2 fs-5" href="index.html#"><i class="fab fa-youtube-square"></i></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link ps-2 pe-0 fs-5" href="index.html#"><i class="fab fa-vimeo"></i></a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<!-- Divider -->
-			<div class="border-bottom border-2 border-primary opacity-1"></div>
-		</div>
-	</div>
-
-	<!-- Logo Nav START -->
+	<!-- نوار ناوبری لوگو شروع -->
 	<nav class="navbar navbar-expand-lg">
 		<div class="container">
-			<!-- Logo START -->
+			<!-- لوگو شروع -->
 			<a class="navbar-brand" href="index.html">
-				<img class="navbar-brand-item light-mode-item" src="https://blogzine.webestica.com/rtl/assets/images/logo.svg" alt="logo">
-				<img class="navbar-brand-item dark-mode-item" src="https://blogzine.webestica.com/rtl/assets/images/logo-light.svg" alt="logo">
+				<img class="navbar-brand-item light-mode-item" src="https://blogzine.webestica.com/rtl/assets/images/logo.svg" alt="لوگو">
+				<img class="navbar-brand-item dark-mode-item" src="https://blogzine.webestica.com/rtl/assets/images/logo-light.svg" alt="لوگو">
 			</a>
-			<!-- Logo END -->
+			<!-- لوگو پایان -->
 
-			<!-- Responsive navbar toggler -->
+			<!-- دکمه نوار ناوبری واکنش‌گرا -->
 			<button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="text-body h6 d-none d-sm-inline-block">Menu</span>
+				<span class="text-body h6 d-none d-sm-inline-block">منو</span>
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
-			<!-- Main navbar START -->
+			<!-- منوی ناوبری اصلی شروع -->
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav navbar-nav-scroll mx-auto">
 
-					<!-- Nav item 1 Demos -->
+					<!-- مورد منو ۱: دموها -->
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle active" href="index.html#" id="homeMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
+						<a class="nav-link  active" href="#" id="homeMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خانه</a>
 						<ul class="dropdown-menu" aria-labelledby="homeMenu">
-							<li> <a class="dropdown-item active" href="index.html">Home default</a></li>
-							<li> <a class="dropdown-item" href="index-lazy.html">Home lazy load</a></li>
-							<li> <a class="dropdown-item" href="index-2.html">Magazine classic</a></li>
-							<li> <a class="dropdown-item" href="index-3.html">Magazine</a></li>
-							<li> <a class="dropdown-item" href="index-4.html">Home cards</a></li>
-							<li> <a class="dropdown-item" href="index-5.html">Blog classic</a></li>
-							<li> <a class="dropdown-item" href="index-6.html">Blog Personal </a></li>
-							<li> <a class="dropdown-item" href="index-7.html">Blog Vintage</a></li>
-							<li> <a class="dropdown-item" href="index-8.html">Blog Tech</a></li>
-							<li> <a class="dropdown-item" href="index-9.html">Blog Fashion</a></li>
-							<li> <a class="dropdown-item" href="index-10.html">Blog Podcast</a></li>
-							<li> <a class="dropdown-item" href="index-11.html">Home Shop </a></li>
+							<li> <a class="dropdown-item active" href="index.html">خانه پیش‌فرض</a></li>
+							<li> <a class="dropdown-item" href="index-lazy.html">خانه لود تنبل</a></li>
+							<li> <a class="dropdown-item" href="index-2.html">مجله کلاسیک</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">مجله</a></li>
+							<li> <a class="dropdown-item" href="index-4.html">خانه کارت‌ها</a></li>
+							<li> <a class="dropdown-item" href="index-5.html">بلاگ کلاسیک</a></li>
+							<li> <a class="dropdown-item" href="index-6.html">بلاگ شخصی</a></li>
+							<li> <a class="dropdown-item" href="index-7.html">بلاگ vintage</a></li>
+							<li> <a class="dropdown-item" href="index-8.html">بلاگ تکنولوژی</a></li>
+							<li> <a class="dropdown-item" href="index-9.html">بلاگ مد</a></li>
+							<li> <a class="dropdown-item" href="index-10.html">بلاگ پادکست</a></li>
+							<li> <a class="dropdown-item" href="index-11.html">خانه فروشگاه</a></li>
 						</ul>
 					</li>
 
-					<!-- Nav item 2 Pages -->
+					<!-- مورد منو ۲: صفحات -->
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="index.html#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+						<a class="nav-link" href="index.html#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">صفحات</a>
 						<ul class="dropdown-menu" aria-labelledby="pagesMenu">
-							<li> <a class="dropdown-item" href="about-us.html">About</a></li>
-							<li> <a class="dropdown-item" href="contact-us.html">Contact</a></li>
-							<!-- Dropdown submenu -->
+							<li> <a class="dropdown-item" href="about-us.html">درباره</a></li>
+							<li> <a class="dropdown-item" href="contact-us.html">تماس</a></li>
+							<!-- زیرمنوی کشویی -->
 							<li class="dropdown-submenu dropend">
-								<a class="dropdown-item dropdown-toggle" href="index.html#">Shop</a>
+								<a class="dropdown-item dropdown-toggle" href="index.html#">فروشگاه</a>
 								<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
-									<li> <a class="dropdown-item" href="shop-grid.html">Shop grid</a> </li>
-									<li> <a class="dropdown-item" href="shop-detail.html">Shop detail</a> </li>
-									<li> <a class="dropdown-item" href="checkout.html">Checkout</a> </li>
-									<li> <a class="dropdown-item" href="my-cart.html">Cart</a> </li>
-									<li> <a class="dropdown-item" href="empty-cart.html">Empty Cart</a> </li>
+									<li> <a class="dropdown-item" href="shop-grid.html">فروشگاه شبکه‌ای</a> </li>
+									<li> <a class="dropdown-item" href="shop-detail.html">جزئیات فروشگاه</a> </li>
+									<li> <a class="dropdown-item" href="checkout.html">تسویه حساب</a> </li>
+									<li> <a class="dropdown-item" href="my-cart.html">سبد خرید</a> </li>
+									<li> <a class="dropdown-item" href="empty-cart.html">سبد خرید خالی</a> </li>
 								</ul>
 							</li>
-							<!-- Dropdown submenu -->
+							<!-- زیرمنوی کشویی -->
 							<li class="dropdown-submenu dropend">
-								<a class="dropdown-item dropdown-toggle" href="index.html#">Other Archives</a>
+								<a class="dropdown-item dropdown-toggle" href="index.html#">بایگانی‌های دیگر</a>
 								<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
-									<li> <a class="dropdown-item" href="author.html">Author Page</a> </li>
-									<li> <a class="dropdown-item" href="categories.html">Category page 1</a> </li>
-									<li> <a class="dropdown-item" href="categories-2.html">Category page 2</a> </li>
-									<li> <a class="dropdown-item" href="tag.html"># tag</a> </li>
-									<li> <a class="dropdown-item" href="search-result.html">Search result</a> </li>
+									<li> <a class="dropdown-item" href="author.html">صفحه نویسنده</a> </li>
+									<li> <a class="dropdown-item" href="categories.html">صفحه دسته‌بندی ۱</a> </li>
+									<li> <a class="dropdown-item" href="categories-2.html">صفحه دسته‌بندی ۲</a> </li>
+									<li> <a class="dropdown-item" href="tag.html"># تگ</a> </li>
+									<li> <a class="dropdown-item" href="search-result.html">نتیجه جستجو</a> </li>
 								</ul>
 							</li>
-							<li> <a class="dropdown-item" href="404.html">Error 404</a></li>
-							<li> <a class="dropdown-item" href="signin.html">signin</a></li>
-							<li> <a class="dropdown-item" href="signup.html">signup</a></li>
-							<li> <a class="dropdown-item" href="offline.html">offline</a></li>
-							<!-- Dropdown submenu levels -->
+							<li> <a class="dropdown-item" href="404.html">خطای ۴۰۴</a></li>
+							<li> <a class="dropdown-item" href="signin.html">ورود</a></li>
+							<li> <a class="dropdown-item" href="signup.html">ثبت‌نام</a></li>
+							<li> <a class="dropdown-item" href="offline.html">آفلاین</a></li>
+							<!-- زیرمنوی کشویی سطوح -->
 							<li class="dropdown-divider"></li>
 							<li class="dropdown-submenu dropend">
-								<a class="dropdown-item dropdown-toggle" href="index.html#">Dropdown levels</a>
+								<a class="dropdown-item dropdown-toggle" href="index.html#">سطوح منوی کشویی</a>
 								<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
-									<!-- dropdown submenu open right -->
+									<!-- زیرمنوی کشویی باز شونده به راست -->
 									<li class="dropdown-submenu dropend">
-										<a class="dropdown-item dropdown-toggle" href="index.html#">Dropdown (end)</a>
+										<a class="dropdown-item dropdown-toggle" href="index.html#">منوی کشویی (راست)</a>
 										<ul class="dropdown-menu" data-bs-popper="none">
-											<li> <a class="dropdown-item" href="index.html#">Dropdown item</a> </li>
-											<li> <a class="dropdown-item" href="index.html#">Dropdown item</a> </li>
+											<li> <a class="dropdown-item" href="index.html#">مورد منو</a> </li>
+											<li> <a class="dropdown-item" href="index.html#">مورد منو</a> </li>
 										</ul>
 									</li>
-									<li> <a class="dropdown-item" href="index.html#">Dropdown item</a> </li>
-									<!-- dropdown submenu open left -->
+									<li> <a class="dropdown-item" href="index.html#">مورد منو</a> </li>
+									<!-- زیرمنوی کشویی باز شونده به چپ -->
 									<li class="dropdown-submenu dropstart">
-										<a class="dropdown-item dropdown-toggle" href="index.html#">Dropdown (start)</a>
+										<a class="dropdown-item dropdown-toggle" href="index.html#">منوی کشویی (چپ)</a>
 										<ul class="dropdown-menu dropdown-menu-end" data-bs-popper="none">
-											<li> <a class="dropdown-item" href="index.html#">Dropdown item</a> </li>
-											<li> <a class="dropdown-item" href="index.html#">Dropdown item</a> </li>
+											<li> <a class="dropdown-item" href="index.html#">مورد منو</a> </li>
+											<li> <a class="dropdown-item" href="index.html#">مورد منو</a> </li>
 										</ul>
 									</li>
-									<li> <a class="dropdown-item" href="index.html#">Dropdown item</a> </li>
+									<li> <a class="dropdown-item" href="index.html#">مورد منو</a> </li>
 								</ul>
 							</li>
 							<li class="dropdown-divider"></li>
 							<li>
 								<a class="dropdown-item" href="https://support.webestica.com/" target="_blank">
-									<i class="text-warning fa-fw bi bi-life-preserver me-2"></i>Support
+									<i class="text-warning fa-fw bi bi-life-preserver me-2"></i>پشتیبانی
 								</a>
 							</li>
 							<li>
 								<a class="dropdown-item" href="https://blogzine.webestica.com/rtl/docs/index.html" target="_blank">
-									<i class="text-danger fa-fw bi bi-card-text me-2"></i>Documentation
+									<i class="text-danger fa-fw bi bi-card-text me-2"></i>مستندات
 								</a>
 							</li>
 							<li class="dropdown-divider"></li>
 							<li>
 								<a class="dropdown-item" href="../rtl" target="_blank">
-									<i class="text-info fa-fw bi bi-toggle-off me-2"></i>RTL demo
+									<i class="text-info fa-fw bi bi-toggle-off me-2"></i>دمو راست به چپ
 								</a>
 							</li>
 							<li>
 								<a class="dropdown-item" href="https://themes.getbootstrap.com/store/webestica/" target="_blank">
-									<i class="text-success fa-fw bi bi-cloud-download-fill me-2"></i>Buy blogzine!
+									<i class="text-success fa-fw bi bi-cloud-download-fill me-2"></i>خرید بلاگزین!
 								</a>
 							</li>
 						</ul>
 					</li>
 
-					<!-- Nav item 3 Post -->
+					<!-- مورد منو ۳: پست -->
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="index.html#" id="postMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Post</a>
+						<a class="nav-link " href="index.html#" id="postMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">پست</a>
 						<ul class="dropdown-menu" aria-labelledby="postMenu">
-							<!-- dropdown submenu -->
+							<!-- زیرمنوی کشویی -->
 							<li class="dropdown-submenu dropend">
-								<a class="dropdown-item dropdown-toggle" href="index.html#">Post grid</a>
+								<a class="dropdown-item dropdown-toggle" href="index.html#">پست شبکه‌ای</a>
 								<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
-									<li> <a class="dropdown-item" href="post-grid.html">Post grid</a> </li>
-									<li> <a class="dropdown-item" href="post-grid-4-col.html">Post grid 4 col</a> </li>
-									<li> <a class="dropdown-item" href="post-grid-masonry.html">Post grid masonry</a> </li>
-									<li> <a class="dropdown-item" href="post-grid-masonry-filter.html">Post grid masonry filter</a> </li>
-									<li> <a class="dropdown-item" href="post-large-and-grid.html">Post mixed large than grid</a> </li>
+									<li> <a class="dropdown-item" href="post-grid.html">پست شبکه‌ای</a> </li>
+									<li> <a class="dropdown-item" href="post-grid-4-col.html">پست شبکه‌ای ۴ ستون</a> </li>
+									<li> <a class="dropdown-item" href="post-grid-masonry.html">پست شبکه‌ای masonry</a> </li>
+									<li> <a class="dropdown-item" href="post-grid-masonry-filter.html">پست شبکه‌ای masonry با فیلتر</a> </li>
+									<li> <a class="dropdown-item" href="post-large-and-grid.html">پست ترکیبی بزرگ و شبکه‌ای</a> </li>
 								</ul>
 							</li>
-							<li> <a class="dropdown-item" href="post-list.html">Post list</a> </li>
-							<li> <a class="dropdown-item" href="post-list-2.html">Post list 2</a> </li>
-							<li> <a class="dropdown-item" href="post-cards.html">Post card</a> </li>
-							<li> <a class="dropdown-item" href="post-overlay.html">Post Overlay</a> </li>
-							<li> <a class="dropdown-item" href="post-types.html">Post types</a> </li>
+							<li> <a class="dropdown-item" href="post-list.html">پست لیستی</a> </li>
+							<li> <a class="dropdown-item" href="post-list-2.html">پست لیستی ۲</a> </li>
+							<li> <a class="dropdown-item" href="post-cards.html">پست کارتی</a> </li>
+							<li> <a class="dropdown-item" href="post-overlay.html">پست Overlay</a> </li>
+							<li> <a class="dropdown-item" href="post-types.html">انواع پست</a> </li>
 							<li class="dropdown-divider"></li>
-							<li> <a class="dropdown-item" href="post-single.html">Post single magazine</a> </li>
-							<li> <a class="dropdown-item" href="post-single-2.html">Post single classic</a> </li>
-							<li> <a class="dropdown-item" href="post-single-3.html">Post single minimal</a> </li>
-							<li> <a class="dropdown-item" href="post-single-4.html">Post single card</a> </li>
-							<li> <a class="dropdown-item" href="post-single-5.html">Post single review</a> </li>
-							<li> <a class="dropdown-item" href="post-single-6.html">Post single video</a> </li>
-							<li> <a class="dropdown-item" href="podcast-single.html">Podcast single</a> </li>
+							<li> <a class="dropdown-item" href="post-single.html">پست تکی مجله</a> </li>
+							<li> <a class="dropdown-item" href="post-single-2.html">پست تکی کلاسیک</a> </li>
+							<li> <a class="dropdown-item" href="post-single-3.html">پست تکی مینیمال</a> </li>
+							<li> <a class="dropdown-item" href="post-single-4.html">پست تکی کارتی</a> </li>
+							<li> <a class="dropdown-item" href="post-single-5.html">پست تکی بررسی</a> </li>
+							<li> <a class="dropdown-item" href="post-single-6.html">پست تکی ویدیویی</a> </li>
+							<li> <a class="dropdown-item" href="podcast-single.html">پادکست تکی</a> </li>
 							<li class="dropdown-divider"></li>
-							<li> <a class="dropdown-item" href="pagination-styles.html">Pagination styles</a> </li>
+							<li> <a class="dropdown-item" href="pagination-styles.html">سبک‌های صفحه‌بندی</a> </li>
 						</ul>
 					</li>
 
-					<!-- Nav item 4 Mega menu -->
+					<!-- مورد منو ۴: منوی مگا -->
 					<li class="nav-item dropdown dropdown-fullwidth">
-						<a class="nav-link dropdown-toggle" href="index.html#" id="megaMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Lifestyle</a>
+						<a class="nav-link dropdown-toggle" href="index.html#" id="megaMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">سبک زندگی</a>
 						<div class="dropdown-menu" aria-labelledby="megaMenu">
 							<div class="container">
 								<div class="row g-4 p-3 flex-fill">
-									<!-- Card item START -->
+									<!-- مورد کارت شروع -->
 									<div class="col-sm-6 col-lg-3">
 										<div class="card bg-transparent">
-											<!-- Card img -->
-											<img class="card-img rounded" src="assets/images/blog/16by9/small/01.jpg" alt="Card image">
+											<!-- تصویر کارت -->
+											<img class="card-img rounded" src="{% static 'images/blog/16by9/small/01.jpg' %}" alt="تصویر کارت">
 											<div class="card-body px-0 pt-3">
-												<h6 class="card-title mb-0"><a href="index.html#" class="btn-link text-reset fw-bold">7 common mistakes everyone makes while traveling</a></h6>
-												<!-- Card info -->
+												<h6 class="card-title mb-0"><a href="index.html#" class="btn-link text-reset fw-bold">۷ اشتباه رایجی که همه در سفر مرتکب می‌شوند</a></h6>
+												<!-- اطلاعات کارت -->
 												<ul class="nav nav-divider align-items-center text-uppercase small mt-2">
 													<li class="nav-item">
-														<a href="index.html#" class="text-reset btn-link">Joan Wallace</a>
+														<a href="index.html#" class="text-reset btn-link">جوآن والاس</a>
 													</li>
-													<li class="nav-item">Feb 18, 2022</li>
+													<li class="nav-item">۱۸ فوریه ۲۰۲۲</li>
 												</ul>
 											</div>
 										</div>
 									</div>
-									<!-- Card item END -->
-									<!-- Card item START -->
+									<!-- مورد کارت پایان -->
+									<!-- مورد کارت شروع -->
 									<div class="col-sm-6 col-lg-3">
 										<div class="card bg-transparent">
-											<!-- Card img -->
-											<img class="card-img rounded" src="assets/images/blog/16by9/small/02.jpg" alt="Card image">
+											<!-- تصویر کارت -->
+											<img class="card-img rounded" src="{% static 'images/blog/16by9/small/02.jpg' %}" alt="تصویر کارت">
 											<div class="card-body px-0 pt-3">
-												<h6 class="card-title mb-0"><a href="index.html#" class="btn-link text-reset fw-bold">12 worst types of business accounts you follow on Twitter</a></h6>
-												<!-- Card info -->
+												<h6 class="card-title mb-0"><a href="index.html#" class="btn-link text-reset fw-bold">۱۲ بدترین نوع حساب کسب‌وکار که در توییتر دنبال می‌کنید</a></h6>
+												<!-- اطلاعات کارت -->
 												<ul class="nav nav-divider align-items-center text-uppercase small mt-2">
 													<li class="nav-item">
-														<a href="index.html#" class="text-reset btn-link">Lori Stevens</a>
+														<a href="index.html#" class="text-reset btn-link">لوری استیونز</a>
 													</li>
-													<li class="nav-item">Jun 03, 2022</li>
+													<li class="nav-item">۳ ژوئن ۲۰۲۲</li>
 												</ul>
 											</div>
 										</div>
 									</div>
-									<!-- Card item END -->
-									<!-- Card item START -->
+									<!-- مورد کارت پایان -->
+									<!-- مورد کارت شروع -->
 									<div class="col-sm-6 col-lg-3">
 										<div class="card bg-transparent">
-											<!-- Card img -->
-											<img class="card-img rounded" src="assets/images/blog/16by9/small/03.jpg" alt="Card image">
+											<!-- تصویر کارت -->
+											<img class="card-img rounded" src="{% static 'images/blog/16by9/small/03.jpg' %}" alt="تصویر کارت">
 											<div class="card-body px-0 pt-3">
-												<h6 class="card-title mb-0"><a href="index.html#" class="btn-link text-reset fw-bold">Skills that you can learn from business</a></h6>
-												<!-- Card info -->
+												<h6 class="card-title mb-0"><a href="index.html#" class="btn-link text-reset fw-bold">مهارت‌هایی که می‌توانید از کسب‌وکار بیاموزید</a></h6>
+												<!-- اطلاعات کارت -->
 												<ul class="nav nav-divider align-items-center text-uppercase small mt-2">
 													<li class="nav-item">
-														<a href="index.html#" class="text-reset btn-link">Judy Nguyen</a>
+														<a href="index.html#" class="text-reset btn-link">جودی نگوین</a>
 													</li>
-													<li class="nav-item">Sep 07, 2022</li>
+													<li class="nav-item">۷ سپتامبر ۲۰۲۲</li>
 												</ul>
 											</div>
 										</div>
 									</div>
-									<!-- Card item END -->
-									<!-- Card item START -->
+									<!-- مورد کارت پایان -->
+									<!-- مورد کارت شروع -->
 									<div class="col-sm-6 col-lg-3">
 										<div class="bg-primary bg-opacity-10 p-4 text-center h-100 w-100 rounded">
-											<span>The Blogzine</span>
-											<h3>Premium Membership</h3>
-											<p>Become a Member Today!</p>
-											<a href="index.html#" class="btn btn-warning">View pricing plans</a>
+											<span>بلاگزین</span>
+											<h3>عضویت ویژه</h3>
+											<p>همین امروز عضو شوید!</p>
+											<a href="index.html#" class="btn btn-warning">مشاهده طرح‌های قیمت‌گذاری</a>
 										</div>
 									</div>
-									<!-- Card item END -->
-								</div> <!-- Row END -->
-								<!-- Trending tags -->
+									<!-- مورد کارت پایان -->
+								</div> <!-- ردیف پایان -->
+								<!-- تگ‌های ترند -->
 								<div class="row px-3">
 									<div class="col-12">
 										<ul class="list-inline mt-3">
-											<li class="list-inline-item">Trending tags:</li>
-											<li class="list-inline-item"><a href="index.html#" class="btn btn-sm btn-primary-soft">Travel</a></li>
-											<li class="list-inline-item"><a href="index.html#" class="btn btn-sm btn-warning-soft">Business</a></li>
-											<li class="list-inline-item"><a href="index.html#" class="btn btn-sm btn-success-soft">Tech</a></li>
-											<li class="list-inline-item"><a href="index.html#" class="btn btn-sm btn-danger-soft">Gadgets</a></li>
-											<li class="list-inline-item"><a href="index.html#" class="btn btn-sm btn-info-soft">Lifestyle</a></li>
-											<li class="list-inline-item"><a href="index.html#" class="btn btn-sm btn-primary-soft">Vaccine</a></li>
-											<li class="list-inline-item"><a href="index.html#" class="btn btn-sm btn-success-soft">Sports</a></li>
-											<li class="list-inline-item"><a href="index.html#" class="btn btn-sm btn-danger-soft">Covid-19</a></li>
-											<li class="list-inline-item"><a href="index.html#" class="btn btn-sm btn-info-soft">Politics</a></li>
+											<li class="list-inline-item">تگ‌های ترند:</li>
+											<li class="list-inline-item"><a href="index.html#" class="btn btn-sm btn-primary-soft">سفر</a></li>
+											<li class="list-inline-item"><a href="index.html#" class="btn btn-sm btn-warning-soft">کسب‌وکار</a></li>
+											<li class="list-inline-item"><a href="index.html#" class="btn btn-sm btn-success-soft">تکنولوژی</a></li>
+											<li class="list-inline-item"><a href="index.html#" class="btn btn-sm btn-danger-soft">گجت‌ها</a></li>
+											<li class="list-inline-item"><a href="index.html#" class="btn btn-sm btn-info-soft">سبک زندگی</a></li>
+											<li class="list-inline-item"><a href="index.html#" class="btn btn-sm btn-primary-soft">واکسن</a></li>
+											<li class="list-inline-item"><a href="index.html#" class="btn btn-sm btn-success-soft">ورزشی</a></li>
+											<li class="list-inline-item"><a href="index.html#" class="btn btn-sm btn-danger-soft">کووید-۱۹</a></li>
+											<li class="list-inline-item"><a href="index.html#" class="btn btn-sm btn-info-soft">سیاسی</a></li>
 										</ul>
 									</div>
-								</div> <!-- Row END -->
+								</div> <!-- ردیف پایان -->
 							</div>
 						</div>
 					</li>
 
-					<!-- Nav item 5 link-->
-					<li class="nav-item"> <a class="nav-link" href="dashboard.html">Dashboard</a></li>
+					<!-- مورد منو ۵ لینک-->
+					<li class="nav-item"> <a class="nav-link" href="dashboard.html">داشبورد</a></li>
 				</ul>
 			</div>
-			<!-- Main navbar END -->
+			<!-- منوی ناوبری اصلی پایان -->
 
-			<!-- Nav right START -->
+			<!-- ناو سمت راست شروع -->
 			<div class="nav flex-nowrap align-items-center">
-				<!-- Nav Button -->
+				<!-- دکمه ناو -->
 				<div class="nav-item d-none d-md-block">
-					<a href="index.html#" class="btn btn-sm btn-danger mb-0 mx-2">Subscribe!</a>
+					<a href="index.html#" class="btn btn-sm btn-danger mb-0 mx-2">عضویت!</a>
 				</div>
-				<!-- Nav Search -->
+				<!-- جستجوی ناو -->
 				<div class="nav-item dropdown dropdown-toggle-icon-none nav-search">
 					<a class="nav-link dropdown-toggle" role="button" href="index.html#" id="navSearch" data-bs-toggle="dropdown" aria-expanded="false">
 						<i class="bi bi-search fs-4"> </i>
 					</a>
 					<div class="dropdown-menu dropdown-menu-end shadow rounded p-2" aria-labelledby="navSearch">
 						<form class="input-group">
-							<input class="form-control border-success" type="search" placeholder="Search" aria-label="Search">
-							<button class="btn btn-success m-0" type="submit">Search</button>
+							<input class="form-control border-success" type="search" placeholder="جستجو" aria-label="Search">
+							<button class="btn btn-success m-0" type="submit">جستجو</button>
 						</form>
 					</div>
 				</div>
-				<!-- Offcanvas menu toggler -->
+				<!-- دکمه منوی کشویی -->
 				<div class="nav-item">
 					<a class="nav-link p-0" data-bs-toggle="offcanvas" href="index.html#offcanvasMenu" role="button" aria-controls="offcanvasMenu">
 						<i class="bi bi-text-right rtl-flip fs-2" data-bs-target="#offcanvasMenu"> </i>
 					</a>
 				</div>
 			</div>
-			<!-- Nav right END -->
+			<!-- ناو سمت راست پایان -->
 		</div>
 	</nav>
-	<!-- Logo Nav END -->
+	<!-- نوار ناوبری لوگو پایان -->
 </header>
 <!-- =======================
-Header END -->
+هدر پایان -->
