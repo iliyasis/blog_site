@@ -1,0 +1,187 @@
+{% load static %}
+
+<footer class="bg-dark pt-5">
+	<div class="container">
+		<!-- بخش درباره ما و خبرنامه -->
+		<div class="row pt-3 pb-4">
+			<div class="col-md-3">
+				<img src="{% static 'images/logo-footer.svg' %}" alt="لوگو فوتر">
+			</div>
+			<div class="col-md-5">
+				<p class="text-body-secondary">قالب بلاگ، خبر و مجله نسل جدید برای به اشتراک گذاری داستان‌های شما از امروز! این قالب مبتنی بر Bootstrap 5 برای تمامی انواع سایت‌های خبری ایده‌آل است.</p>
+			</div>
+			<div class="col-md-4">
+				<!-- فرم -->
+				<form class="row row-cols-lg-auto g-2 align-items-center justify-content-end">
+					<div class="col-12">
+						<input type="email" class="form-control" placeholder="آدرس ایمیل خود را وارد کنید">
+					</div>
+					<div class="col-12">
+						<button type="submit" class="btn btn-primary m-0">اشتراک</button>
+					</div>
+					<div class="form-text mt-2">با اشتراک‌گذاری، با
+						<a href="index.html#" class="text-decoration-underline text-reset">سیاست حفظ حریم خصوصی</a> ما موافقت می‌کنید
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- پایان بخش درباره ما و خبرنامه -->
+
+		<!-- جداکننده -->
+		<hr>
+
+		<!-- ویجت‌ها -->
+		<div class="row pt-5">
+			<!-- ویجت فوتر -->
+			<div class="col-md-6 col-lg-3 mb-4">
+				<h5 class="mb-4 text-white">پست‌های اخیر</h5>
+				<!-- آیتم -->
+				<div class="mb-4 position-relative">
+					<div><a href="index.html#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>کسب و کار</a></div>
+					<a href="post-single-3.html" class="btn-link text-white fw-normal">بلاگرهای آینده‌دار کسب و کار که باید زیر نظر بگیرید</a>
+					<ul class="nav nav-divider align-items-center small mt-2 text-body-secondary">
+						<li class="nav-item position-relative">
+							<div class="nav-link">توسط <a href="index.html#" class="stretched-link text-reset btn-link">دنیس</a>
+							</div>
+						</li>
+						<li class="nav-item">فروردین ۱۷, ۱۴۰۱</li>
+					</ul>
+				</div>
+				<!-- آیتم -->
+				<div class="mb-4 position-relative">
+					<div><a href="index.html#" class="badge text-bg-info mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>بازاریابی</a></div>
+					<a href="post-single-3.html" class="btn-link text-white fw-normal">چگونه به اینجا رسیدیم؟ تاریخ کسب و کار روایت شده از طریق توییت‌ها</a>
+					<ul class="nav nav-divider align-items-center small mt-2 text-body-secondary">
+						<li class="nav-item position-relative">
+							<div class="nav-link">توسط <a href="index.html#" class="stretched-link text-reset btn-link">لری</a>
+							</div>
+						</li>
+						<li class="nav-item">خرداد ۸, ۱۴۰۱</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- ویجت فوتر -->
+			<div class="col-md-6 col-lg-3 mb-4">
+				<h5 class="mb-4 text-white">ناوبری</h5>
+				<div class="row">
+					<div class="col-6">
+						<ul class="nav flex-column text-primary-hover">
+							<li class="nav-item"><a class="nav-link pt-0" href="index.html#">امکانات</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.html#">راهنمای استایل</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.html#">تماس با ما</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.html#">دریافت قالب</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.html#">پشتیبانی</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.html#">سیاست حفظ حریم خصوصی</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.html#">خبرنامه</a></li>
+						</ul>
+					</div>
+ 					<div class="col-6">
+						<ul class="nav flex-column text-primary-hover">
+							<li class="nav-item"><a class="nav-link pt-0" href="index.html#">اخبار</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.html#">فرصت‌های شغلی <span class="badge text-bg-danger ms-2">۲ موقعیت</span></a></li>
+							<li class="nav-item"><a class="nav-link" href="index.html#">تکنولوژی</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.html#">استارتاپ‌ها</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.html#">گجت‌ها</a></li>
+							<li class="nav-item"><a class="nav-link" href="index.html#">الهام‌بخش</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- ویجت فوتر -->
+			<div class="col-sm-6 col-lg-3 mb-4">
+				<h5 class="mb-4 text-white">دریافت به‌روزرسانی‌های منظم</h5>
+				<ul class="nav flex-column text-primary-hover">
+					<li class="nav-item"><a class="nav-link pt-0" href="index.html#"><i class="fab fa-whatsapp fa-fw me-2"></i>واتس‌اپ</a></li>
+					<li class="nav-item"><a class="nav-link" href="index.html#"><i class="fab fa-youtube fa-fw me-2"></i>یوتیوب</a></li>
+					<li class="nav-item"><a class="nav-link" href="index.html#"><i class="far fa-bell fa-fw me-2"></i>اعلان‌های وبسایت</a></li>
+					<li class="nav-item"><a class="nav-link" href="index.html#"><i class="far fa-envelope fa-fw me-2"></i>خبرنامه‌ها</a></li>
+					<li class="nav-item"><a class="nav-link" href="index.html#"><i class="fas fa-headphones-alt fa-fw me-2"></i>پادکست‌ها</a></li>
+				</ul>
+			</div>
+
+			<!-- ویجت فوتر -->
+			<div class="col-sm-6 col-lg-3 mb-4">
+				<h5 class="mb-4 text-white">اپلیکیشن موبایل ما</h5>
+				<p class="text-body-secondary">اپلیکیشن ما را دانلود کنید و آخرین اخبار فوری، تیترهای جدید و مقالات روزانه را در نزدیکی خود دریافت کنید.</p>
+				<div class="row g-2">
+					<div class="col">
+						<a href="index.html#"><img class="w-100" src="{% static 'images/app-store.svg' %}" alt="اپ استور"></a>
+					</div>
+					<div class="col">
+						<a href="index.html#"><img class="w-100" src="{% static 'images/google-play.svg' %}" alt="گوگل پلی"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- پایان ویجت‌ها -->
+
+		<!-- موضوعات داغ -->
+		<div class="row">
+			<h5 class="mb-2 text-white">موضوعات داغ</h5>
+			<ul class="list-inline text-primary-hover lh-lg">
+				<li class="list-inline-item"><a href="index.html#">کووید-۱۹</a></li>
+				<li class="list-inline-item"><a href="index.html#">سیاست</a></li>
+				<li class="list-inline-item"><a href="index.html#">سرگرمی</a></li>
+				<li class="list-inline-item"><a href="index.html#">رسانه</a></li>
+				<li class="list-inline-item"><a href="index.html#">سلطنت‌طلب</a></li>
+				<li class="list-inline-item"><a href="index.html#">جهان</a></li>
+				<li class="list-inline-item"><a href="index.html#">نیمه پر</a></li>
+				<li class="list-inline-item"><a href="index.html#">کشف شده</a></li>
+				<li class="list-inline-item"><a href="index.html#">سفر</a></li>
+				<li class="list-inline-item"><a href="index.html#">جانور درون</a></li>
+				<li class="list-inline-item"><a href="index.html#">جدول کلمات</a></li>
+				<li class="list-inline-item"><a href="index.html#">خبرنامه‌ها</a></li>
+				<li class="list-inline-item"><a href="index.html#">پادکست‌ها</a></li>
+				<li class="list-inline-item"><a href="index.html#">مزایده ۱۴۰۱</a></li>
+				<li class="list-inline-item"><a href="index.html#">اعتراضات</a></li>
+				<li class="list-inline-item"><a href="index.html#">اخبارسایبر</a></li>
+				<li class="list-inline-item"><a href="index.html#">آموزش</a></li>
+				<li class="list-inline-item"><a href="index.html#">ورزش</a></li>
+				<li class="list-inline-item"><a href="index.html#">تکنولوژی و خودرو</a></li>
+				<li class="list-inline-item"><a href="index.html#">نظر</a></li>
+				<li class="list-inline-item"><a href="index.html#">بازار سهام</a></li>
+			</ul>
+		</div>
+		<!-- پایان موضوعات داغ -->
+	</div>
+
+	<!-- کپی‌رایت فوتر -->
+	<div class="bg-dark-overlay-3 mt-5">
+		<div class="container">
+			<div class="row align-items-center justify-content-md-between py-4">
+				<div class="col-md-6">
+					<!-- کپی‌رایت -->
+					<div class="text-center text-md-start text-primary-hover text-body-secondary">©۱۴۰۳ <a href="https://www.webestica.com/" class="text-reset btn-link" target="_blank">وبستیکا</a>. تمامی حقوق محفوظ است
+					</div>
+				</div>
+				<div class="col-md-6 d-sm-flex align-items-center justify-content-center justify-content-md-end">
+					<!-- تعویض زبان -->
+					<div class="dropup me-0 me-sm-3 mt-3 mt-md-0 text-center text-sm-end">
+						<a class="dropdown-toggle text-primary-hover" href="index.html#" role="button" id="languageSwitcher" data-bs-toggle="dropdown" aria-expanded="false">
+							نسخه انگلیسی
+						</a>
+						<ul class="dropdown-menu min-w-auto" aria-labelledby="languageSwitcher">
+							<li><a class="dropdown-item" href="index.html#">انگلیسی</a></li>
+							<li><a class="dropdown-item" href="index.html#">آلمانی</a></li>
+							<li><a class="dropdown-item" href="index.html#">فرانسوی</a></li>
+						</ul>
+					</div>
+					<!-- لینک‌ها -->
+					<ul class="nav text-primary-hover text-center text-sm-end justify-content-center justify-content-center mt-3 mt-md-0">
+						<li class="nav-item"><a class="nav-link" href="index.html#">قوانین</a></li>
+						<li class="nav-item"><a class="nav-link" href="index.html#">حریم خصوصی</a></li>
+						<li class="nav-item"><a class="nav-link pe-0" href="index.html#">کوکی‌ها</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- پایان کپی‌رایت فوتر -->
+</footer>
+<!-- =======================
+پایان فوتر -->
+
+<!-- دکمه بازگشت به بالا -->
+<div class="back-top"><i class="bi bi-arrow-up-short"></i></div>
