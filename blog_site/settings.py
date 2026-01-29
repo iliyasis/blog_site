@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "home_app.apps.HomeAppConfig"
+    "home_app.apps.HomeAppConfig",
+    "account_app.apps.AccountAppConfig",
+    "blog_app.apps.BlogAppConfig"
 ]
 
 MIDDLEWARE = [
@@ -119,6 +121,8 @@ STATIC_ROOT = BASE_DIR / "static"
 STATICFILES_DIRS = [
     BASE_DIR / "assets",
 ]
+
+MEDIA_ROOT = BASE_DIR / "media"
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = "static/"

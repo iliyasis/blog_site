@@ -13,7 +13,7 @@
 			<!-- منو شروع -->
 			<ul class="nav d-block flex-column my-4">
 				<li class="nav-item h5">
-					<a class="nav-link" href="index.html">خانه</a>
+					<a class="nav-link" href="{% url 'home_app:home_page' %}">خانه</a>
 				<li class="nav-item h5">
 					<a class="nav-link" href="about-us.html">درباره ما</a>
 				</li>
@@ -68,7 +68,7 @@
 
 					<!-- مورد منو ۱: دموها -->
 					<li class="nav-item dropdown">
-						<a class="nav-link  active" href="#" id="homeMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خانه</a>
+						<a class="nav-link  active" href="{% url 'home_app:home_page' %}" id="homeMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خانه</a>
 						<ul class="dropdown-menu" aria-labelledby="homeMenu">
 							<li> <a class="dropdown-item active" href="index.html">خانه پیش‌فرض</a></li>
 							<li> <a class="dropdown-item" href="index-lazy.html">خانه لود تنبل</a></li>
@@ -301,26 +301,22 @@
 			<!-- ناو سمت راست شروع -->
 			<div class="nav flex-nowrap align-items-center">
 				<!-- دکمه ناو -->
+                {% if request.user.is_authenticatedr %}
 				<div class="nav-item d-none d-md-block">
 					<a href="index.html#" class="btn btn-sm btn-danger mb-0 mx-2">عضویت!</a>
 				</div>
+                {% endif %}
 				<!-- جستجوی ناو -->
-				<div class="nav-item dropdown dropdown-toggle-icon-none nav-search">
-					<a class="nav-link dropdown-toggle" role="button" href="index.html#" id="navSearch" data-bs-toggle="dropdown" aria-expanded="false">
-						<i class="bi bi-search fs-4"> </i>
-					</a>
-					<div class="dropdown-menu dropdown-menu-end shadow rounded p-2" aria-labelledby="navSearch">
-						<form class="input-group">
-							<input class="form-control border-success" type="search" placeholder="جستجو" aria-label="Search">
-							<button class="btn btn-success m-0" type="submit">جستجو</button>
-						</form>
-					</div>
-				</div>
+
 				<!-- دکمه منوی کشویی -->
 				<div class="nav-item">
-					<a class="nav-link p-0" data-bs-toggle="offcanvas" href="index.html#offcanvasMenu" role="button" aria-controls="offcanvasMenu">
-						<i class="bi bi-text-right rtl-flip fs-2" data-bs-target="#offcanvasMenu"> </i>
-					</a>
+                    {% if request.user.is_authenticated %}
+                        {{ request.user.first_name }}
+                        <a href="{% url 'account_app:logout_page' %}">خروج</a>
+                    {% else %}
+                        <a class="btn btn-success" href="{% url 'account_app:login_page' %}">ورود</a>
+                        <a class="btn btn-warning" href="{% url 'account_app:registration_page' %}">ثبت نام</a>
+                    {% endif %}
 				</div>
 			</div>
 			<!-- ناو سمت راست پایان -->

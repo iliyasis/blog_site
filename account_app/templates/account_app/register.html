@@ -1,0 +1,75 @@
+{% extends 'home_app/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Inner intro START -->
+<section>
+	<div class="container">
+		<div class="row">
+      <div class="col-md-10 col-lg-8 col-xl-6 mx-auto">
+        <div class="bg-primary bg-opacity-10 rounded p-4 p-sm-5">
+					<h2>اکانت جدیدی بسازید </h2>
+					<!-- Form START -->
+					<form class="mt-4">
+						<!-- Email -->
+						<div class="mb-3">
+							<label class="form-label" for="exampleInputEmail1">نام کاربری</label>
+							<input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="نام کاربری جدیدی برای خود انتخاب کنید.">
+							<small id="emailHelp" class="form-text">اطلاعات شما نزد ما محفوظ است.</small>
+						</div>
+						<!-- Password -->
+						<div class="mb-3">
+							<label class="form-label" for="exampleInputPassword1">رمز عبور</label>
+							<input name="password1" type="password" class="form-control" id="exampleInputPassword1" placeholder="*********">
+						</div>
+						<!-- Password -->
+						<div class="mb-3">
+							<label class="form-label" for="exampleInputPassword2">تایید رمز عبور</label>
+							<input name="password2" type="password" class="form-control" id="exampleInputPassword2" placeholder="*********">
+						</div>
+						<!-- Checkbox -->
+						<div class="mb-3 form-check">
+							<input type="checkbox" class="form-check-input" id="exampleCheck1">
+							<label class="form-check-label" for="exampleCheck1">یک چک باکس فعلا بی خاصیت</label>
+						</div>
+						<!-- Button -->
+						<div class="row align-items-center">
+							<div class="col-sm-4">
+								<button type="submit" class="btn btn-success">ثبت نام</button>
+							</div>
+							<div class="col-sm-8 text-sm-end">
+								<span>حساب کاربری دارم!! <a href="{% url 'account_app:login_page' %}"><u>ورود مستقیم</u></a></span>
+							</div>
+						</div>
+					</form>
+					<!-- Form END -->
+					<hr>
+					<!-- Social-media btn -->
+					<div class="text-center">
+						<p>ثبت نام با دیگر حسا های مجازی ام.</p>
+						<ul class="list-unstyled d-sm-flex mt-3 justify-content-center">
+							<li class="mx-2">
+								<a href="register.html#" class="btn bg-facebook d-inline-block"><i class="fab fa-facebook-f me-2"></i> از طریق فیسبوک</a>
+							</li>
+							<li class="mx-2">
+								<a href="register.html#" class="btn bg-google d-inline-block"><i class="fab fa-google me-2"></i> از طریق گوگل</a>
+							</li>
+						</ul>
+					</div>
+        </div>
+      </div>
+    </div>
+	</div>
+</section>
+<!-- =======================
+Inner intro END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+{% endblock content %}
