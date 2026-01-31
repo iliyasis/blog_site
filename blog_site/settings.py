@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "home_app.apps.HomeAppConfig",
     "account_app.apps.AccountAppConfig",
-    "blog_app.apps.BlogAppConfig"
+    "blog_app.apps.BlogAppConfig",
+
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
@@ -123,6 +125,7 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = "static/"

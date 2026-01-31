@@ -1,0 +1,69 @@
+{% extends 'home_app/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Inner intro START -->
+<section class="pt-4">
+	<div class="container">
+		<div class="row">
+      <div class="col-12">
+				<div class="bg-dark p-4 text-center rounded-3">
+					<h1 class="text-white">نمایش مشبک پست‌ها</h1>
+					<nav class="d-flex justify-content-center" aria-label="breadcrumb">
+						<ol class="breadcrumb breadcrumb-dark m-0">
+							<li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house me-1"></i> خانه</a></li>
+							<li class="breadcrumb-item active">همه پست‌ها</li>
+						</ol>
+					</nav>
+				</div>
+      </div>
+    </div>
+	</div>
+</section>
+<!-- =======================
+Inner intro END -->
+
+<!-- =======================
+Main content START -->
+<section class="position-relative pt-0">
+	<div class="container">
+		<div class="row filter-container overflow-hidden" data-isotope='{"layoutMode": "masonry"}'>
+            {% for post in posts %}
+			    <!-- Card item START -->
+			<div class="col-sm-6 col-lg-4 grid-item">
+				<div class="card mb-4">
+					<!-- Card img -->
+					<div class="card-fold position-relative">
+						<img class="card-img" src="{{ post.image.url }}" alt="Card image">
+					</div>
+					<div class="card-body px-0 pt-3">
+						<h4 class="card-title"><a href="post-single-6.html" class="btn-link text-reset stretched-link fw-bold">{{ post.title }}</a></h4>
+            <p class="card-text">{{ post.content }}</p>
+						<!-- Card info -->
+						<ul class="nav nav-divider align-items-center text-uppercase small">
+							<li class="nav-item">
+								<a href="post-grid-masonry.html#" class="nav-link text-reset btn-link">{{ post.author.get_full_name }}</a>
+							</li>
+							<li class="nav-item">۱۷ اسفند ۱۴۰۰</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- Card item END -->
+            {% endfor %}
+		</div> <!-- Row end -->
+	</div>
+</section>
+<!-- =======================
+Main content END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+{% endblock content %}
