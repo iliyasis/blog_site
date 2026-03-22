@@ -14,7 +14,7 @@ Inner intro START -->
 	<div class="container">
 		<div class="row">
       <div class="col-12">
-        <div class="card bg-dark-overlay-3 h-300 overflow-hidden card-bg-scale text-center" style="background-image:url({% static 'images/blog/16by9/07.jpg' %}); background-position: center left; background-size: cover;">
+        <div class="card bg-dark-overlay-3 h-300 overflow-hidden card-bg-scale text-center" style="background-image:url({% static 'images/blog/16by9/07.jpg' %}); background-position: center ; background-size: cover;">
           <!-- Card Image overlay -->
           <div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
             <div class="col-md-8 m-auto bg-blur p-5 rounded-3 shadow-lg">
@@ -52,16 +52,18 @@ Main content START -->
           <div class="card-img-overlay d-flex flex-column p-3 p-md-4">
             <div>
               <!-- Card category -->
-              <a href="#post-cards.html" class="badge text-bg-warning"><i class="fas fa-circle me-2 small fw-bold"></i>Technology</a>
+                {% for cat in post.category.all %}
+                <a href="{{ cat.get_absolute_url }}" class="badge text-bg-{{ cat.color }}"><i class="fas fa-circle me-2 small fw-bold"></i>{{ cat.title }}</a>
+                {% endfor %}
             </div>
             <div class="w-100 mt-auto">
 
               <!-- Card title -->
-              <h4 class="text-white"><a href="post-single.html" class="btn-link text-reset stretched-link">{{ post.title }}</a></h4>
+              <h4 class="text-white"><a href="{{ post.get_absolute_url }}" class="btn-link text-reset stretched-link">{{ post.title }}</a></h4>
               <!-- Card info -->
               <ul class="nav nav-divider text-white-force align-items-center small">
                 <li class="nav-item position-relative">
-                  <div class="nav-link">نویسنده؛  <a href="post-cards.html#" class="stretched-link text-reset btn-link">{{ post.author.get_full_name }}</a>
+                  <div class="nav-link">نویسنده؛  <a href="#" class="stretched-link text-reset btn-link">{{ post.author.get_full_name }}</a>
                   </div>
                 </li>
                 <li class="nav-item">{{ post.date_posted }}</li>
