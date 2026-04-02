@@ -5,113 +5,153 @@
 {% block content %}
 
 
-<!-- **************** MAIN CONTENT START **************** -->
-<main>
+    <!-- **************** MAIN CONTENT START **************** -->
+    <main>
 
-<!-- =======================
-Inner intro START -->
-<section class="pb-4 pt-3">
-	<div class="container">
-		<div class="row">
-      <div class="col-12">
-        <div class="card bg-dark-overlay-3 h-300 overflow-hidden card-bg-scale text-center" style="background-image:url({% static 'images/blog/16by9/07.jpg' %}); background-position: center ; background-size: cover;">
-          <!-- Card Image overlay -->
-          <div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
-            <div class="col-md-8 m-auto bg-blur p-5 rounded-3 shadow-lg">
-							<h1 class="text-white">پست های کارتی</h1>
-							<nav class="d-flex justify-content-center" aria-label="breadcrumb">
-						<ol class="breadcrumb breadcrumb-dark breadcrumb-dots mb-0">
-							<li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house me-1"></i> خانه</a></li>
-							<li class="breadcrumb-item active">همه پست ها</li>
-						</ol>
-					</nav>
+        <!-- =======================
+        Inner intro START -->
+        <section class="pb-4 pt-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card bg-dark-overlay-3 h-300 overflow-hidden card-bg-scale text-center"
+                             style="background-image:url({% static 'images/blog/16by9/07.jpg' %}); background-position: center ; background-size: cover;">
+                            <!-- Card Image overlay -->
+                            <div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
+                                <div class="col-md-8 m-auto bg-blur p-5 rounded-3 shadow-lg">
+                                    <h1 class="text-white">پست های کارتی</h1>
+                                    <nav class="d-flex justify-content-center" aria-label="breadcrumb">
+                                        <ol class="breadcrumb breadcrumb-dark breadcrumb-dots mb-0">
+                                            <li class="breadcrumb-item"><a href="index.html"><i
+                                                    class="bi bi-house me-1"></i>{{ page_name }}</a></li>
+                                            <li class="breadcrumb-item active">{{ page_name2 }}</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-	</div>
-</section>
-<!-- =======================
-Inner intro END -->
+        </section>
+        <!-- =======================
+        Inner intro END -->
 
-<!-- =======================
-Main content START -->
-<section class="position-relative pt-0">
-	<div class="container">
-		<div class="row g-4">
-            {% for post in posts %}
-      <!-- Card item START -->
-      <div class="col-sm-6 col-lg-4">
-        <div class="card card-overlay-bottom card-img-scale">
-          <!-- Card featured -->
-					<span class="card-featured" title="Featured post"><i class="fas fa-star"></i></span>
-          <!-- Card Image -->
-          <img src="{{ post.image.url }}" alt="">
-          <!-- Card Image overlay -->
-          <div class="card-img-overlay d-flex flex-column p-3 p-md-4">
-            <div>
-              <!-- Card category -->
-                {% for cat in post.category.all %}
-                <a href="{{ cat.get_absolute_url }}" class="badge text-bg-{{ cat.color }}"><i class="fas fa-circle me-2 small fw-bold"></i>{{ cat.title }}</a>
-                {% endfor %}
+        <!-- =======================
+        Main content START -->
+        <section class="position-relative pt-0">
+            <div class="container">
+                <div class="row g-4">
+                    {% for post in posts %}
+                        <!-- Card item START -->
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="card card-overlay-bottom card-img-scale">
+                                <!-- Card featured -->
+                                <span class="card-featured" title="Featured post"><i class="fas fa-star"></i></span>
+                                <!-- Card Image -->
+                                <img src="{{ post.image.url }}" alt="">
+                                <!-- Card Image overlay -->
+                                <div class="card-img-overlay d-flex flex-column p-3 p-md-4">
+                                    <div>
+                                        <!-- Card category -->
+                                        {% for cat in post.category.all %}
+                                            <a href="{{ cat.get_absolute_url }}"
+                                               class="badge text-bg-{{ cat.color }}"><i
+                                                    class="fas fa-circle me-2 small fw-bold"></i>{{ cat.title }}</a>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="w-100 mt-auto">
+
+                                        <!-- Card title -->
+                                        <h4 class="text-white"><a href="{{ post.get_absolute_url }}"
+                                                                  class="btn-link text-reset stretched-link">{{ post.title }}</a>
+                                        </h4>
+                                        <!-- Card info -->
+                                        <ul class="nav nav-divider text-white-force align-items-center small">
+                                            <li class="nav-item position-relative">
+                                                <div class="nav-link">نویسنده؛ <a href="#"
+                                                                                  class="stretched-link text-reset btn-link">{{ post.author.get_full_name }}</a>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item">{{ post.date_posted }}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card item END -->
+                    {% endfor %}
+                </div> <!-- Row end -->
+
+
+                <!-- Pagination START -->
+                {% if posts.has_other_pages %}
+                    <nav class="my-5" aria-label="navigation">
+                        <ul  class="pagination pagination-bordered d-flex justify-content-between">
+
+                            {% if posts.has_previous %}
+                                <li>
+                                    <ul class="list-unstyled">
+                                        <li class="page-item">
+                                            <a class="page-link" href="?page={{ posts.previous_page_number }}">قبلی</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <ul class="list-unstyled">
+                                        <li class="page-item">
+                                            <a></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            {% endif %}
+
+                            <li>
+                                <ul class="list-unstyled">
+                                    {% for i in posts.paginator.page_range %}
+                                        {% if posts.number == i %}
+                                            <li class="page-item active"><a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                                            </li>
+                                        {% else %}
+                                            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+
+                                </ul>
+                            </li>
+
+                            {% if posts.has_next %}
+                                <li>
+                                    <ul class="list-unstyled">
+                                        <li class="page-item">
+                                            <a class="page-link" href="?page={{ posts.next_page_number }}">بعدی</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <ul class="list-unstyled">
+                                        <li class="page-item">
+                                            <a></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                {% endif %}
+                <!-- Pagination END -->
+
+
             </div>
-            <div class="w-100 mt-auto">
+        </section>
+        <!-- =======================
+        Main content END -->
 
-              <!-- Card title -->
-              <h4 class="text-white"><a href="{{ post.get_absolute_url }}" class="btn-link text-reset stretched-link">{{ post.title }}</a></h4>
-              <!-- Card info -->
-              <ul class="nav nav-divider text-white-force align-items-center small">
-                <li class="nav-item position-relative">
-                  <div class="nav-link">نویسنده؛  <a href="#" class="stretched-link text-reset btn-link">{{ post.author.get_full_name }}</a>
-                  </div>
-                </li>
-                <li class="nav-item">{{ post.date_posted }}</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Card item END -->
-            {% endfor %}
-    </div> <!-- Row end -->
-
-		<!-- Pagination START -->
-    <nav class="my-5" aria-label="navigation">
-      <ul class="pagination pagination-bordered d-flex justify-content-between">
-        <li>
-					<ul class="list-unstyled">
-						<li class="page-item">
-							<a class="page-link" href="post-cards.html#">First</a>
-						</li>
-					</ul>
-				</li>
-        <li>
-					<ul class="list-unstyled">
-						<li class="page-item"><a class="page-link" href="post-cards.html#">1</a></li>
-						<li class="page-item active"><a class="page-link" href="post-cards.html#">2</a></li>
-						<li class="page-item disabled"><a class="page-link" href="post-cards.html#">..</a></li>
-						<li class="page-item"><a class="page-link" href="post-cards.html#">22</a></li>
-						<li class="page-item"><a class="page-link" href="post-cards.html#">23</a></li>
-					</ul>
-				</li>
-        <li>
-					<ul class="list-unstyled">
-						<li class="page-item">
-							<a class="page-link" href="post-cards.html#">Last</a>
-						</li>
-					</ul>
-				</li>
-      </ul>
-    </nav>
-		<!-- Pagination END -->
-	</div>
-</section>
-<!-- =======================
-Main content END -->
-
-</main>
-<!-- **************** MAIN CONTENT END **************** -->
+    </main>
+    <!-- **************** MAIN CONTENT END **************** -->
 
 {% endblock content %}
 

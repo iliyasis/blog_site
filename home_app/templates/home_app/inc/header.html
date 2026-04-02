@@ -50,7 +50,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <!-- لوگو شروع -->
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{% url 'home_app:home_page' %}">
                 <img class="light-mode-item my-3" src="{% static 'images/logo.svg' %}" alt="لوگو">
                 <img class="dark-mode-item my-3" src="{% static 'images/logo-light.svg' %}" alt="لوگو">
             </a>
@@ -70,13 +70,9 @@
 
                     <!-- مورد منو ۱: دموها -->
                     <li class="nav-item dropdown">
-                        {% if active_head == "home_page" %}
-                            <a class="nav-link  active" href="{% url 'home_app:home_page' %}" id="homeMenu"
+                            <a class="nav-link {% if request.resolver_match.url_name == "home_page" %}active{% endif %}" href="{% url 'home_app:home_page' %}" id="homeMenu"
                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خانه</a>
-                        {% else %}
-                            <a class="nav-link" href="{% url 'home_app:home_page' %}" id="homeMenu"
-                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خانه</a>
-                        {% endif %}
+
                         <ul class="dropdown-menu" aria-labelledby="homeMenu">
                             <li><a class="dropdown-item active" href="index.html">خانه پیش‌فرض</a></li>
                             <li><a class="dropdown-item" href="index-lazy.html">خانه لود تنبل</a></li>
@@ -95,12 +91,7 @@
 
                     <!-- مورد منو ۲: صفحات -->
                     <li class="nav-item dropdown">
-                        {% if active_head == "post_list" %}
-                            <a class="nav-link active" href="{% url 'blog_app:post_list' %}">بلاگ ها</a>
-                        {% else %}
-                            <a class="nav-link" href="{% url 'blog_app:post_list' %}">بلاگ ها</a>
-                        {% endif %}
-
+                            <a class="nav-link {% if request.resolver_match.url_name == "post_list" %}active{% endif %}" href="{% url 'blog_app:post_list' %}">بلاگ ها</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="index.html#" id="pagesMenu" data-bs-toggle="dropdown"
