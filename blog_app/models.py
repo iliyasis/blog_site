@@ -45,3 +45,18 @@ class Post(models.Model):
 
     def __str__(self):
         return f"{ self.title }   ------------  {self.content[:25]} "
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, related_name="comments", on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments")
+    reply_to = models.ForeignKey('self', on_delete=models.CASCADE, related_name='replies', null=True, blank=True)
+    content = models.TextField()
+    date_posted = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "کامنت"
+        verbose_name_plural = "کامنت ها"
+
+    def __str__(self):
+        return f"{ self.author.username }  ------------  {self.content[:25]} "

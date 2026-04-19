@@ -103,111 +103,68 @@
 
                         <!-- Comments START -->
                         <div class="mt-5">
-                            <h3>5 comments</h3>
+                            <h3>{{ post.comments.count }} کامنت</h3>
                             <!-- Comment level 1-->
-                            <div class="my-4 d-flex">
-                                <img class="avatar avatar-md rounded-circle float-start me-3"
-                                     src="{% static 'images/avatar/01.jpg' %}" alt="avatar">
-                                <div>
-                                    <div class="mb-2">
-                                        <h5 class="m-0">Allen Smith</h5>
-                                        <span class="me-3 small">June 11, 2022 at 6:01 am </span>
-                                        <a href="post-single-4.html#" class="text-body fw-normal">Reply</a>
+                            {% for comment in post.comments.all %}
+                                {% if comment.reply_to == null %}
+                                    <div class="my-4 d-flex">
+                                        <img class="avatar avatar-md rounded-circle float-start me-3"
+                                             src="{{ comment.author.profile.picture.url }}" alt="avatar">
+                                        <div>
+                                            <div class="mb-2">
+                                                <h5 class="m-0">{{ comment.author.profile.nickname }}</h5>
+                                                <span class="me-3 small">{{ comment.date_posted }}</span>
+                                                <a onclick="reply({{ comment.id }},'{{ comment.author.profile.nickname }}')" href="#comment" class="text-body fw-normal">پاسخ</a>
+                                            </div>
+                                            <p>{{ comment.content }}</p>
+                                        </div>
                                     </div>
-                                    <p>Satisfied conveying a dependent contented he gentleman agreeable do be. Warrant
-                                        private blushes removed an in equally totally if. Delivered dejection necessary
-                                        objection do Mr prevailed. Mr feeling does chiefly cordial in do. </p>
-                                </div>
-                            </div>
-                            <!-- Comment children level 2 -->
-                            <div class="my-4 d-flex ps-2 ps-md-3">
-                                <img class="avatar avatar-md rounded-circle float-start me-3"
-                                     src="{% static 'images/avatar/02.jpg' %}" alt="avatar">
-                                <div>
-                                    <div class="mb-2">
-                                        <h5 class="m-0">Louis Ferguson</h5>
-                                        <span class="me-3 small">June 11, 2022 at 6:55 am </span>
-                                        <a href="post-single-4.html#" class="text-body fw-normal">Reply</a>
-                                    </div>
-                                    <p>Water timed folly right aware if oh truth. Imprudence attachment him his for
-                                        sympathize. Large above be to means. Dashwood does provide stronger is. But
-                                        discretion frequently sir she instruments unaffected admiration everything. </p>
-                                </div>
-                            </div>
-                            <!-- Comment children level 3 -->
-                            <div class="my-4 d-flex ps-3 ps-md-5">
-                                <img class="avatar avatar-md rounded-circle float-start me-3"
-                                     src="{% static 'images/avatar/01.jpg' %}" alt="avatar">
-                                <div>
-                                    <div class="mb-2">
-                                        <h5 class="m-0">Allen Smith</h5>
-                                        <span class="me-3 small">June 11, 2022 at 7:10 am </span>
-                                        <a href="post-single-4.html#" class="text-body fw-normal">Reply</a>
-                                    </div>
-                                    <p>Meant balls it if up doubt small purse. </p>
-                                </div>
-                            </div>
-                            <!-- Comment level 2 -->
-                            <div class="my-4 d-flex ps-2 ps-md-3">
-                                <img class="avatar avatar-md rounded-circle float-start me-3"
-                                     src="{% static 'images/avatar/03.jpg' %}" alt="avatar">
-                                <div>
-                                    <div class="mb-2">
-                                        <h5 class="m-0">Frances Guerrero</h5>
-                                        <span class="me-3 small">June 14, 2022 at 12:35 pm </span>
-                                        <a href="post-single-4.html#" class="text-body fw-normal">Reply</a>
-                                    </div>
-                                    <p>Required his you put the outlived answered position. A pleasure exertion if
-                                        believed provided to. All led out world this music while asked. Paid mind even
-                                        sons does he door no. Attended overcame repeated it is perceived Marianne in. I
-                                        think on style child of. Servants moreover in sensible it ye possible. </p>
-                                </div>
-                            </div>
-                            <!-- Comment level 1 -->
-                            <div class="my-4 d-flex">
-                                <img class="avatar avatar-md rounded-circle float-start me-3"
-                                     src="{% static 'images/avatar/04.jpg' %}" alt="avatar">
-                                <div>
-                                    <div class="mb-2">
-                                        <h5 class="m-0">Judy Nguyen</h5>
-                                        <span class="me-3 small">June 18, 2022 at 11:55 am </span>
-                                        <a href="post-single-4.html#" class="text-body fw-normal">Reply</a>
-                                    </div>
-                                    <p>Fulfilled direction use continual set him propriety continued. Saw met applauded
-                                        favorite deficient engrossed concealed and her. Concluded boy perpetual old
-                                        supposing. Farther related bed and passage comfort civilly. </p>
-                                </div>
-                            </div>
+                                    {% for reply in comment.replies.all %}
+                                        <!-- Comment children level 2 -->
+                                        <div class="my-4 d-flex ps-2 ps-md-3">
+                                            <img class="avatar avatar-md rounded-circle float-start me-3"
+                                                 src="{{ reply.author.profile.picture.url }}" alt="avatar">
+                                            <div>
+                                                <div class="mb-2">
+                                                    <h5 class="m-0">{{ reply.author.profile.nickname }}</h5>
+                                                    <span class="me-3 small">{{ reply.date_posted }} </span>
+                                                <a onclick="reply({{ reply.id }}, '{{ reply.author.profile.nickname }}')" href="#comment" class="text-body fw-normal">پاسخ</a>
+                                                </div>
+                                                <p>{{ reply.content }}</p>
+                                            </div>
+                                        </div>
+                                        {% for reply_2 in reply.replies.all %}
+                                            <!-- Comment children level 3 -->
+                                            <div class="my-4 d-flex ps-3 ps-md-5">
+                                                <img class="avatar avatar-md rounded-circle float-start me-3"
+                                                     src="{{ reply_2.author.profile.picture.url }}" alt="avatar">
+                                                <div>
+                                                    <div class="mb-2">
+                                                        <h5 class="m-0">{{ reply_2.author.profile.nickname }}</h5>
+                                                        <span class="me-3 small">{{ reply_2.date_posted }} </span>
+                                                    </div>
+                                                    <p>{{ reply_2.content }}</p>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    {% endfor %}
+                                {% endif %}
 
+                            {% endfor %}
                         </div>
                         <!-- Comments END -->
                         <!-- Reply START -->
-                        <div>
-                            <h3>Leave a reply</h3>
-                            <small>Your email address will not be published. Required fields are marked *</small>
-                            <form class="row g-3 mt-2">
-                                <div class="col-md-6">
-                                    <label class="form-label">Name *</label>
-                                    <input type="text" class="form-control" aria-label="First name">
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Email *</label>
-                                    <input type="email" class="form-control">
-                                </div>
-                                <!-- custom checkbox -->
-                                <div class="col-md-12">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">Save my name and email in
-                                            this browser for the next time I comment. </label>
-                                    </div>
+                        <div id="comment">
+                            <h3>نطرات خود را با  ما به اشتراک بگذارید</h3>
+                            <form method="post" class="row g-3 mt-2">
+                                {% csrf_token %}
+                                <input id="reply_input" type="hidden" name="reply_to" value="">
+                                <div class="col-12">
+                                    <label class="form-label">نظر شما *</label>
+                                    <textarea name="content" class="form-control" rows="3"></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <label class="form-label">Your Comment *</label>
-                                    <textarea class="form-control" rows="3"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Post comment</button>
+                                    <input id="send_comment" value="ارسال" type="submit" class="btn btn-primary">
                                 </div>
                             </form>
                         </div>
@@ -292,5 +249,12 @@
         Sticky post END -->
 
     </main>
+    <script>
+    function reply(comment_id, author){
+        author = " پاسخ به " + author
+        document.getElementById("reply_input").value = comment_id;
+        document.getElementById("send_comment").value = author;
+    }
+    </script>
 
 {% endblock content %}

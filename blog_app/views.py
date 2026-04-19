@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from blog_app.models import Post ,Category
+from blog_app.models import Post ,Category, Comment
 from django.core.paginator import Paginator
 
 # Create your views here.
@@ -28,4 +28,12 @@ def category_detail(request, pk):
 
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
+    if request.method == "POST":
+        content = request.POST.get("content")
+        if request.POST.get("reply_to"):
+            reply_to = int(request.POST.get("reply_to"))
+            reply_to = Comment.objects.filter(id=reply_to)[0]
+        else:
+            reply_to = None
+        Comment.objects.create(content=content, post=post, author=request.user, reply_to=reply_to)
     return render(request, "blog_app/post_detail.html", {"post":post})
