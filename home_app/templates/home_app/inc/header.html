@@ -63,7 +63,6 @@
                 <span class="text-body h6 d-none d-sm-inline-block">منو</span>
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <!-- منوی ناوبری اصلی شروع -->
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav navbar-nav-scroll mx-auto">
@@ -342,6 +341,15 @@
             </div>
             <!-- منوی ناوبری اصلی پایان -->
 
+        <div class="nav my-3 my-xl-0 px-4 px-lg-1 flex-nowrap align-items-center">
+					<div class="nav-item w-100">
+						<form method="get" action="{% url 'blog_app:searched_post' %}" class="position-relative">
+
+							<input value="{% if request.GET.q %}{{ request.GET.q }}{% endif %}" name ="q" class="form-control pe-5 bg-transparent" type="search" placeholder="بگرد..." aria-label="Search">
+							<button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
+						</form>
+					</div>
+				</div>
             <!-- ناو سمت راست شروع -->
             <div class="nav flex-nowrap align-items-center">
                 <!-- دکمه ناو -->

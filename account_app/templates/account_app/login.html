@@ -4,69 +4,82 @@
 
 {% block content %}
 
-<!-- **************** MAIN CONTENT START **************** -->
-<main>
+    <!-- **************** MAIN CONTENT START **************** -->
+    <main>
 
-<!-- =======================
-Inner intro START -->
-<section>
-	<div class="container">
-		<div class="row">
-      <div class="col-md-10 col-lg-8 col-xl-6 mx-auto">
-        <div class="p-4 p-sm-5 bg-primary bg-opacity-10 rounded">
-					<h2>به حساب خود وارد شوید</h2>
-					<!-- Form START -->
-					<form method="post" action="{% url 'account_app:login_page' %}" class="mt-4">
-						<!-- csrf token -->
-                        {% csrf_token %}
-						<!-- username -->
-						<div class="mb-3">
-							<label class="form-label" for="exampleInputUserName1">نلم کاربری</label>
-							<input name="username" type="text" class="form-control" id="exampleInputUserName1" placeholder="مثل: علی احمدی">
-						</div>
-						<!-- Password -->
-						<div class="mb-3">
-							<label class="form-label" for="exampleInputPassword1">رمز عبور</label>
-							<input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="*********">
-						</div>
-						<!-- Checkbox -->
-						<div class="mb-3 form-check">
-							<input type="checkbox" class="form-check-input" id="exampleCheck1">
-							<label class="form-check-label" for="exampleCheck1">مرا به خاطر بسپار</label>
-						</div>
-						<!-- Button -->
-						<div class="row align-items-center">
-							<div class="col-sm-4">
-								<button type="submit" class="btn btn-success">ورود</button>
-							</div>
-							<div class="col-sm-8 text-sm-end">
-								<span>هنوز اکانت ندارید؟ <a href="{% url 'account_app:registration_page' %}"><u>ثبت نام</u></a></span>
-							</div>
-						</div>
-					</form>
-					<!-- Form END -->
-					<hr>
-					<!-- Social-media btn -->
-					<div class="text-center">
-						<p>ورود فوری با دیگر اکانت های شما</p>
-						<ul class="list-unstyled d-sm-flex mt-3 justify-content-center">
-							<li class="mx-2">
-								<a href="signin.html#" class="btn bg-facebook d-inline-block"><i class="fab fa-facebook-f me-2"></i> ورود با فیسبوک</a>
-							</li>
-							<li class="mx-2">
-								<a href="signin.html#" class="btn bg-google d-inline-block"><i class="fab fa-google me-2"></i> ورود با گوگل</a>
-							</li>
-						</ul>
-					</div>
-        </div>
-      </div>
-    </div>
-	</div>
-</section>
-<!-- =======================
-Inner intro END -->
+        <!-- =======================
+        Inner intro START -->
+        <section>
+            <div class="container">
+                <div class="row">
+                    {% if messages %}
+                        <div class="messages">
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }}" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    <div class="col-md-10 col-lg-8 col-xl-6 mx-auto">
+                        <div class="p-4 p-sm-5 bg-primary bg-opacity-10 rounded">
+                            <h2>به حساب خود وارد شوید</h2>
+                            <!-- Form START -->
+                            <form method="post" action="{% url 'account_app:login_page' %}" class="mt-4">
+                                <!-- csrf token -->
+                                {% csrf_token %}
+                                <!-- username -->
+                                <div class="mb-3">
+                                    <label class="form-label" for="exampleInputUserName1">نلم کاربری</label>
+                                    <input name="username" type="text" class="form-control" id="exampleInputUserName1"
+                                           placeholder="مثل: علی احمدی">
+                                </div>
+                                <!-- Password -->
+                                <div class="mb-3">
+                                    <label class="form-label" for="exampleInputPassword1">رمز عبور</label>
+                                    <input name="password" type="password" class="form-control"
+                                           id="exampleInputPassword1" placeholder="*********">
+                                </div>
+                                <!-- Checkbox -->
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">مرا به خاطر بسپار</label>
+                                </div>
+                                <!-- Button -->
+                                <div class="row align-items-center">
+                                    <div class="col-sm-4">
+                                        <button type="submit" class="btn btn-success">ورود</button>
+                                    </div>
+                                    <div class="col-sm-8 text-sm-end">
+                                        <span>هنوز اکانت ندارید؟ <a href="{% url 'account_app:registration_page' %}"><u>ثبت نام</u></a></span>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- Form END -->
+                            <hr>
+                            <!-- Social-media btn -->
+                            <div class="text-center">
+                                <p>ورود فوری با دیگر اکانت های شما</p>
+                                <ul class="list-unstyled d-sm-flex mt-3 justify-content-center">
+                                    <li class="mx-2">
+                                        <a href="signin.html#" class="btn bg-facebook d-inline-block"><i
+                                                class="fab fa-facebook-f me-2"></i> ورود با فیسبوک</a>
+                                    </li>
+                                    <li class="mx-2">
+                                        <a href="signin.html#" class="btn bg-google d-inline-block"><i
+                                                class="fab fa-google me-2"></i> ورود با گوگل</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- =======================
+        Inner intro END -->
 
-</main>
-<!-- **************** MAIN CONTENT END **************** -->
+    </main>
+    <!-- **************** MAIN CONTENT END **************** -->
 
 {% endblock content %}

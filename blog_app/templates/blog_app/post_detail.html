@@ -153,6 +153,7 @@
                             {% endfor %}
                         </div>
                         <!-- Comments END -->
+                    {% if user.is_authenticated %}
                         <!-- Reply START -->
                         <div id="comment">
                             <h3>نطرات خود را با  ما به اشتراک بگذارید</h3>
@@ -169,6 +170,7 @@
                             </form>
                         </div>
                         <!-- Reply END -->
+                    {% endif %}
                     </div>
                     <!-- Main Content END -->
 

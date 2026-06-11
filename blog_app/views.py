@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from blog_app.models import Post ,Category, Comment
 from django.core.paginator import Paginator
+from django.db.models import Q
 
 # Create your views here.
 
@@ -37,3 +38,13 @@ def post_detail(request, slug):
             reply_to = None
         Comment.objects.create(content=content, post=post, author=request.user, reply_to=reply_to)
     return render(request, "blog_app/post_detail.html", {"post":post})
+
+
+def search(request):
+    q = request.GET.get("q")
+    posts = Post.objects.filter(Q(title__icontains=q) | Q(content__icontains=q)).order_by("-date_posted")
+    paginator = Paginator(posts, 2)
+    page_number = request.GET.get('page')
+    posts = paginator.get_page(page_number)
+    return render(request, "blog_app/post_list.html",{"posts": posts})
+

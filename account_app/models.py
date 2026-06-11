@@ -9,5 +9,9 @@ class Profile(models.Model):
     email = models.EmailField()
     phone = models.IntegerField()
 
+    class Meta:
+        verbose_name = "پروفایل"
+        verbose_name_plural = "پروفایل ها"
+
     def __str__(self):
         return self.nickname

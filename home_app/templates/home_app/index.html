@@ -1,765 +1,906 @@
-{%  extends 'home_app/base.html' %}
+{% extends 'home_app/base.html' %}
 
 {% load static %}
 
 
 {% block content %}
-<!-- **************** محتوای اصلی شروع **************** -->
-<main>
+    <!-- **************** محتوای اصلی شروع **************** -->
+    <main>
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <!-- =======================
+        بخش ترند شروع -->
+        <section class="py-2">
+            <div class="container">
+                <div class="row g-0">
+                    <div class="col-12 bg-primary bg-opacity-10 p-2 rounded">
+                        <div class="d-sm-flex align-items-center text-center text-sm-start">
+                            <!-- عنوان -->
+                            <div class="me-3">
+                                <span class="badge bg-primary p-2 px-3">ترند:</span>
+                            </div>
+                            <!-- اسلایدر -->
+                            <div class="tiny-slider arrow-end arrow-xs arrow-white arrow-round arrow-md-none">
+                                <div class="tiny-slider-inner"
+                                     data-autoplay="true"
+                                     data-hoverpause="true"
+                                     data-gutter="0"
+                                     data-arrow="true"
+                                     data-dots="false"
+                                     data-items="1">
+                                    <!-- آیتم‌های اسلایدر -->
+                                    <div><a href="index.html#" class="text-reset btn-link">رایج‌ترین بحث کسب‌وکار
+                                        آنقدرها هم که فکر می‌کنید سیاه و سفید نیست</a></div>
+                                    <div><a href="index.html#" class="text-reset btn-link">چگونه ۱۰ بدترین شکست کسب‌وکار
+                                        تاریخ می‌توانست جلوگیری شود</a></div>
+                                    <div><a href="index.html#" class="text-reset btn-link">رایج‌ترین بحث کسب‌وکار
+                                        آنقدرها هم که فکر می‌کنید سیاه و سفید نیست</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- ردیف پایان -->
+            </div>
+        </section>
+        <!-- =======================
+        بخش ترند پایان -->
 
-<!-- =======================
-بخش ترند شروع -->
-<section class="py-2">
-	<div class="container">
-		<div class="row g-0">
-			<div class="col-12 bg-primary bg-opacity-10 p-2 rounded">
-				<div class="d-sm-flex align-items-center text-center text-sm-start">
-					<!-- عنوان -->
-					<div class="me-3">
-						<span class="badge bg-primary p-2 px-3">ترند:</span>
-					</div>
-					<!-- اسلایدر -->
-					<div class="tiny-slider arrow-end arrow-xs arrow-white arrow-round arrow-md-none">
-						<div class="tiny-slider-inner"
-							data-autoplay="true"
-							data-hoverpause="true"
-							data-gutter="0"
-							data-arrow="true"
-							data-dots="false"
-							data-items="1">
-							<!-- آیتم‌های اسلایدر -->
-							<div> <a href="index.html#" class="text-reset btn-link">رایج‌ترین بحث کسب‌وکار آنقدرها هم که فکر می‌کنید سیاه و سفید نیست</a></div>
-							<div> <a href="index.html#" class="text-reset btn-link">چگونه ۱۰ بدترین شکست کسب‌وکار تاریخ می‌توانست جلوگیری شود</a></div>
-							<div> <a href="index.html#" class="text-reset btn-link">رایج‌ترین بحث کسب‌وکار آنقدرها هم که فکر می‌کنید سیاه و سفید نیست</a></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> <!-- ردیف پایان -->
-	</div>
-</section>
-<!-- =======================
-بخش ترند پایان -->
+        <!-- =======================
+        قهرمان اصلی شروع -->
+        <section class="pt-4 pb-0 card-grid">
+            <div class="container">
+                <div class="row g-4">
+                    <!-- کارت بزرگ سمت چپ -->
+                    <div class="col-lg-6">
+                        <div class="card card-overlay-bottom card-grid-lg card-bg-scale"
+                             style="background-image:url({% static 'images/blog/1by1/01.jpg' %}); background-position: center left; background-size: cover;">
+                            <!-- کارت ویژه -->
+                            <span class="card-featured" title="پست ویژه"><i class="fas fa-star"></i></span>
+                            <!-- روکش تصویر کارت -->
+                            <div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
+                                <div class="w-100 mt-auto">
+                                    <!-- دسته‌بندی کارت -->
+                                    <a href="index.html#" class="badge text-bg-danger mb-2"><i
+                                            class="fas fa-circle me-2 small fw-bold"></i>سبک زندگی</a>
+                                    <!-- عنوان کارت -->
+                                    <h2 class="text-white h1"><a href="post-single-4.html"
+                                                                 class="btn-link stretched-link text-reset">ده نشانه
+                                        واضح که نیاز به استارتاپ جدید دارید</a></h2>
+                                    <p class="text-white">هیچ کس گرانش را بالا نیاورد، موضوع کلبه من آقای من باشد. در
+                                        پارک در نزدیکی مورد من نگه دارید.</p>
+                                    <!-- اطلاعات کارت -->
+                                    <ul class="nav nav-divider text-white-force align-items-center d-none d-sm-inline-block">
+                                        <li class="nav-item">
+                                            <div class="nav-link">
+                                                <div class="d-flex align-items-center text-white position-relative">
+                                                    <div class="avatar avatar-sm">
+                                                        <img class="avatar-img rounded-circle"
+                                                             src="{% static 'images/avatar/11.jpg' %}" alt="آواتار">
+                                                    </div>
+                                                    <span class="ms-3">توسط <a href="index.html#"
+                                                                               class="stretched-link text-reset btn-link">لوئی</a></span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item">۱۵ نوامبر ۲۰۲۲</li>
+                                        <li class="nav-item">۵ دقیقه خواندن</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- کارت‌های کوچک سمت راست -->
+                    <div class="col-lg-6">
+                        <div class="row g-4">
+                            <!-- آیتم کارت شروع -->
+                            <div class="col-12">
+                                <div class="card card-overlay-bottom card-grid-sm card-bg-scale"
+                                     style="background-image:url({% static 'images/blog/1by1/02.jpg' %}); background-position: center left; background-size: cover;">
+                                    <!-- تصویر کارت -->
+                                    <!-- روکش تصویر کارت -->
+                                    <div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
+                                        <div class="w-100 mt-auto">
+                                            <!-- دسته‌بندی کارت -->
+                                            <a href="index.html#" class="badge text-bg-warning mb-2"><i
+                                                    class="fas fa-circle me-2 small fw-bold"></i>تکنولوژی</a>
+                                            <!-- عنوان کارت -->
+                                            <h4 class="text-white"><a href="post-single-4.html"
+                                                                      class="btn-link stretched-link text-reset">بهترین
+                                                بردهای پینترست برای یادگیری کسب‌وکار</a></h4>
+                                            <!-- اطلاعات کارت -->
+                                            <ul class="nav nav-divider text-white-force align-items-center d-none d-sm-inline-block">
+                                                <li class="nav-item position-relative">
+                                                    <div class="nav-link">توسط <a href="index.html#"
+                                                                                  class="stretched-link text-reset btn-link">برایان</a>
+                                                    </div>
+                                                </li>
+                                                <li class="nav-item">۱۸ اوت ۲۰۲۲</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- آیتم کارت پایان -->
+                            <!-- آیتم کارت شروع -->
+                            <div class="col-md-6">
+                                <div class="card card-overlay-bottom card-grid-sm card-bg-scale"
+                                     style="background-image:url({% static 'images/blog/1by1/03.jpg' %}); background-position: center left; background-size: cover;">
+                                    <!-- روکش تصویر کارت -->
+                                    <div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
+                                        <div class="w-100 mt-auto">
+                                            <!-- دسته‌بندی کارت -->
+                                            <a href="index.html#" class="badge text-bg-success mb-2"><i
+                                                    class="fas fa-circle me-2 small fw-bold"></i>کسب‌وکار</a>
+                                            <!-- عنوان کارت -->
+                                            <h4 class="text-white"><a href="post-single-4.html"
+                                                                      class="btn-link stretched-link text-reset">راهنمای
+                                                متوسط پنج نکته برای کسب‌وکار</a></h4>
+                                            <!-- اطلاعات کارت -->
+                                            <ul class="nav nav-divider text-white-force align-items-center d-none d-sm-inline-block">
+                                                <li class="nav-item position-relative">
+                                                    <div class="nav-link">توسط <a href="index.html#"
+                                                                                  class="stretched-link text-reset btn-link">جوان</a>
+                                                    </div>
+                                                </li>
+                                                <li class="nav-item">۳ ژوئن ۲۰۲۲</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- آیتم کارت پایان -->
+                            <!-- آیتم کارت شروع -->
+                            <div class="col-md-6">
+                                <div class="card card-overlay-bottom card-grid-sm card-bg-scale"
+                                     style="background-image:url({% static 'images/blog/1by1/04.jpg' %}); background-position: center left; background-size: cover;">
+                                    <!-- روکش تصویر کارت -->
+                                    <div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
+                                        <div class="w-100 mt-auto">
+                                            <!-- دسته‌بندی کارت -->
+                                            <a href="index.html#" class="badge text-bg-info mb-2"><i
+                                                    class="fas fa-circle me-2 small fw-bold"></i>ورزشی</a>
+                                            <!-- عنوان کارت -->
+                                            <h4 class="text-white"><a href="post-single-4.html"
+                                                                      class="btn-link stretched-link text-reset">۱۵ دلیل
+                                                برای انتخاب استارتاپ</a></h4>
+                                            <!-- اطلاعات کارت -->
+                                            <ul class="nav nav-divider text-white-force align-items-center d-none d-sm-inline-block">
+                                                <li class="nav-item position-relative">
+                                                    <div class="nav-link">توسط <a href="index.html#"
+                                                                                  class="stretched-link text-reset btn-link">آماندا</a>
+                                                    </div>
+                                                </li>
+                                                <li class="nav-item">۲۸ ژانویه ۲۰۲۲</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- آیتم کارت پایان -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- =======================
+        قهرمان اصلی پایان -->
 
-<!-- =======================
-قهرمان اصلی شروع -->
-<section class="pt-4 pb-0 card-grid">
-	<div class="container">
-		<div class="row g-4">
-			<!-- کارت بزرگ سمت چپ -->
-			<div class="col-lg-6">
-				<div class="card card-overlay-bottom card-grid-lg card-bg-scale" style="background-image:url({% static 'images/blog/1by1/01.jpg' %}); background-position: center left; background-size: cover;">
-					<!-- کارت ویژه -->
-					<span class="card-featured" title="پست ویژه"><i class="fas fa-star"></i></span>
-					<!-- روکش تصویر کارت -->
-					<div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
-						<div class="w-100 mt-auto">
-							<!-- دسته‌بندی کارت -->
-							<a href="index.html#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>سبک زندگی</a>
-							<!-- عنوان کارت -->
-							<h2 class="text-white h1"><a href="post-single-4.html" class="btn-link stretched-link text-reset">ده نشانه واضح که نیاز به استارتاپ جدید دارید</a></h2>
-							<p class="text-white">هیچ کس گرانش را بالا نیاورد، موضوع کلبه من آقای من باشد. در پارک در نزدیکی مورد من نگه دارید.</p>
-							<!-- اطلاعات کارت -->
-							<ul class="nav nav-divider text-white-force align-items-center d-none d-sm-inline-block">
-								<li class="nav-item">
-									<div class="nav-link">
-										<div class="d-flex align-items-center text-white position-relative">
-											<div class="avatar avatar-sm">
-												<img class="avatar-img rounded-circle" src="{% static 'images/avatar/11.jpg' %}" alt="آواتار">
-											</div>
-											<span class="ms-3">توسط <a href="index.html#" class="stretched-link text-reset btn-link">لوئی</a></span>
-										</div>
-									</div>
-								</li>
-								<li class="nav-item">۱۵ نوامبر ۲۰۲۲</li>
-								<li class="nav-item">۵ دقیقه خواندن</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- کارت‌های کوچک سمت راست -->
-			<div class="col-lg-6">
-				<div class="row g-4">
-					<!-- آیتم کارت شروع -->
-					<div class="col-12">
-						<div class="card card-overlay-bottom card-grid-sm card-bg-scale" style="background-image:url({% static 'images/blog/1by1/02.jpg' %}); background-position: center left; background-size: cover;">
-							<!-- تصویر کارت -->
-							<!-- روکش تصویر کارت -->
-							<div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
-								<div class="w-100 mt-auto">
-									<!-- دسته‌بندی کارت -->
-									<a href="index.html#" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>تکنولوژی</a>
-									<!-- عنوان کارت -->
-									<h4 class="text-white"><a href="post-single-4.html" class="btn-link stretched-link text-reset">بهترین بردهای پینترست برای یادگیری کسب‌وکار</a></h4>
-									<!-- اطلاعات کارت -->
-									<ul class="nav nav-divider text-white-force align-items-center d-none d-sm-inline-block">
-										<li class="nav-item position-relative">
-											<div class="nav-link">توسط <a href="index.html#" class="stretched-link text-reset btn-link">برایان</a>
-											</div>
-										</li>
-										<li class="nav-item">۱۸ اوت ۲۰۲۲</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- آیتم کارت پایان -->
-					<!-- آیتم کارت شروع -->
-					<div class="col-md-6">
-						<div class="card card-overlay-bottom card-grid-sm card-bg-scale" style="background-image:url({% static 'images/blog/1by1/03.jpg' %}); background-position: center left; background-size: cover;">
-							<!-- روکش تصویر کارت -->
-							<div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
-								<div class="w-100 mt-auto">
-									<!-- دسته‌بندی کارت -->
-									<a href="index.html#" class="badge text-bg-success mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>کسب‌وکار</a>
-									<!-- عنوان کارت -->
-									<h4 class="text-white"><a href="post-single-4.html" class="btn-link stretched-link text-reset">راهنمای متوسط پنج نکته برای کسب‌وکار</a></h4>
-									<!-- اطلاعات کارت -->
-									<ul class="nav nav-divider text-white-force align-items-center d-none d-sm-inline-block">
-										<li class="nav-item position-relative">
-											<div class="nav-link">توسط <a href="index.html#" class="stretched-link text-reset btn-link">جوان</a>
-											</div>
-										</li>
-										<li class="nav-item">۳ ژوئن ۲۰۲۲</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- آیتم کارت پایان -->
-					<!-- آیتم کارت شروع -->
-					<div class="col-md-6">
-						<div class="card card-overlay-bottom card-grid-sm card-bg-scale" style="background-image:url({% static 'images/blog/1by1/04.jpg' %}); background-position: center left; background-size: cover;">
-							<!-- روکش تصویر کارت -->
-							<div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
-								<div class="w-100 mt-auto">
-									<!-- دسته‌بندی کارت -->
-									<a href="index.html#" class="badge text-bg-info mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>ورزشی</a>
-									<!-- عنوان کارت -->
-									<h4 class="text-white"><a href="post-single-4.html" class="btn-link stretched-link text-reset">۱۵ دلیل برای انتخاب استارتاپ</a></h4>
-									<!-- اطلاعات کارت -->
-									<ul class="nav nav-divider text-white-force align-items-center d-none d-sm-inline-block">
-										<li class="nav-item position-relative">
-											<div class="nav-link">توسط <a href="index.html#" class="stretched-link text-reset btn-link">آماندا</a>
-											</div>
-										</li>
-										<li class="nav-item">۲۸ ژانویه ۲۰۲۲</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- آیتم کارت پایان -->
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- =======================
-قهرمان اصلی پایان -->
+        <!-- =======================
+        محتوای اصلی شروع -->
+        <section class="position-relative">
+            <div class="container" data-sticky-container>
+                <div class="row">
+                    <!-- پست اصلی شروع -->
+                    <div class="col-lg-9">
+                        <!-- عنوان -->
+                        <div class="mb-4">
+                            <h2 class="m-0"><i class="bi bi-hourglass-top me-2"></i>برترین نکات امروز</h2>
+                            <p>آخرین اخبار فوری، تصاویر، ویدیوها و گزارش‌های ویژه</p>
+                        </div>
+                        <div class="row gy-4">
+                            <!-- آیتم کارت شروع -->
+                            <div class="col-sm-6">
+                                <div class="card">
+                                    <!-- تصویر کارت -->
+                                    <div class="position-relative">
+                                        <img class="card-img" src="{% static 'images/blog/4by3/01.jpg' %}"
+                                             alt="تصویر کارت">
+                                        <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                                            <!-- روکش پایین کارت -->
+                                            <div class="w-100 mt-auto">
+                                                <!-- دسته‌بندی کارت -->
+                                                <a href="index.html#" class="badge text-bg-warning mb-2"><i
+                                                        class="fas fa-circle me-2 small fw-bold"></i>تکنولوژی</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body px-0 pt-3">
+                                        <!-- پست حمایت شده -->
+                                        <a href="index.html#!" class="mb-0 text-body small" tabindex="0" role="button"
+                                           data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus"
+                                           data-bs-placement="top"
+                                           data-bs-content="شما این تبلیغ را می‌بینید زیرا فعالیت شما با مخاطبان مورد نظر سایت ما مطابقت دارد.">
+                                            <i class="bi bi-info-circle ps-1"></i> حمایت شده
+                                        </a>
+                                        <h4 class="card-title mt-2"><a href="post-single.html"
+                                                                       class="btn-link text-reset fw-bold">۱۲ بدترین نوع
+                                            حساب کسب‌وکار که در توییتر دنبال می‌کنید</a></h4>
+                                        <p class="card-text">او زیر نور ماه مشغول آن بود، ورزشکاران. علاقه‌مند همه
+                                            کمک‌های شاد دشواری دون‌شایر است. در مورد شما از تعریف تحول به</p>
+                                        <!-- اطلاعات کارت -->
+                                        <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+                                            <li class="nav-item">
+                                                <div class="nav-link">
+                                                    <div class="d-flex align-items-center position-relative">
+                                                        <div class="avatar avatar-xs">
+                                                            <img class="avatar-img rounded-circle"
+                                                                 src="{% static 'images/avatar/01.jpg' %}" alt="آواتار">
+                                                        </div>
+                                                        <span class="ms-3">توسط <a href="index.html#"
+                                                                                   class="stretched-link text-reset btn-link">ساموئل</a></span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item">۲۲ ژانویه ۲۰۲۲</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- آیتم کارت پایان -->
+                            <!-- آیتم کارت شروع -->
+                            <div class="col-sm-6">
+                                <div class="card">
+                                    <!-- تصویر کارت -->
+                                    <div class="position-relative">
+                                        <img class="card-img" src="{% static 'images/blog/4by3/06.jpg' %}"
+                                             alt="تصویر کارت">
+                                        <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                                            <!-- روکش بالای کارت -->
+                                            <div class="w-100 mb-auto d-flex justify-content-end">
+                                                <div class="text-end ms-auto">
+                                                    <!-- آیکون فرمت کارت -->
+                                                    <div class="icon-md bg-white bg-opacity-25 bg-blur text-white rounded-circle"
+                                                         title="این پست ویدیو دارد"><i class="fas fa-video"></i></div>
+                                                </div>
+                                            </div>
+                                            <!-- روکش پایین کارت -->
+                                            <div class="w-100 mt-auto">
+                                                <!-- دسته‌بندی کارت -->
+                                                <a href="index.html#" class="badge text-bg-danger mb-2"><i
+                                                        class="fas fa-circle me-2 small fw-bold"></i>سفر</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body px-0 pt-3">
+                                        <h4 class="card-title"><a href="post-single.html"
+                                                                  class="btn-link text-reset fw-bold">رازهای کثیف درباره
+                                            صنعت کسب‌وکار</a></h4>
+                                        <p class="card-text">جایی که صدا به وجود نمی‌آید. سالن‌های انتظار در برابر من
+                                            نیستند. آرزو کردن تماس تضمین شده بود خوش شانس بود. ابراز علاوه بر آن در صورت
+                                            نظر بازدید کننده.</p>
+                                        <!-- اطلاعات کارت -->
+                                        <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+                                            <li class="nav-item">
+                                                <div class="nav-link">
+                                                    <div class="d-flex align-items-center position-relative">
+                                                        <div class="avatar avatar-xs">
+                                                            <img class="avatar-img rounded-circle"
+                                                                 src="{% static 'images/avatar/02.jpg' %}" alt="آواتار">
+                                                        </div>
+                                                        <span class="ms-3">توسط <a href="index.html#"
+                                                                                   class="stretched-link text-reset btn-link">دنیس</a></span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item">۷ مارس ۲۰۲۲</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- آیتم کارت پایان -->
+                            <!-- آیتم کارت شروع -->
+                            <div class="col-sm-6">
+                                <div class="card">
+                                    <!-- تصویر کارت -->
+                                    <div class="position-relative">
+                                        <img class="card-img" src="{% static 'images/blog/4by3/03.jpg' %}"
+                                             alt="تصویر کارت">
+                                        <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                                            <!-- روکش پایین کارت -->
+                                            <div class="w-100 mt-auto">
+                                                <!-- دسته‌بندی کارت -->
+                                                <a href="index.html#" class="badge text-bg-success mb-2"><i
+                                                        class="fas fa-circle me-2 small fw-bold"></i>گجت‌ها</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body px-0 pt-3">
+                                        <h4 class="card-title"><a href="post-single.html"
+                                                                  class="btn-link text-reset fw-bold">عادات بدی که مردم
+                                            در صنعت نیاز به ترک آن دارند</a></h4>
+                                        <p class="card-text">برای کسی که به طور کامل پسرش را برآورد می‌کند اطمینان. حذف
+                                            خواسته‌های حساب هزینه در خسته کننده بیرونی انجام دهید. راه خاص کاملاً تحت
+                                            تأثیر قرار نگرفته</p>
+                                        <!-- اطلاعات کارت -->
+                                        <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+                                            <li class="nav-item">
+                                                <div class="nav-link">
+                                                    <div class="d-flex align-items-center position-relative">
+                                                        <div class="avatar avatar-xs">
+                                                            <img class="avatar-img rounded-circle"
+                                                                 src="{% static 'images/avatar/03.jpg' %}" alt="آواتار">
+                                                        </div>
+                                                        <span class="ms-3">توسط <a href="index.html#"
+                                                                                   class="stretched-link text-reset btn-link">برایان</a></span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item">۱۷ ژوئن ۲۰۲۲</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- آیتم کارت پایان -->
+                            <!-- آیتم کارت شروع -->
+                            <div class="col-sm-6">
+                                <div class="card">
+                                    <!-- تصویر کارت -->
+                                    <div class="position-relative">
+                                        <img class="card-img" src="{% static 'images/blog/4by3/04.jpg' %}"
+                                             alt="تصویر کارت">
+                                        <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                                            <!-- روکش پایین کارت -->
+                                            <div class="w-100 mt-auto">
+                                                <!-- دسته‌بندی کارت -->
+                                                <a href="index.html#" class="badge bg-primary mb-2"><i
+                                                        class="fas fa-circle me-2 small fw-bold"></i>ورزشی</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body px-0 pt-3">
+                                        <h4 class="card-title"><a href="post-single.html"
+                                                                  class="btn-link text-reset fw-bold">در سراسر وب: ۲۰
+                                            اینفوگرافیک فوق‌العاده درباره کسب‌وکار</a></h4>
+                                        <p class="card-text">پیش‌بینی مساعد خانم می‌تواند خود را پیش‌بینی کند. سی مورد
+                                            مهم است که بتوان در بخشش تحسین کرد. دیدن خیرخواهی حل‌شده کمرویی مدنی اما
+                                            داشت.</p>
+                                        <!-- اطلاعات کارت -->
+                                        <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+                                            <li class="nav-item">
+                                                <div class="nav-link">
+                                                    <div class="d-flex align-items-center position-relative">
+                                                        <div class="avatar avatar-xs">
+                                                            <div class="avatar-img rounded-circle bg-success">
+                                                                <span class="text-white position-absolute top-50 start-50 translate-middle fw-bold small">SL</span>
+                                                            </div>
+                                                        </div>
+                                                        <span class="ms-3">توسط <a href="index.html#"
+                                                                                   class="stretched-link text-reset btn-link">بیلی</a></span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item">۲۹ دسامبر ۲۰۲۲</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- آیتم کارت پایان -->
+                            <!-- آیتم کارت شروع -->
+                            <div class="col-sm-6">
+                                <div class="card">
+                                    <!-- تصویر کارت -->
+                                    <div class="position-relative">
+                                        <!-- <img class="card-img" src="images/blog/4by3/05.jpg " alt="تصویر کارت"> -->
+                                        <div class="card-image position-relative">
+                                            <img class="card-img" src="{% static 'images/blog/4by3/05.jpg' %}"
+                                                 alt="تصویر کارت">
+                                            <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                                                <!-- روکش کارت -->
+                                                <div class="w-100 my-auto">
+                                                    <!-- پخش کننده صدا شروع -->
+                                                    <div class="player-wrapper bg-light rounded">
+                                                        <audio class="player-audio" crossorigin>
+                                                            <source src="{% static 'images/videos/audio.mp3" type="audio/mp3' %}">
+                                                        </audio>
+                                                    </div>
+                                                    <!-- پخش کننده صدا پایان -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body px-0 pt-3">
+                                        <h4 class="card-title"><a href="post-single.html"
+                                                                  class="btn-link text-reset fw-bold">۷ اشتباه رایجی که
+                                            همه در سفر مرتکب می‌شوند</a></h4>
+                                        <p class="card-text">نقاشی‌ها هنوز پاسخ دادند اما جنینگ‌ها خندیدن شش انجام
+                                            دادند. اتاق‌ها اوه کاملاً توسط بدتر گرفته شده است. نکات ترسیده اما ممکن است
+                                            قانون به پایان رسیده باشد.</p>
+                                        <!-- اطلاعات کارت -->
+                                        <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+                                            <li class="nav-item">
+                                                <div class="nav-link">
+                                                    <div class="d-flex align-items-center position-relative">
+                                                        <div class="avatar avatar-xs">
+                                                            <img class="avatar-img rounded-circle"
+                                                                 src="{% static 'images/avatar/05.jpg' %}" alt="آواتار">
+                                                        </div>
+                                                        <span class="ms-3">توسط <a href="index.html#"
+                                                                                   class="stretched-link text-reset btn-link">ژاکلین</a></span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item">۱۱ نوامبر ۲۰۲۲</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- آیتم کارت پایان -->
+                            <!-- آیتم کارت شروع -->
+                            <div class="col-sm-6">
+                                <div class="card">
+                                    <!-- تصویر کارت -->
+                                    <div class="position-relative">
+                                        <img class="card-img" src="{% static 'images/blog/4by3/12.jpg' %}"
+                                             alt="تصویر کارت">
+                                        <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                                            <!-- روکش پایین کارت -->
+                                            <div class="w-100 mt-auto">
+                                                <!-- دسته‌بندی کارت -->
+                                                <a href="index.html#" class="badge text-bg-danger mb-2"><i
+                                                        class="fas fa-circle me-2 small fw-bold"></i>عکاسی</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body px-0 pt-3">
+                                        <h4 class="card-title"><a href="post-single.html"
+                                                                  class="btn-link text-reset fw-bold">۵ شک سرمایه‌گذاری
+                                            که باید روشن کنید</a></h4>
+                                        <p class="card-text">از خنده وجد برگشت وزن بیشتر بود. خوشبختانه سرهنگ را تشویق
+                                            کردم که به بالاترین حمله کنیم. قانون را امتحان کرد اما سبک کودک. خستگی واقعی
+                                            از هیچ معامله‌ای.</p>
+                                        <!-- اطلاعات کارت -->
+                                        <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+                                            <li class="nav-item">
+                                                <div class="nav-link">
+                                                    <div class="d-flex align-items-center position-relative">
+                                                        <div class="avatar avatar-xs">
+                                                            <img class="avatar-img rounded-circle"
+                                                                 src="{% static 'images/avatar/06.jpg' %}" alt="آواتار">
+                                                        </div>
+                                                        <span class="ms-3">توسط <a href="index.html#"
+                                                                                   class="stretched-link text-reset btn-link">کارولین</a></span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item">۱ سپتامبر ۲۰۲۲</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- آیتم کارت پایان -->
+                            <!-- بارگذاری بیشتر شروع -->
+                            <div class="col-12 text-center mt-5">
+                                <button type="button" class="btn btn-primary-soft">بارگذاری پست‌های بیشتر <i
+                                        class="bi bi-arrow-down-circle ms-2 align-middle"></i></button>
+                            </div>
+                            <!-- بارگذاری بیشتر پایان -->
+                        </div>
+                    </div>
+                    <!-- پست اصلی پایان -->
+                    <!-- نوار کناری شروع -->
+                    <div class="col-lg-3 mt-5 mt-lg-0">
+                        <div data-sticky data-margin-top="80" data-sticky-for="767">
 
-<!-- =======================
-محتوای اصلی شروع -->
-<section class="position-relative">
-	<div class="container" data-sticky-container>
-		<div class="row">
-			<!-- پست اصلی شروع -->
-			<div class="col-lg-9">
-				<!-- عنوان -->
-				<div class="mb-4">
-					<h2 class="m-0"><i class="bi bi-hourglass-top me-2"></i>برترین نکات امروز</h2>
-					<p>آخرین اخبار فوری، تصاویر، ویدیوها و گزارش‌های ویژه</p>
-				</div>
-				<div class="row gy-4">
-					<!-- آیتم کارت شروع -->
-					<div class="col-sm-6">
-						<div class="card">
-							<!-- تصویر کارت -->
-							<div class="position-relative">
-								<img class="card-img" src="{% static 'images/blog/4by3/01.jpg' %}" alt="تصویر کارت">
-								<div class="card-img-overlay d-flex align-items-start flex-column p-3">
-									<!-- روکش پایین کارت -->
-									<div class="w-100 mt-auto">
-										<!-- دسته‌بندی کارت -->
-										<a href="index.html#" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>تکنولوژی</a>
-									</div>
-								</div>
-							</div>
-							<div class="card-body px-0 pt-3">
-								<!-- پست حمایت شده -->
-								<a href="index.html#!" class="mb-0 text-body small" tabindex="0" role="button" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top" data-bs-content="شما این تبلیغ را می‌بینید زیرا فعالیت شما با مخاطبان مورد نظر سایت ما مطابقت دارد.">
-									<i class="bi bi-info-circle ps-1"></i> حمایت شده
-								</a>
-								<h4 class="card-title mt-2"><a href="post-single.html" class="btn-link text-reset fw-bold">۱۲ بدترین نوع حساب کسب‌وکار که در توییتر دنبال می‌کنید</a></h4>
-								<p class="card-text">او زیر نور ماه مشغول آن بود، ورزشکاران. علاقه‌مند همه کمک‌های شاد دشواری دون‌شایر است. در مورد شما از تعریف تحول به</p>
-								<!-- اطلاعات کارت -->
-								<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-									<li class="nav-item">
-										<div class="nav-link">
-											<div class="d-flex align-items-center position-relative">
-												<div class="avatar avatar-xs">
-													<img class="avatar-img rounded-circle" src="{% static 'images/avatar/01.jpg' %}" alt="آواتار">
-												</div>
-												<span class="ms-3">توسط <a href="index.html#" class="stretched-link text-reset btn-link">ساموئل</a></span>
-											</div>
-										</div>
-									</li>
-									<li class="nav-item">۲۲ ژانویه ۲۰۲۲</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- آیتم کارت پایان -->
-					<!-- آیتم کارت شروع -->
-					<div class="col-sm-6">
-						<div class="card">
-							<!-- تصویر کارت -->
-							<div class="position-relative">
-								<img class="card-img" src="{% static 'images/blog/4by3/06.jpg' %}" alt="تصویر کارت">
-								<div class="card-img-overlay d-flex align-items-start flex-column p-3">
-									<!-- روکش بالای کارت -->
-									<div class="w-100 mb-auto d-flex justify-content-end">
-										<div class="text-end ms-auto">
-											<!-- آیکون فرمت کارت -->
-											<div class="icon-md bg-white bg-opacity-25 bg-blur text-white rounded-circle" title="این پست ویدیو دارد"><i class="fas fa-video"></i></div>
-										</div>
-									</div>
-									<!-- روکش پایین کارت -->
-									<div class="w-100 mt-auto">
-										<!-- دسته‌بندی کارت -->
-										<a href="index.html#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>سفر</a>
-									</div>
-								</div>
-							</div>
-							<div class="card-body px-0 pt-3">
-								<h4 class="card-title"><a href="post-single.html" class="btn-link text-reset fw-bold">رازهای کثیف درباره صنعت کسب‌وکار</a></h4>
-								<p class="card-text">جایی که صدا به وجود نمی‌آید. سالن‌های انتظار در برابر من نیستند. آرزو کردن تماس تضمین شده بود خوش شانس بود. ابراز علاوه بر آن در صورت نظر بازدید کننده.</p>
-								<!-- اطلاعات کارت -->
-								<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-									<li class="nav-item">
-										<div class="nav-link">
-											<div class="d-flex align-items-center position-relative">
-												<div class="avatar avatar-xs">
-													<img class="avatar-img rounded-circle" src="{% static 'images/avatar/02.jpg' %}" alt="آواتار">
-												</div>
-												<span class="ms-3">توسط <a href="index.html#" class="stretched-link text-reset btn-link">دنیس</a></span>
-											</div>
-										</div>
-									</li>
-									<li class="nav-item">۷ مارس ۲۰۲۲</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- آیتم کارت پایان -->
-					<!-- آیتم کارت شروع -->
-					<div class="col-sm-6">
-						<div class="card">
-							<!-- تصویر کارت -->
-							<div class="position-relative">
-								<img class="card-img" src="{% static 'images/blog/4by3/03.jpg' %}" alt="تصویر کارت">
-								<div class="card-img-overlay d-flex align-items-start flex-column p-3">
-									<!-- روکش پایین کارت -->
-									<div class="w-100 mt-auto">
-										<!-- دسته‌بندی کارت -->
-										<a href="index.html#" class="badge text-bg-success mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>گجت‌ها</a>
-									</div>
-								</div>
-							</div>
-							<div class="card-body px-0 pt-3">
-								<h4 class="card-title"><a href="post-single.html" class="btn-link text-reset fw-bold">عادات بدی که مردم در صنعت نیاز به ترک آن دارند</a></h4>
-								<p class="card-text">برای کسی که به طور کامل پسرش را برآورد می‌کند اطمینان. حذف خواسته‌های حساب هزینه در خسته کننده بیرونی انجام دهید. راه خاص کاملاً تحت تأثیر قرار نگرفته</p>
-								<!-- اطلاعات کارت -->
-								<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-									<li class="nav-item">
-										<div class="nav-link">
-											<div class="d-flex align-items-center position-relative">
-												<div class="avatar avatar-xs">
-													<img class="avatar-img rounded-circle" src="{% static 'images/avatar/03.jpg' %}" alt="آواتار">
-												</div>
-												<span class="ms-3">توسط <a href="index.html#" class="stretched-link text-reset btn-link">برایان</a></span>
-											</div>
-										</div>
-									</li>
-									<li class="nav-item">۱۷ ژوئن ۲۰۲۲</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- آیتم کارت پایان -->
-					<!-- آیتم کارت شروع -->
-					<div class="col-sm-6">
-						<div class="card">
-							<!-- تصویر کارت -->
-							<div class="position-relative">
-								<img class="card-img" src="{% static 'images/blog/4by3/04.jpg' %}" alt="تصویر کارت">
-								<div class="card-img-overlay d-flex align-items-start flex-column p-3">
-									<!-- روکش پایین کارت -->
-									<div class="w-100 mt-auto">
-										<!-- دسته‌بندی کارت -->
-										<a href="index.html#" class="badge bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>ورزشی</a>
-									</div>
-								</div>
-							</div>
-							<div class="card-body px-0 pt-3">
-								<h4 class="card-title"><a href="post-single.html" class="btn-link text-reset fw-bold">در سراسر وب: ۲۰ اینفوگرافیک فوق‌العاده درباره کسب‌وکار</a></h4>
-								<p class="card-text">پیش‌بینی مساعد خانم می‌تواند خود را پیش‌بینی کند. سی مورد مهم است که بتوان در بخشش تحسین کرد. دیدن خیرخواهی حل‌شده کمرویی مدنی اما داشت.</p>
-								<!-- اطلاعات کارت -->
-								<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-									<li class="nav-item">
-										<div class="nav-link">
-											<div class="d-flex align-items-center position-relative">
-												<div class="avatar avatar-xs">
-													<div class="avatar-img rounded-circle bg-success">
-														<span class="text-white position-absolute top-50 start-50 translate-middle fw-bold small">SL</span>
-													</div>
-												</div>
-												<span class="ms-3">توسط <a href="index.html#" class="stretched-link text-reset btn-link">بیلی</a></span>
-											</div>
-										</div>
-									</li>
-									<li class="nav-item">۲۹ دسامبر ۲۰۲۲</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- آیتم کارت پایان -->
-					<!-- آیتم کارت شروع -->
-					<div class="col-sm-6">
-						<div class="card">
-							<!-- تصویر کارت -->
-							<div class="position-relative">
-								<!-- <img class="card-img" src="images/blog/4by3/05.jpg " alt="تصویر کارت"> -->
-								<div class="card-image position-relative">
-									<img class="card-img" src="{% static 'images/blog/4by3/05.jpg' %}" alt="تصویر کارت">
-									<div class="card-img-overlay d-flex align-items-start flex-column p-3">
-										<!-- روکش کارت -->
-										<div class="w-100 my-auto">
-											<!-- پخش کننده صدا شروع -->
-											<div class="player-wrapper bg-light rounded">
-												<audio class="player-audio" crossorigin>
-													<source src="{% static 'images/videos/audio.mp3" type="audio/mp3' %}">
-												</audio>
-											</div>
-											<!-- پخش کننده صدا پایان -->
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="card-body px-0 pt-3">
-								<h4 class="card-title"><a href="post-single.html" class="btn-link text-reset fw-bold">۷ اشتباه رایجی که همه در سفر مرتکب می‌شوند</a></h4>
-								<p class="card-text">نقاشی‌ها هنوز پاسخ دادند اما جنینگ‌ها خندیدن شش انجام دادند. اتاق‌ها اوه کاملاً توسط بدتر گرفته شده است. نکات ترسیده اما ممکن است قانون به پایان رسیده باشد.</p>
-								<!-- اطلاعات کارت -->
-								<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-									<li class="nav-item">
-										<div class="nav-link">
-											<div class="d-flex align-items-center position-relative">
-												<div class="avatar avatar-xs">
-													<img class="avatar-img rounded-circle" src="{% static 'images/avatar/05.jpg' %}" alt="آواتار">
-												</div>
-												<span class="ms-3">توسط <a href="index.html#" class="stretched-link text-reset btn-link">ژاکلین</a></span>
-											</div>
-										</div>
-									</li>
-									<li class="nav-item">۱۱ نوامبر ۲۰۲۲</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- آیتم کارت پایان -->
-					<!-- آیتم کارت شروع -->
-					<div class="col-sm-6">
-						<div class="card">
-							<!-- تصویر کارت -->
-							<div class="position-relative">
-								<img class="card-img" src="{% static 'images/blog/4by3/12.jpg' %}" alt="تصویر کارت">
-								<div class="card-img-overlay d-flex align-items-start flex-column p-3">
-									<!-- روکش پایین کارت -->
-									<div class="w-100 mt-auto">
-										<!-- دسته‌بندی کارت -->
-										<a href="index.html#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>عکاسی</a>
-									</div>
-								</div>
-							</div>
-							<div class="card-body px-0 pt-3">
-								<h4 class="card-title"><a href="post-single.html" class="btn-link text-reset fw-bold">۵ شک سرمایه‌گذاری که باید روشن کنید</a></h4>
-								<p class="card-text">از خنده وجد برگشت وزن بیشتر بود. خوشبختانه سرهنگ را تشویق کردم که به بالاترین حمله کنیم. قانون را امتحان کرد اما سبک کودک. خستگی واقعی از هیچ معامله‌ای.</p>
-								<!-- اطلاعات کارت -->
-								<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-									<li class="nav-item">
-										<div class="nav-link">
-											<div class="d-flex align-items-center position-relative">
-												<div class="avatar avatar-xs">
-													<img class="avatar-img rounded-circle" src="{% static 'images/avatar/06.jpg' %}" alt="آواتار">
-												</div>
-												<span class="ms-3">توسط <a href="index.html#" class="stretched-link text-reset btn-link">کارولین</a></span>
-											</div>
-										</div>
-									</li>
-									<li class="nav-item">۱ سپتامبر ۲۰۲۲</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- آیتم کارت پایان -->
-					<!-- بارگذاری بیشتر شروع -->
-					<div class="col-12 text-center mt-5">
-						<button type="button" class="btn btn-primary-soft">بارگذاری پست‌های بیشتر <i class="bi bi-arrow-down-circle ms-2 align-middle"></i></button>
-					</div>
-					<!-- بارگذاری بیشتر پایان -->
-				</div>
-			</div>
-			<!-- پست اصلی پایان -->
-			<!-- نوار کناری شروع -->
-			<div class="col-lg-3 mt-5 mt-lg-0">
-				<div data-sticky data-margin-top="80" data-sticky-for="767">
+                            <!-- ویجت شبکه‌های اجتماعی شروع -->
+                            <div class="row g-2">
+                                <div class="col-4">
+                                    <a href="index.html#"
+                                       class="bg-facebook rounded text-center text-white-force p-3 d-block">
+                                        <i class="fab fa-facebook-square fs-5 mb-2"></i>
+                                        <h6 class="m-0">۱.۵K</h6>
+                                        <span class="small">دنبال‌کننده</span>
+                                    </a>
+                                </div>
+                                <div class="col-4">
+                                    <a href="index.html#"
+                                       class="bg-instagram-gradient rounded text-center text-white-force p-3 d-block">
+                                        <i class="fab fa-instagram fs-5 mb-2"></i>
+                                        <h6 class="m-0">۱.۸M</h6>
+                                        <span class="small">دنبال‌کننده</span>
+                                    </a>
+                                </div>
+                                <div class="col-4">
+                                    <a href="index.html#"
+                                       class="bg-youtube rounded text-center text-white-force p-3 d-block">
+                                        <i class="fab fa-youtube-square fs-5 mb-2"></i>
+                                        <h6 class="m-0">۲۲K</h6>
+                                        <span class="small">مشترک</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- ویجت شبکه‌های اجتماعی پایان -->
 
-					<!-- ویجت شبکه‌های اجتماعی شروع -->
-					<div class="row g-2">
-						<div class="col-4">
-							<a href="index.html#" class="bg-facebook rounded text-center text-white-force p-3 d-block">
-								<i class="fab fa-facebook-square fs-5 mb-2"></i>
-								<h6 class="m-0">۱.۵K</h6>
-								<span class="small">دنبال‌کننده</span>
-							</a>
-						</div>
-						<div class="col-4">
-							<a href="index.html#" class="bg-instagram-gradient rounded text-center text-white-force p-3 d-block">
-								<i class="fab fa-instagram fs-5 mb-2"></i>
-								<h6 class="m-0">۱.۸M</h6>
-								<span class="small">دنبال‌کننده</span>
-							</a>
-						</div>
-						<div class="col-4">
-							<a href="index.html#" class="bg-youtube rounded text-center text-white-force p-3 d-block">
-								<i class="fab fa-youtube-square fs-5 mb-2"></i>
-								<h6 class="m-0">۲۲K</h6>
-								<span class="small">مشترک</span>
-							</a>
-						</div>
-					</div>
-					<!-- ویجت شبکه‌های اجتماعی پایان -->
+                            <!-- ویجت موضوعات ترند شروع -->
+                            <div>
+                                <h4 class="mt-4 mb-3">موضوعات ترند</h4>
+                                <!-- آیتم دسته‌بندی -->
+                                <div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded bg-dark-overlay-4 "
+                                     style="background-image:url({% static 'images/blog/4by3/01.jpg' %}); background-position: center left; background-size: cover;">
+                                    <div class="p-3">
+                                        <a href="index.html#"
+                                           class="stretched-link btn-link fw-bold text-white h5">سفر</a>
+                                    </div>
+                                </div>
+                                <!-- آیتم دسته‌بندی -->
+                                <div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded"
+                                     style="background-image:url({% static 'images/blog/4by3/02.jpg' %}); background-position: center left; background-size: cover;">
+                                    <div class="bg-dark-overlay-4 p-3">
+                                        <a href="index.html#" class="stretched-link btn-link fw-bold text-white h5">کسب‌وکار</a>
+                                    </div>
+                                </div>
+                                <!-- آیتم دسته‌بندی -->
+                                <div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded"
+                                     style="background-image:url({% static 'images/blog/4by3/03.jpg' %}); background-position: center left; background-size: cover;">
+                                    <div class="bg-dark-overlay-4 p-3">
+                                        <a href="index.html#" class="stretched-link btn-link fw-bold text-white h5">بازاریابی</a>
+                                    </div>
+                                </div>
+                                <!-- آیتم دسته‌بندی -->
+                                <div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded"
+                                     style="background-image:url({% static 'images/blog/4by3/04.jpg' %}); background-position: center left; background-size: cover;">
+                                    <div class="bg-dark-overlay-4 p-3">
+                                        <a href="index.html#" class="stretched-link btn-link fw-bold text-white h5">عکاسی</a>
+                                    </div>
+                                </div>
+                                <!-- آیتم دسته‌بندی -->
+                                <div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded"
+                                     style="background-image:url({% static 'images/blog/4by3/05.jpg' %}); background-position: center left; background-size: cover;">
+                                    <div class="bg-dark-overlay-4 p-3">
+                                        <a href="index.html#" class="stretched-link btn-link fw-bold text-white h5">ورزشی</a>
+                                    </div>
+                                </div>
+                                <!-- دکمه مشاهده همه دسته‌بندی‌ها -->
+                                <div class="text-center mt-3">
+                                    <a href="index.html#" class="fw-bold text-body text-primary-hover"><u>مشاهده همه
+                                        دسته‌بندی‌ها</u></a>
+                                </div>
+                            </div>
+                            <!-- ویجت موضوعات ترند پایان -->
 
-					<!-- ویجت موضوعات ترند شروع -->
-					<div>
-						<h4 class="mt-4 mb-3">موضوعات ترند</h4>
-						<!-- آیتم دسته‌بندی -->
-						<div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded bg-dark-overlay-4 " style="background-image:url({% static 'images/blog/4by3/01.jpg' %}); background-position: center left; background-size: cover;">
-							<div class="p-3">
-								<a href="index.html#" class="stretched-link btn-link fw-bold text-white h5">سفر</a>
-							</div>
-						</div>
-						<!-- آیتم دسته‌بندی -->
-						<div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded" style="background-image:url({% static 'images/blog/4by3/02.jpg' %}); background-position: center left; background-size: cover;">
-							<div class="bg-dark-overlay-4 p-3">
-								<a href="index.html#" class="stretched-link btn-link fw-bold text-white h5">کسب‌وکار</a>
-							</div>
-						</div>
-						<!-- آیتم دسته‌بندی -->
-						<div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded" style="background-image:url({% static 'images/blog/4by3/03.jpg' %}); background-position: center left; background-size: cover;">
-							<div class="bg-dark-overlay-4 p-3">
-								<a href="index.html#" class="stretched-link btn-link fw-bold text-white h5">بازاریابی</a>
-							</div>
-						</div>
-						<!-- آیتم دسته‌بندی -->
-						<div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded" style="background-image:url({% static 'images/blog/4by3/04.jpg' %}); background-position: center left; background-size: cover;">
-							<div class="bg-dark-overlay-4 p-3">
-								<a href="index.html#" class="stretched-link btn-link fw-bold text-white h5">عکاسی</a>
-							</div>
-						</div>
-						<!-- آیتم دسته‌بندی -->
-						<div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded" style="background-image:url({% static 'images/blog/4by3/05.jpg' %}); background-position: center left; background-size: cover;">
-							<div class="bg-dark-overlay-4 p-3">
-								<a href="index.html#" class="stretched-link btn-link fw-bold text-white h5">ورزشی</a>
-							</div>
-						</div>
-						<!-- دکمه مشاهده همه دسته‌بندی‌ها -->
-						<div class="text-center mt-3">
-							<a href="index.html#" class="fw-bold text-body text-primary-hover"><u>مشاهده همه دسته‌بندی‌ها</u></a>
-						</div>
-					</div>
-					<!-- ویجت موضوعات ترند پایان -->
+                            <div class="row">
+                                <!-- ویجت پست‌های اخیر شروع -->
+                                <div class="col-12 col-sm-6 col-lg-12">
+                                    <h4 class="mt-4 mb-3">پست‌های اخیر</h4>
+                                    <!-- آیتم پست اخیر -->
+                                    <div class="card mb-3">
+                                        <div class="row g-3">
+                                            <div class="col-4">
+                                                <img class="rounded" src="{% static 'images/blog/4by3/thumb/01.jpg' %}"
+                                                     alt="">
+                                            </div>
+                                            <div class="col-8">
+                                                <h6><a href="post-single-2.html"
+                                                       class="btn-link stretched-link text-reset fw-bold">مزایا و معایب
+                                                    آژانس کسب‌وکار</a></h6>
+                                                <div class="small mt-1">۱۷ مه ۲۰۲۲</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- آیتم پست اخیر -->
+                                    <div class="card mb-3">
+                                        <div class="row g-3">
+                                            <div class="col-4">
+                                                <img class="rounded" src="{% static 'images/blog/4by3/thumb/02.jpg' %}"
+                                                     alt="">
+                                            </div>
+                                            <div class="col-8">
+                                                <h6><a href="post-single-2.html"
+                                                       class="btn-link stretched-link text-reset fw-bold">۵ دلیلی که
+                                                    نباید استارتاپ بزنید</a></h6>
+                                                <div class="small mt-1">۴ آوریل ۲۰۲۲</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- آیتم پست اخیر -->
+                                    <div class="card mb-3">
+                                        <div class="row g-3">
+                                            <div class="col-4">
+                                                <img class="rounded" src="{% static 'images/blog/4by3/thumb/03.jpg' %}"
+                                                     alt="">
+                                            </div>
+                                            <div class="col-8">
+                                                <h6><a href="post-single-2.html"
+                                                       class="btn-link stretched-link text-reset fw-bold">ده سوالی که
+                                                    باید صادقانه پاسخ دهید</a></h6>
+                                                <div class="small mt-1">۳۰ ژوئن ۲۰۲۲</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- آیتم پست اخیر -->
+                                    <div class="card mb-3">
+                                        <div class="row g-3">
+                                            <div class="col-4">
+                                                <img class="rounded" src="{% static 'images/blog/4by3/thumb/04.jpg' %}"
+                                                     alt="">
+                                            </div>
+                                            <div class="col-8">
+                                                <h6><a href="post-single-2.html"
+                                                       class="btn-link stretched-link text-reset fw-bold">پنج حقیقت
+                                                    باورنکردنی درباره پول</a></h6>
+                                                <div class="small mt-1">۲۹ نوامبر ۲۰۲۲</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ویجت پست‌های اخیر پایان -->
 
-					<div class="row">
-						<!-- ویجت پست‌های اخیر شروع -->
-						<div class="col-12 col-sm-6 col-lg-12">
-							<h4 class="mt-4 mb-3">پست‌های اخیر</h4>
-							<!-- آیتم پست اخیر -->
-							<div class="card mb-3">
-								<div class="row g-3">
-									<div class="col-4">
-										<img class="rounded" src="{% static 'images/blog/4by3/thumb/01.jpg' %}" alt="">
-									</div>
-									<div class="col-8">
-										<h6><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">مزایا و معایب آژانس کسب‌وکار</a></h6>
-										<div class="small mt-1">۱۷ مه ۲۰۲۲</div>
-									</div>
-								</div>
-							</div>
-							<!-- آیتم پست اخیر -->
-							<div class="card mb-3">
-								<div class="row g-3">
-									<div class="col-4">
-										<img class="rounded" src="{% static 'images/blog/4by3/thumb/02.jpg' %}" alt="">
-									</div>
-									<div class="col-8">
-										<h6><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">۵ دلیلی که نباید استارتاپ بزنید</a></h6>
-										<div class="small mt-1">۴ آوریل ۲۰۲۲</div>
-									</div>
-								</div>
-							</div>
-							<!-- آیتم پست اخیر -->
-							<div class="card mb-3">
-								<div class="row g-3">
-									<div class="col-4">
-										<img class="rounded" src="{% static 'images/blog/4by3/thumb/03.jpg' %}" alt="">
-									</div>
-									<div class="col-8">
-										<h6><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">ده سوالی که باید صادقانه پاسخ دهید</a></h6>
-										<div class="small mt-1">۳۰ ژوئن ۲۰۲۲</div>
-									</div>
-								</div>
-							</div>
-							<!-- آیتم پست اخیر -->
-							<div class="card mb-3">
-								<div class="row g-3">
-									<div class="col-4">
-										<img class="rounded" src="{% static 'images/blog/4by3/thumb/04.jpg' %}" alt="">
-									</div>
-									<div class="col-8">
-										<h6><a href="post-single-2.html" class="btn-link stretched-link text-reset fw-bold">پنج حقیقت باورنکردنی درباره پول</a></h6>
-										<div class="small mt-1">۲۹ نوامبر ۲۰۲۲</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- ویجت پست‌های اخیر پایان -->
+                                <!-- ویجت تبلیغ شروع -->
+                                <div class="col-12 col-sm-6 col-lg-12 my-4">
+                                    <a href="index.html#" class="d-block card-img-flash">
+                                        <img src="{% static 'images/adv.png' %}" alt="">
+                                    </a>
+                                    <div class="smaller text-end mt-2">تبلیغات از طریق <a href="index.html#"
+                                                                                          class="text-body"><u>بوت‌استرپ</u></a>
+                                    </div>
+                                </div>
+                                <!-- ویجت تبلیغ پایان -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- نوار کناری پایان -->
+                </div> <!-- پایان ردیف -->
+            </div>
+        </section>
+        <!-- =======================
+        محتوای اصلی پایان -->
 
-						<!-- ویجت تبلیغ شروع -->
-						<div class="col-12 col-sm-6 col-lg-12 my-4">
-							<a href="index.html#" class="d-block card-img-flash">
-								<img src="{% static 'images/adv.png' %}" alt="">
-							</a>
-							<div class="smaller text-end mt-2">تبلیغات از طریق <a href="index.html#" class="text-body"><u>بوت‌استرپ</u></a></div>
-						</div>
-						<!-- ویجت تبلیغ پایان -->
-					</div>
-				</div>
-			</div>
-			<!-- نوار کناری پایان -->
-		</div> <!-- پایان ردیف -->
-	</div>
-</section>
-<!-- =======================
-محتوای اصلی پایان -->
+        <!-- جداکننده -->
+        <div class="container">
+            <div class="border-bottom border-primary border-2 opacity-1"></div>
+        </div>
 
-<!-- جداکننده -->
-<div class="container"><div class="border-bottom border-primary border-2 opacity-1"></div></div>
+        <!-- =======================
+        بخش شروع -->
+        <section class="pt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- عنوان -->
+                        <div class="mb-4 d-md-flex justify-content-between align-items-center">
+                            <h2 class="m-0"><i class="bi bi-megaphone"></i> اخبار حمایت شده</h2>
+                            <a href="index.html#" class="text-body small"><u>محتوا توسط: بوت‌استرپ</u></a>
+                        </div>
+                        <div class="tiny-slider arrow-hover arrow-blur arrow-dark arrow-round">
+                            <div class="tiny-slider-inner"
+                                 data-autoplay="true"
+                                 data-hoverpause="true"
+                                 data-gutter="24"
+                                 data-arrow="true"
+                                 data-dots="false"
+                                 data-items-xl="4"
+                                 data-items-md="3"
+                                 data-items-sm="2"
+                                 data-items-xs="1">
 
-<!-- =======================
-بخش شروع -->
-<section class="pt-4">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<!-- عنوان -->
-				<div class="mb-4 d-md-flex justify-content-between align-items-center">
-					<h2 class="m-0"><i class="bi bi-megaphone"></i> اخبار حمایت شده</h2>
-					<a href="index.html#" class="text-body small"><u>محتوا توسط: بوت‌استرپ</u></a>
-				</div>
-				<div class="tiny-slider arrow-hover arrow-blur arrow-dark arrow-round">
-					<div class="tiny-slider-inner"
-						data-autoplay="true"
-						data-hoverpause="true"
-						data-gutter="24"
-						data-arrow="true"
-						data-dots="false"
-						data-items-xl="4"
-						data-items-md="3"
-						data-items-sm="2"
-						data-items-xs="1">
+                                <!-- آیتم کارت شروع -->
+                                <div class="card">
+                                    <!-- تصویر کارت -->
+                                    <div class="position-relative">
+                                        <img class="card-img" src="{% static 'images/blog/4by3/07.jpg' %}"
+                                             alt="تصویر کارت">
+                                        <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                                            <!-- روکش بالای کارت -->
+                                            <div class="w-100 mb-auto d-flex justify-content-end">
+                                                <div class="text-end ms-auto">
+                                                    <!-- آیکون فرمت کارت -->
+                                                    <div class="icon-md bg-white bg-opacity-10 bg-blur text-white fw-bold rounded-circle"
+                                                         title="امتیاز ۸.۵">۸.۵
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- روکش پایین کارت -->
+                                            <div class="w-100 mt-auto">
+                                                <a href="index.html#" class="badge text-bg-info mb-2"><i
+                                                        class="fas fa-circle me-2 small fw-bold"></i>بازاریابی</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body px-0 pt-3">
+                                        <h5 class="card-title"><a href="post-single-3.html"
+                                                                  class="btn-link text-reset fw-bold">۷ اشتباه رایجی که
+                                            همه در سفر مرتکب می‌شوند</a></h5>
+                                        <!-- اطلاعات کارت -->
+                                        <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+                                            <li class="nav-item">
+                                                <div class="nav-link">
+                                                    <div class="d-flex align-items-center position-relative">
+                                                        <div class="avatar avatar-xs">
+                                                            <img class="avatar-img rounded-circle"
+                                                                 src="{% static 'images/avatar/07.jpg' %}" alt="آواتار">
+                                                        </div>
+                                                        <span class="ms-3">توسط <a href="index.html#"
+                                                                                   class="stretched-link text-reset btn-link">لوری</a></span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item">۷ مارس ۲۰۲۲</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- آیتم کارت پایان -->
+                                <!-- آیتم کارت شروع -->
+                                <div class="card">
+                                    <!-- تصویر کارت -->
+                                    <div class="position-relative">
+                                        <img class="card-img" src="{% static 'images/blog/4by3/08.jpg' %}"
+                                             alt="تصویر کارت">
+                                        <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                                            <!-- روکش پایین کارت -->
+                                            <div class="w-100 mt-auto">
+                                                <a href="index.html#" class="badge text-bg-danger mb-2"><i
+                                                        class="fas fa-circle me-2 small fw-bold"></i>ورزشی</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body px-0 pt-3">
+                                        <h5 class="card-title"><a href="post-single-3.html"
+                                                                  class="btn-link text-reset fw-bold">مهارت‌هایی که
+                                            می‌توانید از کسب‌وکار بیاموزید</a></h5>
+                                        <!-- اطلاعات کارت -->
+                                        <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+                                            <li class="nav-item">
+                                                <div class="nav-link">
+                                                    <div class="d-flex align-items-center position-relative">
+                                                        <div class="avatar avatar-xs">
+                                                            <div class="avatar-img rounded-circle bg-warning">
+                                                                <span class="text-dark position-absolute top-50 start-50 translate-middle fw-bold small">MK</span>
+                                                            </div>
+                                                        </div>
+                                                        <span class="ms-3">توسط <a href="index.html#"
+                                                                                   class="stretched-link text-reset btn-link">جوان</a></span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item">۱۵ اوت ۲۰۲۲</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- آیتم کارت پایان -->
+                                <!-- آیتم کارت شروع -->
+                                <div class="card">
+                                    <!-- تصویر کارت -->
+                                    <div class="position-relative">
+                                        <img class="card-img" src="{% static 'images/blog/4by3/09.jpg' %}"
+                                             alt="تصویر کارت">
+                                        <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                                            <!-- روکش پایین کارت -->
+                                            <div class="w-100 mt-auto">
+                                                <a href="index.html#" class="badge text-bg-success mb-2"><i
+                                                        class="fas fa-circle me-2 small fw-bold"></i>بازاریابی</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body px-0 pt-3">
+                                        <h5 class="card-title"><a href="post-single-3.html"
+                                                                  class="btn-link text-reset fw-bold">۱۰ نشانه واضح که
+                                            نیاز به کسب‌وکار جدید دارید</a></h5>
+                                        <!-- اطلاعات کارت -->
+                                        <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+                                            <li class="nav-item">
+                                                <div class="nav-link">
+                                                    <div class="d-flex align-items-center position-relative">
+                                                        <div class="avatar avatar-xs">
+                                                            <img class="avatar-img rounded-circle"
+                                                                 src="{% static 'images/avatar/09.jpg' %}" alt="آواتار">
+                                                        </div>
+                                                        <span class="ms-3">توسط <a href="index.html#"
+                                                                                   class="stretched-link text-reset btn-link">برایان</a></span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item">۱ ژوئن ۲۰۲۲</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- آیتم کارت پایان -->
+                                <!-- آیتم کارت شروع -->
+                                <div class="card">
+                                    <!-- تصویر کارت -->
+                                    <div class="position-relative">
+                                        <img class="card-img" src="{% static 'images/blog/4by3/10.jpg' %}"
+                                             alt="تصویر کارت">
+                                        <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                                            <!-- روکش بالای کارت -->
+                                            <div class="w-100 mb-auto d-flex justify-content-end">
+                                                <div class="text-end ms-auto">
+                                                    <!-- آیکون فرمت کارت -->
+                                                    <div class="icon-md bg-white-soft bg-blur text-white rounded-circle"
+                                                         title="این پست تصاویر دارد"><i class="fas fa-image"></i></div>
+                                                </div>
+                                            </div>
+                                            <!-- روکش پایین کارت -->
+                                            <div class="w-100 mt-auto">
+                                                <a href="index.html#" class="badge bg-primary mb-2"><i
+                                                        class="fas fa-circle me-2 small fw-bold"></i>عکاسی</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body px-0 pt-3">
+                                        <h5 class="card-title"><a href="post-single-3.html"
+                                                                  class="btn-link text-reset fw-bold">به همین دلیل امسال
+                                            سال استارتاپ‌ها خواهد بود</a></h5>
+                                        <!-- اطلاعات کارت -->
+                                        <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+                                            <li class="nav-item">
+                                                <div class="nav-link">
+                                                    <div class="d-flex align-items-center position-relative">
+                                                        <div class="avatar avatar-xs">
+                                                            <img class="avatar-img rounded-circle"
+                                                                 src="{% static 'images/avatar/10.jpg' %}" alt="آواتار">
+                                                        </div>
+                                                        <span class="ms-3">توسط <a href="index.html#"
+                                                                                   class="stretched-link text-reset btn-link">ساموئل</a></span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item">۷ دسامبر ۲۰۲۲</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- آیتم کارت پایان -->
+                                <!-- آیتم کارت شروع -->
+                                <div class="card">
+                                    <!-- تصویر کارت -->
+                                    <div class="position-relative">
+                                        <img class="card-img" src="{% static 'images/blog/4by3/11.jpg' %}"
+                                             alt="تصویر کارت">
+                                        <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                                            <!-- روکش پایین کارت -->
+                                            <div class="w-100 mt-auto">
+                                                <a href="index.html#" class="badge text-bg-warning mb-2"><i
+                                                        class="fas fa-circle me-2 small fw-bold"></i>تکنولوژی</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body px-0 pt-3">
+                                        <h5 class="card-title"><a href="post-single-3.html"
+                                                                  class="btn-link text-reset fw-bold">بهترین بردهای
+                                            پینترست برای یادگیری کسب‌وکار</a></h5>
+                                        <!-- اطلاعات کارت -->
+                                        <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+                                            <li class="nav-item">
+                                                <div class="nav-link">
+                                                    <div class="d-flex align-items-center position-relative">
+                                                        <div class="avatar avatar-xs">
+                                                            <img class="avatar-img rounded-circle"
+                                                                 src="{% static 'images/avatar/12.jpg' %}" alt="آواتار">
+                                                        </div>
+                                                        <span class="ms-3">توسط <a href="index.html#"
+                                                                                   class="stretched-link text-reset btn-link">دنیس</a></span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item">۷ سپتامبر ۲۰۲۲</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- آیتم کارت پایان -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- =======================
+        بخش پایان -->
 
-						<!-- آیتم کارت شروع -->
-						<div class="card">
-							<!-- تصویر کارت -->
-							<div class="position-relative">
-								<img class="card-img" src="{% static 'images/blog/4by3/07.jpg' %}" alt="تصویر کارت">
-								<div class="card-img-overlay d-flex align-items-start flex-column p-3">
-									<!-- روکش بالای کارت -->
-									<div class="w-100 mb-auto d-flex justify-content-end">
-										<div class="text-end ms-auto">
-											<!-- آیکون فرمت کارت -->
-											<div class="icon-md bg-white bg-opacity-10 bg-blur text-white fw-bold rounded-circle" title="امتیاز ۸.۵">۸.۵</div>
-										</div>
-									</div>
-									<!-- روکش پایین کارت -->
-									<div class="w-100 mt-auto">
-										<a href="index.html#" class="badge text-bg-info mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>بازاریابی</a>
-									</div>
-								</div>
-							</div>
-							<div class="card-body px-0 pt-3">
-								<h5 class="card-title"><a href="post-single-3.html" class="btn-link text-reset fw-bold">۷ اشتباه رایجی که همه در سفر مرتکب می‌شوند</a></h5>
-								<!-- اطلاعات کارت -->
-								<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-									<li class="nav-item">
-										<div class="nav-link">
-											<div class="d-flex align-items-center position-relative">
-												<div class="avatar avatar-xs">
-													<img class="avatar-img rounded-circle" src="{% static 'images/avatar/07.jpg' %}" alt="آواتار">
-												</div>
-												<span class="ms-3">توسط <a href="index.html#" class="stretched-link text-reset btn-link">لوری</a></span>
-											</div>
-										</div>
-									</li>
-									<li class="nav-item">۷ مارس ۲۰۲۲</li>
-								</ul>
-							</div>
-						</div>
-						<!-- آیتم کارت پایان -->
-						<!-- آیتم کارت شروع -->
-						<div class="card">
-							<!-- تصویر کارت -->
-							<div class="position-relative">
-								<img class="card-img" src="{% static 'images/blog/4by3/08.jpg' %}" alt="تصویر کارت">
-								<div class="card-img-overlay d-flex align-items-start flex-column p-3">
-									<!-- روکش پایین کارت -->
-									<div class="w-100 mt-auto">
-										<a href="index.html#" class="badge text-bg-danger mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>ورزشی</a>
-									</div>
-								</div>
-							</div>
-							<div class="card-body px-0 pt-3">
-								<h5 class="card-title"><a href="post-single-3.html" class="btn-link text-reset fw-bold">مهارت‌هایی که می‌توانید از کسب‌وکار بیاموزید</a></h5>
-								<!-- اطلاعات کارت -->
-								<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-									<li class="nav-item">
-										<div class="nav-link">
-											<div class="d-flex align-items-center position-relative">
-												<div class="avatar avatar-xs">
-													<div class="avatar-img rounded-circle bg-warning">
-														<span class="text-dark position-absolute top-50 start-50 translate-middle fw-bold small">MK</span>
-													</div>
-												</div>
-												<span class="ms-3">توسط <a href="index.html#" class="stretched-link text-reset btn-link">جوان</a></span>
-											</div>
-										</div>
-									</li>
-									<li class="nav-item">۱۵ اوت ۲۰۲۲</li>
-								</ul>
-							</div>
-						</div>
-						<!-- آیتم کارت پایان -->
-						<!-- آیتم کارت شروع -->
-						<div class="card">
-							<!-- تصویر کارت -->
-							<div class="position-relative">
-								<img class="card-img" src="{% static 'images/blog/4by3/09.jpg' %}" alt="تصویر کارت">
-								<div class="card-img-overlay d-flex align-items-start flex-column p-3">
-									<!-- روکش پایین کارت -->
-									<div class="w-100 mt-auto">
-										<a href="index.html#" class="badge text-bg-success mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>بازاریابی</a>
-									</div>
-								</div>
-							</div>
-							<div class="card-body px-0 pt-3">
-								<h5 class="card-title"><a href="post-single-3.html" class="btn-link text-reset fw-bold">۱۰ نشانه واضح که نیاز به کسب‌وکار جدید دارید</a></h5>
-								<!-- اطلاعات کارت -->
-								<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-									<li class="nav-item">
-										<div class="nav-link">
-											<div class="d-flex align-items-center position-relative">
-												<div class="avatar avatar-xs">
-													<img class="avatar-img rounded-circle" src="{% static 'images/avatar/09.jpg' %}" alt="آواتار">
-												</div>
-												<span class="ms-3">توسط <a href="index.html#" class="stretched-link text-reset btn-link">برایان</a></span>
-											</div>
-										</div>
-									</li>
-									<li class="nav-item">۱ ژوئن ۲۰۲۲</li>
-								</ul>
-							</div>
-						</div>
-						<!-- آیتم کارت پایان -->
-						<!-- آیتم کارت شروع -->
-						<div class="card">
-							<!-- تصویر کارت -->
-							<div class="position-relative">
-								<img class="card-img" src="{% static 'images/blog/4by3/10.jpg' %}" alt="تصویر کارت">
-								<div class="card-img-overlay d-flex align-items-start flex-column p-3">
-									<!-- روکش بالای کارت -->
-									<div class="w-100 mb-auto d-flex justify-content-end">
-										<div class="text-end ms-auto">
-											<!-- آیکون فرمت کارت -->
-											<div class="icon-md bg-white-soft bg-blur text-white rounded-circle" title="این پست تصاویر دارد"><i class="fas fa-image"></i></div>
-										</div>
-									</div>
-									<!-- روکش پایین کارت -->
-									<div class="w-100 mt-auto">
-										<a href="index.html#" class="badge bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>عکاسی</a>
-									</div>
-								</div>
-							</div>
-							<div class="card-body px-0 pt-3">
-								<h5 class="card-title"><a href="post-single-3.html" class="btn-link text-reset fw-bold">به همین دلیل امسال سال استارتاپ‌ها خواهد بود</a></h5>
-								<!-- اطلاعات کارت -->
-								<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-									<li class="nav-item">
-										<div class="nav-link">
-											<div class="d-flex align-items-center position-relative">
-												<div class="avatar avatar-xs">
-													<img class="avatar-img rounded-circle" src="{% static 'images/avatar/10.jpg' %}" alt="آواتار">
-												</div>
-												<span class="ms-3">توسط <a href="index.html#" class="stretched-link text-reset btn-link">ساموئل</a></span>
-											</div>
-										</div>
-									</li>
-									<li class="nav-item">۷ دسامبر ۲۰۲۲</li>
-								</ul>
-							</div>
-						</div>
-						<!-- آیتم کارت پایان -->
-						<!-- آیتم کارت شروع -->
-						<div class="card">
-							<!-- تصویر کارت -->
-							<div class="position-relative">
-								<img class="card-img" src="{% static 'images/blog/4by3/11.jpg' %}" alt="تصویر کارت">
-								<div class="card-img-overlay d-flex align-items-start flex-column p-3">
-									<!-- روکش پایین کارت -->
-									<div class="w-100 mt-auto">
-										<a href="index.html#" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>تکنولوژی</a>
-									</div>
-								</div>
-							</div>
-							<div class="card-body px-0 pt-3">
-								<h5 class="card-title"><a href="post-single-3.html" class="btn-link text-reset fw-bold">بهترین بردهای پینترست برای یادگیری کسب‌وکار</a></h5>
-								<!-- اطلاعات کارت -->
-								<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
-									<li class="nav-item">
-										<div class="nav-link">
-											<div class="d-flex align-items-center position-relative">
-												<div class="avatar avatar-xs">
-													<img class="avatar-img rounded-circle" src="{% static 'images/avatar/12.jpg' %}" alt="آواتار">
-												</div>
-												<span class="ms-3">توسط <a href="index.html#" class="stretched-link text-reset btn-link">دنیس</a></span>
-											</div>
-										</div>
-									</li>
-									<li class="nav-item">۷ سپتامبر ۲۰۲۲</li>
-								</ul>
-							</div>
-						</div>
-						<!-- آیتم کارت پایان -->
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- =======================
-بخش پایان -->
-
-</main>
-<!-- **************** محتوای اصلی پایان **************** -->
+    </main>
+    <!-- **************** محتوای اصلی پایان **************** -->
 {% endblock content %}

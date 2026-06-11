@@ -19,7 +19,7 @@
                             <!-- Card Image overlay -->
                             <div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
                                 <div class="col-md-8 m-auto bg-blur p-5 rounded-3 shadow-lg">
-                                    <h1 class="text-white">پست های کارتی</h1>
+                                    <h1 class="text-white">همه پست ها</h1>
                                     <nav class="d-flex justify-content-center" aria-label="breadcrumb">
                                         <ol class="breadcrumb breadcrumb-dark breadcrumb-dots mb-0">
                                             <li class="breadcrumb-item"><a href="index.html"><i
@@ -93,7 +93,7 @@
                                 <li>
                                     <ul class="list-unstyled">
                                         <li class="page-item">
-                                            <a class="page-link" href="?page={{ posts.previous_page_number }}">قبلی</a>
+                                            <a class="page-link" href="?page={{ posts.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">قبلی</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -111,10 +111,10 @@
                                 <ul class="list-unstyled">
                                     {% for i in posts.paginator.page_range %}
                                         {% if posts.number == i %}
-                                            <li class="page-item active"><a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                                            <li class="page-item active"><a class="page-link" href="?page={{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ i }}</a>
                                             </li>
                                         {% else %}
-                                            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                                            <li class="page-item"><a class="page-link" href="?page={{ i }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ i }}</a>
                                             </li>
                                         {% endif %}
                                     {% endfor %}
@@ -126,7 +126,7 @@
                                 <li>
                                     <ul class="list-unstyled">
                                         <li class="page-item">
-                                            <a class="page-link" href="?page={{ posts.next_page_number }}">بعدی</a>
+                                            <a class="page-link" href="?page={{ posts.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">بعدی</a>
                                         </li>
                                     </ul>
                                 </li>
