@@ -92,89 +92,9 @@
                     <li class="nav-item dropdown">
                             <a class="nav-link {% if request.resolver_match.url_name == "post_list" %}active{% endif %}" href="{% url 'blog_app:post_list' %}">بلاگ ها</a>
                     </li>
+
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="index.html#" id="pagesMenu" data-bs-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">صفحات</a>
-                        <ul class="dropdown-menu" aria-labelledby="pagesMenu">
-                            <li><a class="dropdown-item" href="about-us.html">درباره</a></li>
-                            <li><a class="dropdown-item" href="contact-us.html">تماس</a></li>
-                            <!-- زیرمنوی کشویی -->
-                            <li class="dropdown-submenu dropend">
-                                <a class="dropdown-item dropdown-toggle" href="index.html#">فروشگاه</a>
-                                <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
-                                    <li><a class="dropdown-item" href="shop-grid.html">فروشگاه شبکه‌ای</a></li>
-                                    <li><a class="dropdown-item" href="shop-detail.html">جزئیات فروشگاه</a></li>
-                                    <li><a class="dropdown-item" href="checkout.html">تسویه حساب</a></li>
-                                    <li><a class="dropdown-item" href="my-cart.html">سبد خرید</a></li>
-                                    <li><a class="dropdown-item" href="empty-cart.html">سبد خرید خالی</a></li>
-                                </ul>
-                            </li>
-                            <!-- زیرمنوی کشویی -->
-                            <li class="dropdown-submenu dropend">
-                                <a class="dropdown-item dropdown-toggle" href="index.html#">بایگانی‌های دیگر</a>
-                                <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
-                                    <li><a class="dropdown-item" href="author.html">صفحه نویسنده</a></li>
-                                    <li><a class="dropdown-item" href="categories.html">صفحه دسته‌بندی ۱</a></li>
-                                    <li><a class="dropdown-item" href="categories-2.html">صفحه دسته‌بندی ۲</a></li>
-                                    <li><a class="dropdown-item" href="tag.html"># تگ</a></li>
-                                    <li><a class="dropdown-item" href="search-result.html">نتیجه جستجو</a></li>
-                                </ul>
-                            </li>
-                            <li><a class="dropdown-item" href="404.html">خطای ۴۰۴</a></li>
-                            <li><a class="dropdown-item" href="signin.html">ورود</a></li>
-                            <li><a class="dropdown-item" href="signup.html">ثبت‌نام</a></li>
-                            <li><a class="dropdown-item" href="offline.html">آفلاین</a></li>
-                            <!-- زیرمنوی کشویی سطوح -->
-                            <li class="dropdown-divider"></li>
-                            <li class="dropdown-submenu dropend">
-                                <a class="dropdown-item dropdown-toggle" href="index.html#">سطوح منوی کشویی</a>
-                                <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
-                                    <!-- زیرمنوی کشویی باز شونده به راست -->
-                                    <li class="dropdown-submenu dropend">
-                                        <a class="dropdown-item dropdown-toggle" href="index.html#">منوی کشویی
-                                            (راست)</a>
-                                        <ul class="dropdown-menu" data-bs-popper="none">
-                                            <li><a class="dropdown-item" href="index.html#">مورد منو</a></li>
-                                            <li><a class="dropdown-item" href="index.html#">مورد منو</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a class="dropdown-item" href="index.html#">مورد منو</a></li>
-                                    <!-- زیرمنوی کشویی باز شونده به چپ -->
-                                    <li class="dropdown-submenu dropstart">
-                                        <a class="dropdown-item dropdown-toggle" href="index.html#">منوی کشویی (چپ)</a>
-                                        <ul class="dropdown-menu dropdown-menu-end" data-bs-popper="none">
-                                            <li><a class="dropdown-item" href="index.html#">مورد منو</a></li>
-                                            <li><a class="dropdown-item" href="index.html#">مورد منو</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a class="dropdown-item" href="index.html#">مورد منو</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-divider"></li>
-                            <li>
-                                <a class="dropdown-item" href="https://support.webestica.com/" target="_blank">
-                                    <i class="text-warning fa-fw bi bi-life-preserver me-2"></i>پشتیبانی
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="https://blogzine.webestica.com/rtl/docs/index.html"
-                                   target="_blank">
-                                    <i class="text-danger fa-fw bi bi-card-text me-2"></i>مستندات
-                                </a>
-                            </li>
-                            <li class="dropdown-divider"></li>
-                            <li>
-                                <a class="dropdown-item" href="../rtl" target="_blank">
-                                    <i class="text-info fa-fw bi bi-toggle-off me-2"></i>دمو راست به چپ
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="https://themes.getbootstrap.com/store/webestica/"
-                                   target="_blank">
-                                    <i class="text-success fa-fw bi bi-cloud-download-fill me-2"></i>خرید بلاگزین!
-                                </a>
-                            </li>
-                        </ul>
+                            <a class="nav-link {% if request.resolver_match.url_name == "contact_us_page" %}active{% endif %}" href="{% url 'home_app:contact_us_page' %}">تماس با ما</a>
                     </li>
 
                     <!-- مورد منو ۳: پست -->
@@ -336,7 +256,9 @@
                     </li>
 
                     <!-- مورد منو ۵ لینک-->
-                    <li class="nav-item"><a class="nav-link" href="dashboard.html">داشبورد</a></li>
+                {%  if user.is_authenticated and user.is_superuser%}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">مدیریت</a></li>
+                {% endif %}
                 </ul>
             </div>
             <!-- منوی ناوبری اصلی پایان -->
@@ -353,7 +275,7 @@
             <!-- ناو سمت راست شروع -->
             <div class="nav flex-nowrap align-items-center">
                 <!-- دکمه ناو -->
-                {% if request.user.is_authenticatedr %}
+                {% if request.user.is_authenticated %}
                     <div class="nav-item d-none d-md-block">
                         <a href="index.html#" class="btn btn-sm btn-danger mb-0 mx-2">عضویت!</a>
                     </div>

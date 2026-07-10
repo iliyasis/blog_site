@@ -1,0 +1,108 @@
+{% extends 'home_app/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<main>
+
+<!-- =======================
+شروع بخش معرفی داخلی -->
+<section>
+	<div class="container">
+		<div class="row">
+      <div class="col-md-9 mx-auto text-center">
+        <h1 class="display-4">تماس با ما</h1>
+        <!-- مسیر ناوبری -->
+        <nav class="d-flex justify-content-center" aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-dots mb-0">
+            <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house me-1"></i> خانه</a></li>
+            <li class="breadcrumb-item active">تماس با ما</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+	</div>
+</section>
+<!-- =======================
+پایان بخش معرفی داخلی -->
+
+<!-- =======================
+شروع اطلاعات تماس -->
+<section class="pt-4">
+	<div class="container">
+		<div class="row">
+      <div class="col-xl-9 mx-auto">
+        <iframe class="w-100 h-300 grayscale" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9663095343008!2d-74.00425878428698!3d40.74076684379132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259bf5c1654f3%3A0xc80f9cfce5383d5d!2sGoogle!5e0!3m2!1sen!2sin!4v1586000412513!5m2!1sen!2sin" height="500" style="border:0;" aria-hidden="false" tabindex="0"></iframe>
+
+
+        <div class="row mt-5">
+          <div class="col-sm-6 mb-5 mb-sm-0">
+            <h3>تبلیغات / حمایت‌های مالی</h3>
+            <p>برای تبلیغات مستقیماً با ما تماس بگیرید</p>
+            <address>تهران، خیابان آزادی، نبش خیابان کارگر، پلاک ۱۲</address>
+            <p>تلفن: <a href="#" class="text-reset"><u>۰۲۱-۱۲۳۴۵۶۷۸ (رایگان)</u></a></p>
+            <p>ایمیل: <a href="#" class="text-reset"><u>advertise@example.com</u></a></p>
+            <p>ساعت پشتیبانی: شنبه تا چهارشنبه
+              <br>
+              ۹:۳۰ تا ۱۸:۰۰
+            </p>
+          </div>
+          <div class="col-sm-6">
+            <h3>اطلاعات تماس</h3>
+            <p>برای مشاهده نحوه کمک به سوال خود، با ما در تماس باشید</p>
+            <address>اصفهان، چهارباغ بالا، کوچه سعادت، پلاک ۸</address>
+            <p>تلفن: <a href="#" class="text-reset"><u>۰۳۱-۵۴۳۲۱۰۹۸ (رایگان)</u></a></p>
+            <p>ایمیل: <a href="#" class="text-reset"><u>contact@example.com</u></a></p>
+            <p>ساعت پشتیبانی: شنبه تا چهارشنبه
+              <br>
+              ۹:۰۰ تا ۱۷:۳۰
+            </p>
+          </div>
+        </div>
+
+        <hr class="my-5">
+
+        <div class="row">
+          <div class="col-12">
+          <h2>تماس با ما</h2>
+          <p>لطفاً فرم زیر را پر کنید، در اسرع وقت با شما تماس خواهیم گرفت. آدرس ایمیل شما منتشر نخواهد شد.</p>
+          <!-- شروع فرم -->
+          <form class="contact-form" id="contact-form" name="contactform" method="POST">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                    {{ form.full_name }}
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                    {{ form.email }}
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="mb-3">
+                    {{ form.subject}}
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="mb-3">
+                    {{ form.message }}
+                </div>
+            </div>
+              <div class="col-md-12 text-start"><button class="btn btn-primary w-100" type="submit">ارسال پیام</button></div>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>  <!-- پایان ستون -->
+     </div>
+  </div>
+</section>
+<!-- =======================
+پایان اطلاعات تماس -->
+
+</main>
+
+{% endblock content %}

@@ -31,21 +31,43 @@
                                 <!-- username -->
                                 <div class="mb-3">
                                     <label class="form-label" for="exampleInputUserName1">نلم کاربری</label>
-                                    <input name="username" type="text" class="form-control" id="exampleInputUserName1"
-                                           placeholder="مثل: علی احمدی">
+                                    {{ form.username }}
+                                    {% if form.username.errors %}
+                                        <div class="text-danger">
+                                            {% for error in form.username.errors %}
+                                                <small>{{ error }}</small>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
                                 </div>
                                 <!-- Password -->
                                 <div class="mb-3">
                                     <label class="form-label" for="exampleInputPassword1">رمز عبور</label>
-                                    <input name="password" type="password" class="form-control"
-                                           id="exampleInputPassword1" placeholder="*********">
+                                    {{ form.password }}
+                                    {% if form.password.errors %}
+                                        <div class="text-danger">
+                                            {% for error in form.password.errors %}
+                                                <small>{{ error }}</small>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+
+
                                 </div>
-                                <!-- Checkbox -->
+                                {% if form.non_field_errors %}
+                                    <div class="alert alert-danger">
+                                        {% for error in form.non_field_errors %}
+                                            <p>{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+
+                                <!-- Checkbox
                                 <div class="mb-3 form-check">
                                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                     <label class="form-check-label" for="exampleCheck1">مرا به خاطر بسپار</label>
                                 </div>
-                                <!-- Button -->
+                                 Button -->
                                 <div class="row align-items-center">
                                     <div class="col-sm-4">
                                         <button type="submit" class="btn btn-success">ورود</button>
