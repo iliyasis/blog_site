@@ -1,4 +1,29 @@
 {% load static %}
+<style>
+    .btn-coming-wrapper {
+        position: relative;
+        display: inline-block;
+    }
+
+    .btn-coming-wrapper .badge-ribbon {
+        position: absolute;
+        top: 10px;
+        right: -15px;
+        background: #dc3545;
+        color: #fff;
+        font-size: 0.65rem;
+        font-weight: 700;
+        padding: 0.25rem 1.5rem;
+        transform: rotate(32deg);
+        box-shadow: 0 2px 6px rgba(220, 53, 69, 0.4);
+        pointer-events: none;
+        border-radius: 2px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        z-index: 5;
+    }
+</style>
+
 
 <!-- منوی کشویی شروع -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu">
@@ -50,7 +75,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <!-- لوگو شروع -->
-            <a class="navbar-brand" href="{% url 'home_app:home_page' %}">
+            <a class="navbar-brand d-none d-lg-block" href="{% url 'home_app:home_page' %}">
                 <img class="light-mode-item my-3" src="{% static 'images/logo.svg' %}" alt="لوگو">
                 <img class="dark-mode-item my-3" src="{% static 'images/logo-light.svg' %}" alt="لوگو">
             </a>
@@ -69,209 +94,95 @@
 
                     <!-- مورد منو ۱: دموها -->
                     <li class="nav-item dropdown">
-                            <a class="nav-link {% if request.resolver_match.url_name == "home_page" %}active{% endif %}" href="{% url 'home_app:home_page' %}" id="homeMenu"
-                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">خانه</a>
-
-                        <ul class="dropdown-menu" aria-labelledby="homeMenu">
-                            <li><a class="dropdown-item active" href="index.html">خانه پیش‌فرض</a></li>
-                            <li><a class="dropdown-item" href="index-lazy.html">خانه لود تنبل</a></li>
-                            <li><a class="dropdown-item" href="index-2.html">مجله کلاسیک</a></li>
-                            <li><a class="dropdown-item" href="index-3.html">مجله</a></li>
-                            <li><a class="dropdown-item" href="index-4.html">خانه کارت‌ها</a></li>
-                            <li><a class="dropdown-item" href="index-5.html">بلاگ کلاسیک</a></li>
-                            <li><a class="dropdown-item" href="index-6.html">بلاگ شخصی</a></li>
-                            <li><a class="dropdown-item" href="index-7.html">بلاگ vintage</a></li>
-                            <li><a class="dropdown-item" href="index-8.html">بلاگ تکنولوژی</a></li>
-                            <li><a class="dropdown-item" href="index-9.html">بلاگ مد</a></li>
-                            <li><a class="dropdown-item" href="index-10.html">بلاگ پادکست</a></li>
-                            <li><a class="dropdown-item" href="index-11.html">خانه فروشگاه</a></li>
-                        </ul>
+                        <a class="nav-link {% if request.resolver_match.url_name == "home_page" %}active{% endif %}"
+                           href="{% url 'home_app:home_page' %}">خانه</a>
                     </li>
 
                     <!-- مورد منو ۲: صفحات -->
                     <li class="nav-item dropdown">
-                            <a class="nav-link {% if request.resolver_match.url_name == "post_list" %}active{% endif %}" href="{% url 'blog_app:post_list' %}">بلاگ ها</a>
+                        <a class="nav-link {% if request.resolver_match.url_name == "post_list" %}active{% endif %}"
+                           href="{% url 'blog_app:post_list' %}">بلاگ ها</a>
                     </li>
 
                     <li class="nav-item dropdown">
-                            <a class="nav-link {% if request.resolver_match.url_name == "contact_us_page" %}active{% endif %}" href="{% url 'home_app:contact_us_page' %}">تماس با ما</a>
+                        <a class="nav-link {% if request.resolver_match.url_name == "contact_us_page" %}active{% endif %}"
+                           href="{% url 'home_app:contact_us_page' %}">تماس با ما</a>
                     </li>
 
-                    <!-- مورد منو ۳: پست -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link " href="index.html#" id="postMenu" data-bs-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">پست</a>
-                        <ul class="dropdown-menu" aria-labelledby="postMenu">
-                            <!-- زیرمنوی کشویی -->
-                            <li class="dropdown-submenu dropend">
-                                <a class="dropdown-item dropdown-toggle" href="index.html#">پست شبکه‌ای</a>
-                                <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
-                                    <li><a class="dropdown-item" href="post-grid.html">پست شبکه‌ای</a></li>
-                                    <li><a class="dropdown-item" href="post-grid-4-col.html">پست شبکه‌ای ۴ ستون</a></li>
-                                    <li><a class="dropdown-item" href="post-grid-masonry.html">پست شبکه‌ای masonry</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="post-grid-masonry-filter.html">پست شبکه‌ای
-                                        masonry با فیلتر</a></li>
-                                    <li><a class="dropdown-item" href="post-large-and-grid.html">پست ترکیبی بزرگ و
-                                        شبکه‌ای</a></li>
-                                </ul>
-                            </li>
-                            <li><a class="dropdown-item" href="post-list.html">پست لیستی</a></li>
-                            <li><a class="dropdown-item" href="post-list-2.html">پست لیستی ۲</a></li>
-                            <li><a class="dropdown-item" href="post-cards.html">پست کارتی</a></li>
-                            <li><a class="dropdown-item" href="post-overlay.html">پست Overlay</a></li>
-                            <li><a class="dropdown-item" href="post-types.html">انواع پست</a></li>
-                            <li class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="post-single.html">پست تکی مجله</a></li>
-                            <li><a class="dropdown-item" href="post-single-2.html">پست تکی کلاسیک</a></li>
-                            <li><a class="dropdown-item" href="post-single-3.html">پست تکی مینیمال</a></li>
-                            <li><a class="dropdown-item" href="post-single-4.html">پست تکی کارتی</a></li>
-                            <li><a class="dropdown-item" href="post-single-5.html">پست تکی بررسی</a></li>
-                            <li><a class="dropdown-item" href="post-single-6.html">پست تکی ویدیویی</a></li>
-                            <li><a class="dropdown-item" href="podcast-single.html">پادکست تکی</a></li>
-                            <li class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="pagination-styles.html">سبک‌های صفحه‌بندی</a></li>
-                        </ul>
+                    <!-- مورد منو ۲: صفحات -->
+                    <li class="nav-item dropdown position-relative">
+                        <a class="nav-link"
+                           href="{% url 'blog_app:post_list' %}"
+                           style="cursor: not-allowed; opacity: 0.3; pointer-events: none;">
+                            باینری چت
+                        </a>
+                        <span class="position-absolute" style="
+                                    top: 20px;
+                                    right: -2px;
+                                    background: linear-gradient(135deg, #e74c3c, #c0392b);
+                                    color: white;
+                                    font-size: 10px;
+                                    font-weight: 700;
+                                    padding: 2px 10px;
+                                    transform: rotate(20deg);
+                                    border-radius: 2px;
+                                    box-shadow: 0 2px 6px rgba(231, 76, 60, 0.4);
+                                    text-transform: uppercase;
+                                    letter-spacing: 0.3px;
+                                    white-space: nowrap;
+                                    z-index: 10;
+                                ">
+                            به زودی
+                        </span>
                     </li>
 
-                    <!-- مورد منو ۴: منوی مگا -->
-                    <li class="nav-item dropdown dropdown-fullwidth">
-                        <a class="nav-link dropdown-toggle" href="index.html#" id="megaMenu" data-bs-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">سبک زندگی</a>
-                        <div class="dropdown-menu" aria-labelledby="megaMenu">
-                            <div class="container">
-                                <div class="row g-4 p-3 flex-fill">
-                                    <!-- مورد کارت شروع -->
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="card bg-transparent">
-                                            <!-- تصویر کارت -->
-                                            <img class="card-img rounded"
-                                                 src="{% static 'images/blog/16by9/small/01.jpg' %}" alt="تصویر کارت">
-                                            <div class="card-body px-0 pt-3">
-                                                <h6 class="card-title mb-0"><a href="index.html#"
-                                                                               class="btn-link text-reset fw-bold">۷
-                                                    اشتباه رایجی که همه در سفر مرتکب می‌شوند</a></h6>
-                                                <!-- اطلاعات کارت -->
-                                                <ul class="nav nav-divider align-items-center text-uppercase small mt-2">
-                                                    <li class="nav-item">
-                                                        <a href="index.html#" class="text-reset btn-link">جوآن والاس</a>
-                                                    </li>
-                                                    <li class="nav-item">۱۸ فوریه ۲۰۲۲</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- مورد کارت پایان -->
-                                    <!-- مورد کارت شروع -->
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="card bg-transparent">
-                                            <!-- تصویر کارت -->
-                                            <img class="card-img rounded"
-                                                 src="{% static 'images/blog/16by9/small/02.jpg' %}" alt="تصویر کارت">
-                                            <div class="card-body px-0 pt-3">
-                                                <h6 class="card-title mb-0"><a href="index.html#"
-                                                                               class="btn-link text-reset fw-bold">۱۲
-                                                    بدترین نوع حساب کسب‌وکار که در توییتر دنبال می‌کنید</a></h6>
-                                                <!-- اطلاعات کارت -->
-                                                <ul class="nav nav-divider align-items-center text-uppercase small mt-2">
-                                                    <li class="nav-item">
-                                                        <a href="index.html#" class="text-reset btn-link">لوری
-                                                            استیونز</a>
-                                                    </li>
-                                                    <li class="nav-item">۳ ژوئن ۲۰۲۲</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- مورد کارت پایان -->
-                                    <!-- مورد کارت شروع -->
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="card bg-transparent">
-                                            <!-- تصویر کارت -->
-                                            <img class="card-img rounded"
-                                                 src="{% static 'images/blog/16by9/small/03.jpg' %}" alt="تصویر کارت">
-                                            <div class="card-body px-0 pt-3">
-                                                <h6 class="card-title mb-0"><a href="index.html#"
-                                                                               class="btn-link text-reset fw-bold">مهارت‌هایی
-                                                    که می‌توانید از کسب‌وکار بیاموزید</a></h6>
-                                                <!-- اطلاعات کارت -->
-                                                <ul class="nav nav-divider align-items-center text-uppercase small mt-2">
-                                                    <li class="nav-item">
-                                                        <a href="index.html#" class="text-reset btn-link">جودی نگوین</a>
-                                                    </li>
-                                                    <li class="nav-item">۷ سپتامبر ۲۰۲۲</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- مورد کارت پایان -->
-                                    <!-- مورد کارت شروع -->
-                                    <div class="col-sm-6 col-lg-3">
-                                        <div class="bg-primary bg-opacity-10 p-4 text-center h-100 w-100 rounded">
-                                            <span>بلاگزین</span>
-                                            <h3>عضویت ویژه</h3>
-                                            <p>همین امروز عضو شوید!</p>
-                                            <a href="index.html#" class="btn btn-warning">مشاهده طرح‌های قیمت‌گذاری</a>
-                                        </div>
-                                    </div>
-                                    <!-- مورد کارت پایان -->
-                                </div> <!-- ردیف پایان -->
-                                <!-- تگ‌های ترند -->
-                                <div class="row px-3">
-                                    <div class="col-12">
-                                        <ul class="list-inline mt-3">
-                                            <li class="list-inline-item">تگ‌های ترند:</li>
-                                            <li class="list-inline-item"><a href="index.html#"
-                                                                            class="btn btn-sm btn-primary-soft">سفر</a>
-                                            </li>
-                                            <li class="list-inline-item"><a href="index.html#"
-                                                                            class="btn btn-sm btn-warning-soft">کسب‌وکار</a>
-                                            </li>
-                                            <li class="list-inline-item"><a href="index.html#"
-                                                                            class="btn btn-sm btn-success-soft">تکنولوژی</a>
-                                            </li>
-                                            <li class="list-inline-item"><a href="index.html#"
-                                                                            class="btn btn-sm btn-danger-soft">گجت‌ها</a>
-                                            </li>
-                                            <li class="list-inline-item"><a href="index.html#"
-                                                                            class="btn btn-sm btn-info-soft">سبک
-                                                زندگی</a></li>
-                                            <li class="list-inline-item"><a href="index.html#"
-                                                                            class="btn btn-sm btn-primary-soft">واکسن</a>
-                                            </li>
-                                            <li class="list-inline-item"><a href="index.html#"
-                                                                            class="btn btn-sm btn-success-soft">ورزشی</a>
-                                            </li>
-                                            <li class="list-inline-item"><a href="index.html#"
-                                                                            class="btn btn-sm btn-danger-soft">کووید-۱۹</a>
-                                            </li>
-                                            <li class="list-inline-item"><a href="index.html#"
-                                                                            class="btn btn-sm btn-info-soft">سیاسی</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div> <!-- ردیف پایان -->
-                            </div>
-                        </div>
+                <li class="nav-item dropdown position-relative">
+                        <a class="nav-link"
+                           href="{% url 'blog_app:post_list' %}"
+                           style="cursor: not-allowed; opacity: 0.3; pointer-events: none;">
+                            باینری کورس
+                        </a>
+                        <span class="position-absolute" style="
+                                    top: 20px;
+                                    right: -2px;
+                                    background: linear-gradient(135deg, #e74c3c, #c0392b);
+                                    color: white;
+                                    font-size: 10px;
+                                    font-weight: 700;
+                                    padding: 2px 10px;
+                                    transform: rotate(20deg);
+                                    border-radius: 2px;
+                                    box-shadow: 0 2px 6px rgba(231, 76, 60, 0.4);
+                                    text-transform: uppercase;
+                                    letter-spacing: 0.3px;
+                                    white-space: nowrap;
+                                    z-index: 10;
+                                ">
+                            به زودی
+                        </span>
                     </li>
+
 
                     <!-- مورد منو ۵ لینک-->
-                {%  if user.is_authenticated and user.is_superuser%}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">مدیریت</a></li>
-                {% endif %}
+                    {% if user.is_authenticated and user.is_superuser %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">مدیریت</a></li>
+                    {% endif %}
                 </ul>
             </div>
             <!-- منوی ناوبری اصلی پایان -->
 
-        <div class="nav my-3 my-xl-0 px-4 px-lg-1 flex-nowrap align-items-center">
-					<div class="nav-item w-100">
-						<form method="get" action="{% url 'blog_app:searched_post' %}" class="position-relative">
+            <div class="nav my-3 my-xl-0 px-4 px-lg-1 flex-nowrap align-items-center">
+                <div class="nav-item w-100">
+                    <form method="get" action="{% url 'blog_app:searched_post' %}" class="position-relative">
 
-							<input value="{% if request.GET.q %}{{ request.GET.q }}{% endif %}" name ="q" class="form-control pe-5 bg-transparent" type="search" placeholder="بگرد..." aria-label="Search">
-							<button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
-						</form>
-					</div>
-				</div>
+                        <input value="{% if request.GET.q %}{{ request.GET.q }}{% endif %}" name="q"
+                               class="form-control pe-5 bg-transparent" type="search" placeholder="بگرد..."
+                               aria-label="Search">
+                        <button class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y"
+                                type="submit"><i class="fas fa-search fs-6 "></i></button>
+                    </form>
+                </div>
+            </div>
             <!-- ناو سمت راست شروع -->
             <div class="nav flex-nowrap align-items-center">
                 <!-- دکمه ناو -->
