@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+from django.db.models.fields import CharField
 from django.forms import ValidationError
 from django.contrib.auth import authenticate
 
@@ -39,3 +40,21 @@ class RegisterForm(forms.Form):
 
         return cleaned_data
 
+
+class UserEditForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'first_name', 'last_name']
+        widgets = {
+            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'username': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+
+        }
+
+        def clean_username(self):
+            username = self.cleaned_data['username']
+            if User.objects.filter(username=username).exists():
+                raise ValidationError("این نام کاربری از قبل وجود دارد", "1007")
+            return username

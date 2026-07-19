@@ -1,0 +1,433 @@
+{% extends 'home_app/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <main>
+
+        <!-- =======================
+        شروع محتوای اصلی -->
+        <section class="py-4">
+            <div class="container">
+
+                <div class="row g-4">
+                    <!-- شروع کاور و اطلاعات پروفایل -->
+                    <div class="col-12">
+                        <div class="card mb-4 position-relative z-index-9">
+                            <!-- تصویر کاور -->
+                            <div class="py-5 h-200 rounded"
+                                 style="background-image:url({% static 'images/blog/16by9/big/07.jpg' %}); background-position: center bottom; background-size: cover; background-repeat: no-repeat;">
+                            </div>
+                            <div class="card-body pt-3 pb-0">
+                                <div class="row d-flex justify-content-between">
+                                    <!-- آواتار -->
+                                    <div class="col-sm-12 col-md-auto text-center text-md-start">
+                                        <div class="avatar avatar-xxl mt-n5">
+                                            <img class="avatar-img rounded-circle border border-white border-3 shadow"
+                                                 src="{{ request.user.profile.picture.url }}" alt="تصویر پروفایل">
+                                        </div>
+                                    </div>
+                                    <!-- اطلاعات پروفایل -->
+                                    <div class="col-sm-12 col-md text-center text-md-start d-md-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h4 class="my-1">{{ request.user.profile.nickname }}<i
+                                                    class="bi bi-patch-check-fill text-info small"></i></h4>
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item"><i class="bi bi-person-fill me-1"></i>
+                                                    سردبیر در بلاگ‌زین
+                                                </li>
+                                                <li class="list-inline-item"><i class="bi bi-geo-alt me-1"></i> نیویورک
+                                                </li>
+                                                <li class="list-inline-item"><i class="bi bi-calendar2-plus me-1"></i>
+                                                    عضو از ۱۵ ژانویه ۲۰۱۸
+                                                </li>
+                                            </ul>
+                                            <p class="m-0"></p>
+                                        </div>
+                                        <!-- لینک‌ها -->
+                                        <div class="d-flex align-items-center justify-content-center justify-content-md-end">
+                                            <a href="dashboard-edit-profile.html#" class="btn btn-primary-soft me-3">دنبال
+                                                کردن</a>
+                                            <!-- شروع اکشن کارت -->
+                                            <div class="dropdown ms-3">
+                                                <a class="text-secondary" href="dashboard-edit-profile.html#"
+                                                   id="profileDropdown" role="button" data-bs-toggle="dropdown"
+                                                   data-bs-auto-close="outside" aria-expanded="false">
+                                                    <!-- آیکون منو -->
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <circle fill="currentColor" cx="3" cy="12" r="2.5"></circle>
+                                                        <circle fill="currentColor" opacity="0.5" cx="12" cy="12"
+                                                                r="2.5"></circle>
+                                                        <circle fill="currentColor" opacity="0.3" cx="21" cy="12"
+                                                                r="2.5"></circle>
+                                                    </svg>
+                                                </a>
+                                                <ul class="dropdown-menu dropdown-menu-end"
+                                                    aria-labelledby="profileDropdown">
+                                                    <li><a class="dropdown-item" href="dashboard-edit-profile.html#"><i
+                                                            class="bi bi-share me-2 fw-icon"></i>اشتراک‌گذاری
+                                                        پروفایل</a></li>
+                                                    <li><a class="dropdown-item" href="dashboard-edit-profile.html#"><i
+                                                            class="bi bi-volume-mute me-2 fw-icon"></i>بی‌صدا کردن
+                                                        اعلان‌ها</a>
+                                                    </li>
+                                                    <li><a class="dropdown-item text-danger"
+                                                           href="dashboard-edit-profile.html#"><i
+                                                            class="bi bi-slash-circle me-2 fw-icon"></i>حذف پروفایل</a>
+                                                    </li>
+                                                    <li>
+                                                        <hr class="dropdown-divider">
+                                                    </li>
+                                                    <li><a class="dropdown-item" href="dashboard-edit-profile.html#"><i
+                                                            class="bi bi-flag me-2 fw-icon"></i>گزارش مشکل</a></li>
+                                                </ul>
+                                            </div>
+                                            <!-- پایان اکشن کارت -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- پایان اطلاعات پروفایل -->
+                </div>
+
+                <div class="row g-4">
+                    <!-- شروع نوار کناری چپ -->
+                    <div class="col-lg-7 col-xxl-8">
+                        <!-- شروع پروفایل -->
+                        <div class="card border mb-4">
+                            <form method="post">
+                                {% csrf_token %}
+
+                                <div class="card-header border-bottom p-3">
+                                    <h5 class="card-header-title mb-0">پروفایل</h5>
+                                </div>
+                                <div class="card-body">
+                                    <!-- نام کامل -->
+                                    <div class="mb-3">
+                                        <label class="form-label">نام کامل</label>
+                                        <div class="input-group">
+                                            {{ form.first_name }}
+                                            {{ form.last_name }}
+                                        </div>
+                                    </div>
+                                    <!-- نام کاربری -->
+                                    <div class="mb-3">
+                                        <label class="form-label">نام کاربری</label>
+                                        <div class="input-group">
+                                            {{ form.username }}
+
+                                        </div>
+                                        {% if form.username.errors %}
+                                            <div class="text-danger">
+                                                {% for error in form.username.errors %}
+                                                    <small>{{ error }}</small>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                    <!-- تصویر پروفایل -->
+                                    <div class="mb-3">
+                                        <label class="form-label">تصویر پروفایل</label>
+                                        <!-- شروع آپلود آواتار -->
+                                        <div class="d-flex align-items-center">
+                                            <div class="position-relative me-3">
+                                                <!-- ویرایش آواتار -->
+                                                <div class="position-absolute top-0 end-0  z-index-9">
+                                                    <a class="btn btn-sm btn-light btn-round mb-0 mt-n1 me-n1"
+                                                       href="dashboard-edit-profile.html#"> <i class="bi bi-pencil"></i>
+                                                    </a>
+                                                </div>
+                                                <!-- پیش‌نمایش آواتار -->
+                                                <div class="avatar avatar-xl">
+                                                    <img class="avatar-img rounded-circle border border-white border-3 shadow"
+                                                         src="{{ request.user.profile.picture.url }}"
+                                                         alt="تصویر آواتار">
+                                                </div>
+                                            </div>
+                                            <!-- دکمه حذف آواتار -->
+                                            <div class="avatar-remove">
+                                                <button type="button" class="btn btn-light">حذف</button>
+                                            </div>
+                                        </div>
+                                        <!-- پایان آپلود آواتار -->
+                                    </div>
+                                    <!-- عنوان شغلی -->
+                                    <div class="mb-3">
+                                        <label class="form-label">عنوان شغلی</label>
+                                        <input class="form-control" type="text" value="سردبیر در بلاگ‌زین">
+                                    </div>
+                                    <!-- مکان -->
+                                    <div class="mb-3">
+                                        <label class="form-label">مکان</label>
+                                        <input class="form-control" type="text" value="نیوهمپشایر">
+                                    </div>
+                                    <!-- بیوگرافی -->
+                                    <div class="mb-3">
+                                        <label class="form-label">بیوگرافی</label>
+                                        <textarea class="form-control" rows="3">راهی پیدا کردم تا از سرگرمی مورد علاقه‌ام پول دربیاورم و در عین حال رویای سفر به دور دنیا را دنبال کنم.</textarea>
+                                        <div class="form-text">توضیح مختصری برای پروفایل خود.</div>
+                                    </div>
+                                    <!-- تاریخ تولد -->
+                                    <div>
+                                        <label class="form-label">تاریخ تولد</label>
+                                        <input type="text" class="form-control flatpickr-input" placeholder="DD/MM/YYYY"
+                                               value="12/10/1990">
+                                    </div>
+                                    <!-- دکمه ذخیره -->
+                                    <div class="d-flex justify-content-end mt-4">
+                                        <a href="dashboard-edit-profile.html#" class="btn text-secondary border-0 me-2">انصراف</a>
+                                        <input type="submit" value="ذخیره تغییرات" class="btn btn-primary">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- پایان پروفایل -->
+
+                        <!-- شروع اطلاعات شخصی -->
+                        <div class="card border mb-4">
+                            <div class="card-header border-bottom p-3">
+                                <h5 class="card-header-title mb-0">اطلاعات شخصی</h5>
+                            </div>
+                            <div class="card-body">
+                                <!-- اسکایپ -->
+                                <div class="mb-3">
+                                    <label class="form-label">اسکایپ</label>
+                                    <input class="form-control" type="text" value="iamlouisferguson">
+                                </div>
+                                <!-- ایمیل -->
+                                <div class="mb-3">
+                                    <label class="form-label">ایمیل</label>
+                                    {{ form.email }}
+                                </div>
+                                <!-- آدرس -->
+                                <div class="mb-3">
+                                    <label class="form-label">آدرس</label>
+                                    <input class="form-control" type="text"
+                                           value="750 Sing Sing Rd, Horseheads, NY, 14845 ">
+                                </div>
+                                <!-- دکمه ذخیره -->
+                                <div class="d-flex justify-content-end mt-4">
+                                    <a href="dashboard-edit-profile.html#" class="btn btn-primary">ذخیره تغییرات</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- پایان اطلاعات شخصی -->
+
+                        <!-- شروع لینک‌های اجتماعی -->
+                        <div class="card border mb-4">
+                            <div class="card-header border-bottom p-3">
+                                <h5 class="card-header-title mb-0">لینک‌های شبکه‌های اجتماعی</h5>
+                            </div>
+                            <div class="card-body">
+                                <!-- فیسبوک -->
+                                <div class="mb-3">
+                                    <label class="form-label">فیسبوک</label>
+                                    <input class="form-control" type="text" value="https://facebook.com/">
+                                </div>
+                                <!-- لینکدین -->
+                                <div class="mb-3">
+                                    <label class="form-label">لینکدین</label>
+                                    <input class="form-control" type="email" value="https://www.linkedin.com/">
+                                </div>
+                                <!-- توییتر -->
+                                <div class="mb-3">
+                                    <label class="form-label">توییتر</label>
+                                    <input class="form-control" type="text" value="https://twitter.com/ ">
+                                </div>
+                                <!-- دکمه ذخیره -->
+                                <div class="d-flex justify-content-end mt-4">
+                                    <a href="dashboard-edit-profile.html#" class="btn btn-primary">ذخیره تغییرات</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- پایان لینک‌های اجتماعی -->
+
+                        <!-- شروع به‌روزرسانی رمز عبور -->
+                        <div class="card border">
+                            <div class="card-header border-bottom p-3">
+                                <h5 class="card-header-title mb-0">به‌روزرسانی رمز عبور</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label class="form-label">رمز عبور فعلی</label>
+                                    <input class="form-control" type="password"
+                                           placeholder="رمز عبور فعلی را وارد کنید">
+                                </div>
+                                <!-- رمز عبور جدید -->
+                                <div class="mb-3">
+                                    <label class="form-label" id="psw-strength-message"></label>
+                                    <div class="input-group">
+                                        <input class="form-control fakepassword" type="password" id="psw-input"
+                                               placeholder="رمز عبور جدید را وارد کنید">
+                                        <span class="input-group-text p-0">
+                  <i class="fakepasswordicon far fa-eye cursor-pointer p-2 w-40px"></i>
+                </span>
+                                    </div>
+                                    <div class="rounded mt-1" id="psw-strength"></div>
+                                </div>
+                                <!-- تکرار رمز عبور جدید -->
+                                <div>
+                                    <label class="form-label">تکرار رمز عبور جدید</label>
+                                    <input class="form-control" type="password"
+                                           placeholder="رمز عبور جدید را تکرار کنید">
+                                </div>
+                                <div class="d-flex justify-content-end mt-4">
+                                    <a href="dashboard-edit-profile.html#" class="btn btn-primary">تغییر رمز عبور</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- پایان به‌روزرسانی رمز عبور -->
+                    </div>
+                    <!-- پایان نوار کناری چپ -->
+
+                    <!-- شروع نوار کناری راست -->
+                    <div class="col-lg-5 col-xxl-4">
+                        <!-- شروع تنظیمات پروفایل -->
+                        <div class="card border mb-4">
+                            <div class="card-header border-bottom p-3">
+                                <h5 class="card-header-title mb-0">تنظیمات پروفایل</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-check form-switch form-check-md mb-3">
+                                    <input class="form-check-input" type="checkbox" id="availabilityCheck" checked="">
+                                    <label class="form-check-label" for="availabilityCheck">نمایش پروفایل برای
+                                        همه</label>
+                                </div>
+                                <div class="form-check form-switch form-check-md mb-3">
+                                    <input class="form-check-input" type="checkbox" id="proCheck" disabled="">
+                                    <label class="form-check-label" for="proCheck">غیرفعال کردن تبلیغات <span
+                                            class="badge bg-primary align-middle">حرفه‌ای</span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- پایان تنظیمات پروفایل -->
+
+                        <!-- شروع اعلان‌ها -->
+                        <div class="card border mb-4">
+                            <div class="card-header border-bottom p-3">
+                                <h5 class="card-header-title mb-0">اعلان‌ها</h5>
+                            </div>
+                            <!-- شروع بدنه کارت -->
+                            <div class="card-body">
+                                <p>نوع اعلان‌هایی که می‌خواهید دریافت کنید را انتخاب کنید</p>
+                                <div class="form-check form-switch form-check-md mb-3">
+                                    <input class="form-check-input" type="checkbox" id="withdrawalCheck" checked="">
+                                    <label class="form-check-label" for="withdrawalCheck">فعالیت‌های برداشت</label>
+                                </div>
+                                <div class="form-check form-switch form-check-md mb-3">
+                                    <input class="form-check-input" type="checkbox" id="weeklyCheck">
+                                    <label class="form-check-label" for="weeklyCheck">گزارش هفتگی</label>
+                                </div>
+                                <div class="form-check form-switch form-check-md mb-3">
+                                    <input class="form-check-input" type="checkbox" id="passwordCheck" checked="">
+                                    <label class="form-check-label" for="passwordCheck">تغییر رمز عبور</label>
+                                </div>
+                                <div class="form-check form-switch form-check-md mb-3">
+                                    <input class="form-check-input" type="checkbox" id="dataCheck">
+                                    <label class="form-check-label" for="dataCheck">هشدار مصرف داده</label>
+                                </div>
+                            </div>
+                            <!-- پایان بدنه کارت -->
+                        </div>
+                        <!-- پایان اعلان‌ها -->
+
+                        <!-- شروع غیرفعال‌سازی حساب کاربری -->
+                        <div class="card border mb-4">
+                            <div class="card-header border-bottom p-3">
+                                <h5 class="card-header-title mb-0">غیرفعال‌سازی حساب کاربری</h5>
+                            </div>
+                            <div class="card-body">
+                                <h6>قبل از رفتن...</h6>
+                                <ul>
+                                    <li>از داده‌های خود نسخه پشتیبان بگیرید <a
+                                            href="dashboard-edit-profile.html#">اینجا</a></li>
+                                    <li>حذف حساب کاربری قطعی است و راهی برای بازیابی آن وجود نخواهد داشت</li>
+                                </ul>
+                                <div class="form-check form-check-md my-3">
+                                    <input class="form-check-input" type="checkbox" value="" id="deleteaccountCheck">
+                                    <label class="form-check-label" for="deleteaccountCheck">بله، واقعاً می‌خواهم حساب
+                                        کاربری خود را حذف کنم</label>
+                                </div>
+                                <a href="dashboard-edit-profile.html#" class="btn btn-success-soft my-1">حفظ حساب
+                                    کاربری</a>
+                                <a href="dashboard-edit-profile.html#" class="btn btn-danger my-1">حذف حساب کاربری</a>
+                            </div>
+                        </div>
+                        <!-- پایان غیرفعال‌سازی حساب کاربری -->
+                        <p><i class="bi bi-info-circle me-2"></i>این حساب کاربری در ۱۵ ژانویه ۲۰۱۸ ایجاد شده است</p>
+
+                        <div class="card bg-transparent border rounded-3 mt-4">
+                            <!-- هدر کارت -->
+                            <div class="card-header bg-transparent border-bottom p-3">
+                                <h5 class="card-header-title mb-0">حساب‌های متصل</h5>
+                            </div>
+                            <!-- شروع بدنه کارت -->
+                            <div class="card-body">
+                                <!-- گوگل -->
+                                <div class="position-relative mb-3 mt-3 d-sm-flex bg-success bg-opacity-10 border border-success p-3 rounded">
+                                    <!-- عنوان و محتوا -->
+                                    <h2 class="fs-1 mb-0 me-3"><i class="fab fa-google text-google-icon"></i></h2>
+                                    <div>
+                                        <div class="position-absolute top-0 start-100 translate-middle bg-white rounded-circle lh-1 h-15">
+                                            <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                                        </div>
+                                        <h6 class="mb-1">گوگل</h6>
+                                        <p class="mb-1 small">شما با موفقیت به حساب گوگل خود متصل شده‌اید</p>
+                                        <!-- دکمه -->
+                                        <button type="button" class="btn btn-sm btn-danger mb-0 me-2">لغو اتصال</button>
+                                        <a href="dashboard-edit-profile.html#"
+                                           class="btn btn-sm btn-link text-body mb-0">اطلاعات بیشتر</a>
+                                    </div>
+                                </div>
+
+                                <!-- بلاگر -->
+                                <div class="mb-3 d-sm-flex border p-3 rounded">
+                                    <!-- عنوان و محتوا -->
+                                    <h2 class="fs-1 mb-0 me-3"><i class="fab fa-blogger text-warning"></i></h2>
+                                    <div>
+                                        <h6 class="mb-1">بلاگر</h6>
+                                        <p class="mb-1 small">برای تجربه‌ای شخصی‌سازی‌شده به حساب بلاگر خود متصل
+                                            شوید</p>
+                                        <!-- دکمه -->
+                                        <button type="button" class="btn btn-sm btn-primary mb-0 me-2">اتصال به بلاگر
+                                        </button>
+                                        <a href="dashboard-edit-profile.html#"
+                                           class="btn btn-sm btn-link text-body mb-0">اطلاعات بیشتر</a>
+                                    </div>
+                                </div>
+
+                                <!-- فیسبوک -->
+                                <div class="d-sm-flex border p-3 rounded mb-2">
+                                    <!-- عنوان و محتوا -->
+                                    <h2 class="fs-1 mb-0 me-3"><i class="fab fa-facebook text-facebook"></i></h2>
+                                    <div>
+                                        <h6 class="mb-1">فیسبوک</h6>
+                                        <p class="mb-1 small">برای تجربه‌ای شخصی‌سازی‌شده به حساب فیسبوک خود متصل
+                                            شوید</p>
+                                        <!-- دکمه -->
+                                        <button type="button" class="btn btn-sm btn-primary mb-0 me-2">اتصال به فیسبوک
+                                        </button>
+                                        <a href="dashboard-edit-profile.html#"
+                                           class="btn btn-sm btn-link text-body mb-0">اطلاعات بیشتر</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- پایان بدنه کارت -->
+                        </div>
+                    </div>
+                    <!-- پایان نوار کناری راست -->
+                </div>
+            </div>
+        </section>
+        <!-- =======================
+        پایان محتوای اصلی -->
+
+    </main>
+
+
+{% endblock content %}

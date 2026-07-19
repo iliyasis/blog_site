@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .form import LoginForm, RegisterForm
+from .form import LoginForm, RegisterForm, UserEditForm
 from django.contrib.auth.models import User
 
 
@@ -57,3 +57,11 @@ def registration_page(request):
     else:
         form = RegisterForm
     return render(request,"account_app/register.html", {"form":form})
+
+def profile_page(request):
+    form = UserEditForm(instance=request.user)
+    if request.method == "POST":
+        form = UserEditForm(instance=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+    return render(request,"account_app/profile.html",{"form":form})
