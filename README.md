@@ -1,2 +1,2 @@
 # blog_site
-try to create a blog website by django
+Building a blog site using Django MVC architecture
