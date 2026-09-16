@@ -38,6 +38,7 @@ class Post(models.Model):
     image = models.ImageField(upload_to='images/%Y/%m/%d/')
     date_posted = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
+    views = models.PositiveIntegerField(default=0)
 
 
     def get_absolute_url(self):

@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, HttpResponse
 from blog_app.models import Post ,Category, Comment
 from django.core.paginator import Paginator
-from django.db.models import Q
+from django.db.models import Q, F
 from django.views.generic.base import View
 from django.views.generic.list import ListView
 
@@ -31,16 +31,36 @@ def category_detail(request, pk):
 
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
+
+    # افزایش تعداد بازدید پست
+    Post.objects.filter(pk=post.pk).update(
+        views=F('views') + 1
+    )
+
+    # دریافت مقدار جدید views
+    post.refresh_from_db()
+
     if request.method == "POST":
         content = request.POST.get("content")
+
         if request.POST.get("reply_to"):
             reply_to = int(request.POST.get("reply_to"))
             reply_to = Comment.objects.filter(id=reply_to)[0]
         else:
             reply_to = None
-        Comment.objects.create(content=content, post=post, author=request.user, reply_to=reply_to)
-    return render(request, "blog_app/post_detail.html", {"post":post})
 
+        Comment.objects.create(
+            content=content,
+            post=post,
+            author=request.user,
+            reply_to=reply_to
+        )
+
+    return render(
+        request,
+        "blog_app/post_detail.html",
+        {"post": post}
+    )
 
 def search(request):
     q = request.GET.get("q")
