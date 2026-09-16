@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load category_tags %}
+
 {% block content %}
 
     <main>
@@ -114,7 +116,8 @@
                                             <div class="mb-2">
                                                 <h5 class="m-0">{{ comment.author.profile.nickname }}</h5>
                                                 <span class="me-3 small">{{ comment.date_posted }}</span>
-                                                <a onclick="reply({{ comment.id }},'{{ comment.author.profile.nickname }}')" href="#comment" class="text-body fw-normal">پاسخ</a>
+                                                <a onclick="reply({{ comment.id }},'{{ comment.author.profile.nickname }}')"
+                                                   href="#comment" class="text-body fw-normal">پاسخ</a>
                                             </div>
                                             <p>{{ comment.content }}</p>
                                         </div>
@@ -128,7 +131,8 @@
                                                 <div class="mb-2">
                                                     <h5 class="m-0">{{ reply.author.profile.nickname }}</h5>
                                                     <span class="me-3 small">{{ reply.date_posted }} </span>
-                                                <a onclick="reply({{ reply.id }}, '{{ reply.author.profile.nickname }}')" href="#comment" class="text-body fw-normal">پاسخ</a>
+                                                    <a onclick="reply({{ reply.id }}, '{{ reply.author.profile.nickname }}')"
+                                                       href="#comment" class="text-body fw-normal">پاسخ</a>
                                                 </div>
                                                 <p>{{ reply.content }}</p>
                                             </div>
@@ -153,66 +157,36 @@
                             {% endfor %}
                         </div>
                         <!-- Comments END -->
-                    {% if user.is_authenticated %}
-                        <!-- Reply START -->
-                        <div id="comment">
-                            <h3>نطرات خود را با  ما به اشتراک بگذارید</h3>
-                            <form method="post" class="row g-3 mt-2">
-                                {% csrf_token %}
-                                <input id="reply_input" type="hidden" name="reply_to" value="">
-                                <div class="col-12">
-                                    <label class="form-label">نظر شما *</label>
-                                    <textarea name="content" class="form-control" rows="3"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <input id="send_comment" value="ارسال" type="submit" class="btn btn-primary">
-                                </div>
-                            </form>
-                        </div>
-                        <!-- Reply END -->
-                    {% endif %}
+                        {% if user.is_authenticated %}
+                            <!-- Reply START -->
+                            <div id="comment">
+                                <h3>نطرات خود را با ما به اشتراک بگذارید</h3>
+                                <form method="post" class="row g-3 mt-2">
+                                    {% csrf_token %}
+                                    <input id="reply_input" type="hidden" name="reply_to" value="">
+                                    <div class="col-12">
+                                        <label class="form-label">نظر شما *</label>
+                                        <textarea name="content" class="form-control" rows="3"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <input id="send_comment" value="ارسال" type="submit" class="btn btn-primary">
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- Reply END -->
+                        {% endif %}
                     </div>
                     <!-- Main Content END -->
 
                     <!-- Right sidebar START -->
                     <div class="col-lg-3">
                         <div data-sticky data-margin-top="80" data-sticky-for="991">
-                            <!-- Categories -->
-                            <div class="row g-2">
-                                <h5>Categories</h5>
-                                <div class="d-flex justify-content-between align-items-center bg-warning bg-opacity-15 rounded p-2 position-relative">
-                                    <h6 class="m-0 text-warning">Photography</h6>
-                                    <a href="post-single-4.html#"
-                                       class="badge bg-warning text-dark stretched-link">09</a>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center bg-info bg-opacity-10 rounded p-2 position-relative">
-                                    <h6 class="m-0 text-info">Travel</h6>
-                                    <a href="post-single-4.html#" class="badge bg-info stretched-link">25</a>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center bg-danger bg-opacity-10 rounded p-2 position-relative">
-                                    <h6 class="m-0 text-danger">Photography</h6>
-                                    <a href="post-single-4.html#" class="badge bg-danger stretched-link">75</a>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center bg-primary bg-opacity-10 rounded p-2 position-relative">
-                                    <h6 class="m-0 text-primary">Covid-19</h6>
-                                    <a href="post-single-4.html#" class="badge bg-primary stretched-link">19</a>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center bg-success bg-opacity-10 rounded p-2 position-relative">
-                                    <h6 class="m-0 text-success">Business</h6>
-                                    <a href="post-single-4.html#" class="badge bg-success stretched-link">35</a>
-                                </div>
-                            </div>
+                            {% show_categories %}
 
                             <!-- Newsletter START -->
                             <div class="bg-light p-4 mt-4 rounded-3 text-center">
-                                <h4>Subscribe to our mailing list!</h4>
-                                <form>
-                                    <div class="mb-3">
-                                        <input type="email" class="form-control" placeholder="Email address">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Subscribe</button>
-                                    <div class="form-text">We don't spam</div>
-                                </form>
+                                <h4>مکان تبلیغ شما</h4>
+
                             </div>
                             <!-- Newsletter END -->
 
@@ -231,32 +205,41 @@
         <!-- =======================
         Main END -->
 
-        <!-- =======================
-        Sticky post START -->
-        <div class="sticky-post bg-light border p-4 mb-5 text-sm-end rounded d-none d-xxl-block">
-            <div class="d-flex align-items-center">
-                <!-- Title -->
-                <div class="me-3">
-                    <span>Next post<i class="bi bi-arrow-right ms-3"></i></span>
-                    <h6 class="m-0"><a href="javascript:void(0)" class="stretched-link btn-link text-reset">Bad habits
-                        that people in the industry need to quit</a></h6>
+        {% with similar_post=post.get_similar_post %}
+
+            {% if similar_post %}
+
+                <div dir="ltr" class="sticky-post bg-light border p-3 mb-5 rounded d-none d-xxl-block">
+    <span class="d-block text-start mb-2">
+        <i class="bi bi-arrow-left ms-3"></i>...پیشنهاد بعدی
+    </span>
+                    <div class="d-flex align-items-center">
+                        <div dir="rtl" class="me-3">
+                            <h6 class="ms-2">
+                                <a href="{{ similar_post.get_absolute_url }}"
+                                   class="stretched-link btn-link text-reset">
+                                    {{ similar_post.title }}
+                                </a>
+                            </h6>
+                        </div>
+                        <div class="col-4 d-none d-md-block">
+                            <img src="{{ similar_post.image.url }}" alt="Image">
+                        </div>
+                    </div>
                 </div>
-                <!-- image -->
-                <div class="col-4 d-none d-md-block">
-                    <img src="{% static 'images/blog/4by3/05.jpg' %}" alt="Image">
-                </div>
-            </div>
-        </div>
-        <!-- =======================
-        Sticky post END -->
+
+            {% endif %}
+
+        {% endwith %}
+
 
     </main>
     <script>
-    function reply(comment_id, author){
-        author = " پاسخ به " + author
-        document.getElementById("reply_input").value = comment_id;
-        document.getElementById("send_comment").value = author;
-    }
+        function reply(comment_id, author) {
+            author = " پاسخ به " + author
+            document.getElementById("reply_input").value = comment_id;
+            document.getElementById("send_comment").value = author;
+        }
     </script>
 
 {% endblock content %}

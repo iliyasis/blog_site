@@ -1,0 +1,17 @@
+<!-- Categories -->
+<div class="row g-2">
+    <h5>دسته بندی ها</h5>
+    {% for category in categories %}
+    <div class="d-flex justify-content-between align-items-center bg-{{ category.color }} bg-opacity-15 rounded p-2 position-relative">
+        <h6 class="m-0 text-{{ category.color }}">{{ category.title }}</h6>
+        <a href="{{ category.get_absolute_url }}"
+           class="badge bg-{{ category.color }} text-light stretched-link">{{ category.post_count }}</a>
+    </div>
+    {% endfor %}
+
+    <div class="d-flex justify-content-between align-items-center bg-info bg-opacity-10 rounded p-2 position-relative">
+        <h6 class="m-0 text-info">Travel</h6>
+        <a href="post-single-4.html#" class="badge bg-info stretched-link">25</a>
+    </div>
+
+</div>

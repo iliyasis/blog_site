@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils.text import slugify
+from django.db.models import Count, Q
 
 
 # Create your models here.
@@ -21,6 +22,9 @@ class Category(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog_app:category_detail', kwargs={'pk': self.pk})
+
+    def post_count(self):
+        return self.posts.count()
 
 
 
@@ -45,6 +49,25 @@ class Post(models.Model):
 
     def __str__(self):
         return f"{ self.title }   ------------  {self.content[:25]} "
+
+    def get_similar_post(self):
+        current_categories = self.category.all()
+
+        similar_posts = (
+            Post.objects
+            .exclude(pk=self.pk)
+            .filter(category__in=current_categories)
+            .annotate(
+                similarity=Count(
+                    'category',
+                    filter=Q(category__in=current_categories),
+                    distinct=True
+                )
+            )
+            .order_by('-similarity', '-date_posted')
+        )
+
+        return similar_posts.first()
 
 
 class Comment(models.Model):

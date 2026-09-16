@@ -1,7 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, HttpResponse
 from blog_app.models import Post ,Category, Comment
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.views.generic.base import View
+from django.views.generic.list import ListView
 
 # Create your views here.
 
@@ -48,3 +50,7 @@ def search(request):
     posts = paginator.get_page(page_number)
     return render(request, "blog_app/post_list.html",{"posts": posts})
 
+
+class Test(ListView):
+    model = Post
+    template_name = "blog_app/test.html"
