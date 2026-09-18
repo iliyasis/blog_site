@@ -39,6 +39,7 @@ class Post(models.Model):
     date_posted = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
     views = models.PositiveIntegerField(default=0)
+    pro = models.BooleanField(default=False)
 
 
     def get_absolute_url(self):

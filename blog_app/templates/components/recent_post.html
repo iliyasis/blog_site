@@ -1,0 +1,18 @@
+<div class="col-12 col-sm-6 col-lg-12">
+    <h4 class="mt-4 mb-3">پست‌های اخیر</h4>
+    <!-- آیتم پست اخیر -->
+    {% for post in posts %}
+    <div class="card mb-3">
+        <div class="row g-3">
+            <div class="col-4">
+                <img class="rounded" src="{{ post.image.url }}"
+                     alt="">
+            </div>
+            <div class="col-8">
+                <h6><a href="{{ post.get_absolute_url }}" class="btn-link stretched-link text-reset fw-bold">{{ post.title }}</a></h6>
+                <div class="small mt-1">{{ post.date_updated }}</div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

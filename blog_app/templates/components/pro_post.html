@@ -1,0 +1,47 @@
+{% load static %}
+
+<div class="col-lg-9">
+    <!-- عنوان -->
+    <div class="mb-4">
+        <h2 class="m-0"><i class="bi bi-hourglass-top me-2"></i>گلچین شده ادمین</h2>
+        <p>آخرین اخبار فوری، تصاویر، ویدیوها و گزارش‌های ویژه</p>
+    </div>
+    <div class="row gy-4">
+        {% for post in posts %}
+        <div class="col-sm-6">
+            <div class="card">
+                <!-- تصویر کارت -->
+                <div class="position-relative">
+                    <img class="card-img" src="{{ post.image.url }}" alt="تصویر کارت">
+                    <div class="card-img-overlay d-flex align-items-start flex-column p-3">
+                        <!-- روکش پایین کارت -->
+                        <div class="w-100 mt-auto">
+                            <!-- دسته‌بندی کارت -->
+                            <a href="{{ post.category.all.0.get_absolute_url }}" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>{{ post.category.all.0 }}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body px-0 pt-3">
+                    <h4 class="card-title mt-2"><a href="{{ post.get_absolute_url }}" class="btn-link text-reset fw-bold">{{ post.title }}</a></h4>
+                    <p class="card-text">{{ post.content | slice:50 }}</p>
+                    <!-- اطلاعات کارت -->
+                    <ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+                        <li class="nav-item">
+                            <div class="nav-link">
+                                <div class="d-flex align-items-center position-relative">
+                                    <div class="avatar avatar-xs">
+                                        <img class="avatar-img rounded-circle" src="{{ post.author.profile.picture.url }}" alt="آواتار">
+                                    </div>
+                                    <span class="ms-3"><a href="index.html#" class="stretched-link text-reset btn-link">{{ post.author }}</a></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">{{ post.date_updated }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>

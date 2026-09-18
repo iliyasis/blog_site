@@ -32,12 +32,10 @@ def category_detail(request, pk):
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
 
-    # افزایش تعداد بازدید پست
     Post.objects.filter(pk=post.pk).update(
         views=F('views') + 1
     )
 
-    # دریافت مقدار جدید views
     post.refresh_from_db()
 
     if request.method == "POST":

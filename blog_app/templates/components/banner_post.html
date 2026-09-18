@@ -1,0 +1,114 @@
+{% load static %}
+
+<!-- کارت بزرگ سمت راست -->
+<div class="col-lg-6">
+    <div class="card card-overlay-bottom card-grid-lg card-bg-scale"
+         style="background-image:url({{ posts.0.image.url }}); background-position: center ; background-size: cover;">
+        <!-- کارت ویژه -->
+        <span class="card-featured" title="پست ویژه"><i class="fas fa-star"></i></span>
+        <!-- روکش تصویر کارت -->
+        <div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
+            <div class="w-100 mt-auto">
+                <!-- دسته‌بندی کارت -->
+                <a href="{{ posts.0.category.all.0.get_absolute_url }}" class="badge text-bg-{{ posts.0.category.all.0.color }} mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>{{ posts.0.category.all.0 }}</a>
+                <!-- عنوان کارت -->
+                <h2 class="text-white h1"><a href="{{ posts.0.get_absolute_url }}" class="btn-link stretched-link text-reset">{{ posts.0.title }}</a></h2>
+                <p class="text-white">{{ posts.0.content | slice:80 }}</p>
+                <!-- اطلاعات کارت -->
+                <ul class="nav nav-divider text-white-force align-items-center d-none d-sm-inline-block">
+                    <li class="nav-item">
+                        <div class="nav-link">
+                            <div class="d-flex align-items-center text-white position-relative">
+                                <div class="avatar avatar-sm">
+                                    <img class="avatar-img rounded-circle"
+                                         src="{{ posts.0.author.profile.picture.url }}" alt="آواتار">
+                                </div>
+                                <span class="ms-3"><a href="#" class="stretched-link text-reset btn-link">{{ posts.0.author }}</a></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">{{ posts.0.date_updated }}</li>
+                    <li class="nav-item">۵ دقیقه خواندن</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- کارت‌های کوچک سمت چپ -->
+<div class="col-lg-6">
+    <div class="row g-4">
+        <!-- آیتم کارت شروع -->
+        <div class="col-12">
+            <div class="card card-overlay-bottom card-grid-sm card-bg-scale"
+                 style="background-image:url({{ posts.1.image.url }}); background-position: center; background-size: cover;">
+                <!-- تصویر کارت -->
+                <!-- روکش تصویر کارت -->
+                <div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
+                    <div class="w-100 mt-auto">
+                        <!-- دسته‌بندی کارت -->
+                        <a href="{{ posts.1.category.all.0.get_absolute_url }}" class="badge text-bg-{{ posts.1.category.all.0.color }} mb-2"><i  class="fas fa-circle me-2 small fw-bold"></i>{{ posts.1.category.all.0 }}</a>
+                        <!-- عنوان کارت -->
+                        <h4 class="text-white"><a href="{{ posts.1.get_absolute_url }}" class="btn-link stretched-link text-reset">{{ posts.1.title }}</a></h4>
+                        <!-- اطلاعات کارت -->
+                        <ul class="nav nav-divider text-white-force align-items-center d-none d-sm-inline-block">
+                            <li class="nav-item position-relative">
+                                <div class="nav-link"><a href="#" class="stretched-link text-reset btn-link">{{ posts.1.author }}</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">{{ posts.1.date_updated }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- آیتم کارت پایان -->
+        <!-- آیتم کارت شروع -->
+        <div class="col-md-6">
+            <div class="card card-overlay-bottom card-grid-sm card-bg-scale"
+                 style="background-image:url({{ posts.2.image.url }}); background-position: center; background-size: cover;">
+                <!-- روکش تصویر کارت -->
+                <div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
+                    <div class="w-100 mt-auto">
+                        <!-- دسته‌بندی کارت -->
+                        <a href="{{ posts.2.category.all.0.get_absolute_url }}" class="badge text-bg-{{ posts.2.category.all.0.color }} mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>{{ posts.2.category.all.0 }}</a>
+                        <!-- عنوان کارت -->
+                        <h4 class="text-white"><a href="{{ posts.2.get_absolute_url }}" class="btn-link stretched-link text-reset">{{ posts.2.title }}</a></h4>
+                        <!-- اطلاعات کارت -->
+                        <ul class="nav nav-divider text-white-force align-items-center d-none d-sm-inline-block">
+                            <li class="nav-item position-relative">
+                                <div class="nav-link"><a href="#" class="stretched-link text-reset btn-link">{{ posts.2.author }}</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">{{ posts.2.date_updated }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- آیتم کارت پایان -->
+        <!-- آیتم کارت شروع -->
+        <div class="col-md-6">
+            <div class="card card-overlay-bottom card-grid-sm card-bg-scale"
+                 style="background-image:url({{ posts.3.image.url }}); background-position: center; background-size: cover;">
+                <!-- روکش تصویر کارت -->
+                <div class="card-img-overlay d-flex align-items-center p-3 p-sm-4">
+                    <div class="w-100 mt-auto">
+                        <!-- دسته‌بندی کارت -->
+                        <a href="{{ posts.3.category.all.0.get_absolute_url }}" class="badge text-bg-{{ posts.3.category.all.0.color }} mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>{{ posts.3.category.all.0 }}</a>
+                        <!-- عنوان کارت -->
+                        <h4 class="text-white"><a href="{{ posts.3.get_absolute_url }}" class="btn-link stretched-link text-reset">{{ posts.3.title }}</a></h4>
+                        <!-- اطلاعات کارت -->
+                        <ul class="nav nav-divider text-white-force align-items-center d-none d-sm-inline-block">
+                            <li class="nav-item position-relative">
+                                <div class="nav-link">توسط <a href="#" class="stretched-link text-reset btn-link">{{ posts.3.author }}</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">{{ posts.3.date_updated }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- آیتم کارت پایان -->
+    </div>
+</div>
